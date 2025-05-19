@@ -37,7 +37,7 @@ const media = [
     { name: 'Discord', href: 'https://discord.gg/bFJxfftGW6' , icon: FaDiscord},
     { name: 'GitHub', href: 'https://github.com/shadps4', icon: FaGithub },
     { name: 'X', href: 'https://twitter.com/shadps4', icon: FaTwitter },
-    { name: 'KoFi', href: '/', icon: FaCoffee },
+    { name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee },
 ]
 
 export default function Header({children}) {
@@ -70,13 +70,13 @@ export default function Header({children}) {
                         <a
                             key={item.name}
                             href={item.href}
-                            className="text-sm/6 font-semibold text-gray-900"
+                            className="text-base/6 font-semibold text-gray-900"
                         >
                             {item.name}
                         </a>
                     ))}
                     <Popover className="relative">
-                        <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
+                        <PopoverButton className="flex items-center gap-x-1 text-base/6 font-semibold text-gray-900">
                             About
                             <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
                         </PopoverButton>
@@ -105,10 +105,16 @@ export default function Header({children}) {
                 </PopoverGroup>
 
                 {/*Social media icons*/}
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                        Log in <span aria-hidden="true">&rarr;</span>
-                    </a>
+                <div className="hidden lg:flex items-center gap-x-4 lg:flex-1 lg:justify-end">
+                    {media.map((item) => (
+                        <a
+                            key={item.name}
+                            href={item.href}
+                            className="text-sm/6 font-semibold text-gray-900"
+                        >
+                            <item.icon className="size-7" />
+                        </a>
+                    ))}
                 </div>
             </nav>
 
@@ -117,14 +123,10 @@ export default function Header({children}) {
                 <div className="fixed inset-0 z-10" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
-                            <img
-                                alt=""
-                                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                                className="h-8 w-auto"
-                            />
-                        </a>
+                        <div className="flex items-center gap-x-2 lg:flex-1">
+                            {children}
+                            <span className="text-2xl font-semibold text-gray-700">ShadPS4</span>
+                        </div>
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
