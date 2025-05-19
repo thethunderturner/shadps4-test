@@ -65,7 +65,7 @@ export default function Header({children}) {
                 </div>
 
                 {/*Header menu*/}
-                <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+                <PopoverGroup className="hidden lg:flex lg:gap-x-8">
                     {pages.map((item) => (
                         <a
                             key={item.name}
