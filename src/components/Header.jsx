@@ -32,10 +32,10 @@ const about = [
     { name: 'Terms and Conditions', href: '/about/terms-and-conditions' },
 ]
 
-const media = [
-    { name: 'YouTube', href: 'https://youtube.com/georgemoralis', icon: FaYoutube},
+const external = [
+    { name: 'YouTube', href: 'https://www.youtube.com/@gmoralistube', icon: FaYoutube},
     { name: 'Discord', href: 'https://discord.gg/bFJxfftGW6' , icon: FaDiscord},
-    { name: 'GitHub', href: 'https://github.com/shadps4', icon: FaGithub },
+    { name: 'GitHub', href: 'https://github.com/shadps4-emu/shadPS4', icon: FaGithub },
     { name: 'X', href: 'https://twitter.com/shadps4', icon: FaTwitter },
     { name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee },
 ]
@@ -49,7 +49,7 @@ export default function Header({children}) {
                 {/*Logo*/}
                 <div className="flex items-center gap-x-2 lg:flex-1">
                     {children}
-                    <span className="text-2xl font-semibold text-gray-700">ShadPS4</span>
+                    <span className="text-2xl/6 font-semibold text-gray-700">ShadPS4</span>
                 </div>
 
                 {/*Collapsed sidebar button (visible on mobile)*/}
@@ -83,13 +83,13 @@ export default function Header({children}) {
 
                         <PopoverPanel
                             transition
-                            className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-49 overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                            className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-54 overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                         >
                             <div className="p-4">
                                 {about.map((item) => (
                                     <div
                                         key={item.name}
-                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-sm/6 hover:bg-gray-50"
+                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6 hover:bg-gray-50"
                                     >
                                         <div className="flex-auto">
                                             <a href={item.href} className="block font-semibold text-gray-900">
@@ -106,7 +106,7 @@ export default function Header({children}) {
 
                 {/*Social media icons*/}
                 <div className="hidden lg:flex items-center gap-x-4 lg:flex-1 lg:justify-end">
-                    {media.map((item) => (
+                    {external.map((item) => (
                         <a
                             key={item.name}
                             href={item.href}
@@ -162,6 +162,25 @@ export default function Header({children}) {
                                                 href={item.href}
                                                 className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                                             >
+                                                {item.name}
+                                            </DisclosureButton>
+                                        ))}
+                                    </DisclosurePanel>
+                                </Disclosure>
+                                <Disclosure as="div" className="-mx-3">
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                                        External
+                                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
+                                    </DisclosureButton>
+                                    <DisclosurePanel className="mt-2 space-y-2">
+                                        {external.map((item) => (
+                                            <DisclosureButton
+                                                key={item.name}
+                                                as="a"
+                                                href={item.href}
+                                                className="flex-1 flex rounded-lg py-2 pr-3 pl-6 gap-x-2 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                            >
+                                                <item.icon key={item.icon} className="size-7" />
                                                 {item.name}
                                             </DisclosureButton>
                                         ))}
