@@ -41,12 +41,12 @@ export default function Header({children}) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="bg-white">
+        <header className="bg-gray-900 border-b border-gray-800">
             <nav aria-label="Global" className="flex flex-1 items-center justify-between p-4 px-16">
                 {/*Logo*/}
                 <div className="flex items-center gap-x-2 lg:flex-1">
                     {children}
-                    <span className="text-2xl/6 font-semibold text-gray-700">ShadPS4</span>
+                    <span className="text-2xl/6 font-semibold text-white">ShadPS4</span>
                 </div>
 
                 {/*Collapsed sidebar button (visible on mobile)*/}
@@ -54,7 +54,7 @@ export default function Header({children}) {
                     <button
                         type="button"
                         onClick={() => setMobileMenuOpen(true)}
-                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
                     >
                         <span className="sr-only">Open main menu</span>
                         <Bars3Icon aria-hidden="true" className="size-6" />
@@ -64,14 +64,14 @@ export default function Header({children}) {
                 {/*Header menu*/}
                 <PopoverGroup className="hidden lg:flex lg:gap-x-8">
                     {pages.map(item => (
-                        <a key={item.name} href={item.href} className="text-base/6 font-semibold text-gray-900">
+                        <a key={item.name} href={item.href} className="text-base/6 font-semibold text-white">
                             {item.name}
                         </a>
                     ))}
                     <Popover className="relative">
-                        <PopoverButton className="flex items-center gap-x-1 text-base/6 font-semibold text-gray-900">
+                        <PopoverButton className="flex items-center gap-x-1 text-base/6 font-semibold text-white">
                             About
-                            <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+                            <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-white" />
                         </PopoverButton>
 
                         <PopoverPanel
@@ -85,7 +85,7 @@ export default function Header({children}) {
                                         className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6 hover:bg-gray-50"
                                     >
                                         <div className="flex-auto">
-                                            <a href={item.href} className="block font-semibold text-gray-900">
+                                            <a href={item.href} className="block font-semibold text-white">
                                                 {item.name}
                                                 <span className="absolute inset-0" />
                                             </a>
@@ -100,7 +100,7 @@ export default function Header({children}) {
                 {/*Social media icons*/}
                 <div className="hidden items-center gap-x-4 lg:flex lg:flex-1 lg:justify-end">
                     {external.map(item => (
-                        <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900">
+                        <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-white">
                             <item.icon className="size-7" />
                         </a>
                     ))}
@@ -132,14 +132,14 @@ export default function Header({children}) {
                                     <a
                                         key={item.name}
                                         href={item.href}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50"
                                     >
                                         {item.name}
                                     </a>
                                 ))}
 
                                 <Disclosure as="div" className="-mx-3">
-                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-gray-50">
                                         About
                                         <ChevronDownIcon
                                             aria-hidden="true"
@@ -152,7 +152,7 @@ export default function Header({children}) {
                                                 key={item.name}
                                                 as="a"
                                                 href={item.href}
-                                                className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                                className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-gray-50"
                                             >
                                                 {item.name}
                                             </DisclosureButton>
@@ -160,7 +160,7 @@ export default function Header({children}) {
                                     </DisclosurePanel>
                                 </Disclosure>
                                 <Disclosure as="div" className="-mx-3">
-                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-gray-50">
                                         External
                                         <ChevronDownIcon
                                             aria-hidden="true"
@@ -173,7 +173,7 @@ export default function Header({children}) {
                                                 key={item.name}
                                                 as="a"
                                                 href={item.href}
-                                                className="flex flex-1 gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                                                className="flex flex-1 gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-gray-50"
                                             >
                                                 <item.icon key={item.icon} className="size-7" />
                                                 {item.name}
