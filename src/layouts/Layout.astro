@@ -3,6 +3,7 @@ import Header from '../components/Header.jsx';
 import '../styles/global.css';
 import {Image} from 'astro:assets';
 import shadPS4Logo from '/src/assets/shadPS4Logo.png';
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +13,7 @@ import shadPS4Logo from '/src/assets/shadPS4Logo.png';
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <title>{title}</title>
     </head>
     <body>
         <Header client:load>
