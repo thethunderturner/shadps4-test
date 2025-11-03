@@ -41,7 +41,7 @@ export default function Header({children}) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="bg-gray-900 border-b border-gray-700">
+        <header className="bg-gray-900 border-b border-gray-700 mb-16">
             <nav aria-label="Global" className="flex flex-1 items-center justify-between p-4 px-16">
                 {/*Logo*/}
                 <div className="flex items-center gap-x-2 lg:flex-1">
