@@ -76,13 +76,13 @@ export default function Header({children}) {
 
                         <PopoverPanel
                             transition
-                            className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-54 overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                            className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-54 overflow-hidden rounded-lg bg-gray-900 border border-gray-700 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                         >
                             <div className="p-4">
                                 {about.map(item => (
                                     <div
                                         key={item.name}
-                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6 hover:bg-gray-50"
+                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6"
                                     >
                                         <div className="flex-auto">
                                             <a href={item.href} className="block font-semibold text-white">
@@ -110,16 +110,16 @@ export default function Header({children}) {
             {/*Sidebar Dialog(visible on mobile)*/}
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-10" />
-                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-x-2 lg:flex-1">
                             {children}
-                            <span className="text-2xl font-semibold text-gray-700">ShadPS4</span>
+                            <span className="text-2xl font-semibold text-white">ShadPS4</span>
                         </div>
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen(false)}
-                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                            className="-m-2.5 rounded-md p-2.5 text-white"
                         >
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon aria-hidden="true" className="size-6" />
@@ -132,14 +132,14 @@ export default function Header({children}) {
                                     <a
                                         key={item.name}
                                         href={item.href}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white"
                                     >
                                         {item.name}
                                     </a>
                                 ))}
 
                                 <Disclosure as="div" className="-mx-3">
-                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-gray-50">
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white">
                                         About
                                         <ChevronDownIcon
                                             aria-hidden="true"
@@ -152,7 +152,7 @@ export default function Header({children}) {
                                                 key={item.name}
                                                 as="a"
                                                 href={item.href}
-                                                className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-gray-50"
+                                                className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white"
                                             >
                                                 {item.name}
                                             </DisclosureButton>
@@ -160,7 +160,7 @@ export default function Header({children}) {
                                     </DisclosurePanel>
                                 </Disclosure>
                                 <Disclosure as="div" className="-mx-3">
-                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-gray-50">
+                                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white">
                                         External
                                         <ChevronDownIcon
                                             aria-hidden="true"
@@ -173,7 +173,7 @@ export default function Header({children}) {
                                                 key={item.name}
                                                 as="a"
                                                 href={item.href}
-                                                className="flex flex-1 gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-gray-50"
+                                                className="flex flex-1 gap-x-2 rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white"
                                             >
                                                 <item.icon key={item.icon} className="size-7" />
                                                 {item.name}
