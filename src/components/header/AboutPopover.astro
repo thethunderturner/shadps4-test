@@ -7,7 +7,7 @@ const about = [
 <div class="relative">
     <button
         popovertarget="about-popover"
-        class="inline-flex items-center gap-x-1"
+        class="inline-flex items-center gap-x-1 [anchor-name:--about]"
         id="popover-button-0"
         type="button"
         aria-haspopup="true"
@@ -34,8 +34,8 @@ const about = [
         id="about-popover"
         anchor="bottom"
         popover=""
-        data-default-open=""
-        className="border-border bg-header absolute mt-3 h-fit w-screen max-w-54 overflow-hidden rounded-lg border"
+        aria-labelledby="about-btn"
+        class="border-border bg-header z-50 w-screen max-w-54 overflow-hidden rounded-lg border shadow-xl [position-anchor:--about] [top:anchor(bottom)] [left:anchor(left)] mt-3"
     >
         <div class="flex flex-col p-2">
             {about.map(item => (

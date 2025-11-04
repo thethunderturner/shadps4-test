@@ -7,7 +7,7 @@ const gallery = [
 <div class="relative">
     <button
         popovertarget="gallery-popover"
-        class="inline-flex items-center gap-x-1"
+        class="inline-flex items-center gap-x-1 [anchor-name:--gallery]"
         id="popover-button-1"
         type="button"
         aria-haspopup="true"
@@ -34,8 +34,8 @@ const gallery = [
         id="gallery-popover"
         anchor="bottom"
         popover=""
-        data-default-open=""
-        className="border-border bg-header absolute mt-3 h-fit w-screen max-w-54 overflow-hidden rounded-lg border"
+        aria-labelledby="gallery-btn"
+        class="border-border bg-header z-50 w-screen max-w-54 overflow-hidden rounded-lg border shadow-xl [position-anchor:--gallery] [top:anchor(bottom)] [left:anchor(left)] mt-3"
     >
         <div class="flex flex-col p-2">
             {gallery.map(item => (
