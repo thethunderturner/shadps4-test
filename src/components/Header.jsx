@@ -16,13 +16,17 @@ import {FaDiscord, FaYoutube, FaGithub, FaTwitter, FaCoffee} from 'react-icons/f
 
 const pages = [
     {name: 'Home', href: '/'},
-    {name: 'Forums', href: '/forums'},
     {name: 'Downloads', href: '/downloads'},
+    {name: 'Quickstart', href: '/quickstart'},
+    {name: 'Forums', href: '/forums'},
     {name: 'Compatibility', href: '/compatibility'},
-    {name: 'Gallery', href: '/gallery'},
-    {name: 'Videos', href: '/videos'},
     {name: 'FAQ', href: '/faq'},
 ];
+
+const gallery = [
+    {name: "Photos", href: '/gallery/photos'},
+    {name: "Videos", href: '/gallery/videos'},
+]
 
 const about = [
     {name: 'Privacy Policy', href: '/about/privacy-policy'},
@@ -68,6 +72,34 @@ export default function Header({children}) {
                             {item.name}
                         </a>
                     ))}
+                    <Popover className="relative">
+                        <PopoverButton className="flex items-center gap-x-1 text-base/6 font-semibold text-white">
+                            Gallery
+                            <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-white" />
+                        </PopoverButton>
+
+                        <PopoverPanel
+                            transition
+                            className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-54 overflow-hidden rounded-lg bg-gray-900 border border-gray-700 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                        >
+                            <div className="p-4">
+                                {gallery.map(item => (
+                                    <div
+                                        key={item.name}
+                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6"
+                                    >
+                                        <div className="flex-auto">
+                                            <a href={item.href} className="block font-semibold text-white">
+                                                {item.name}
+                                                <span className="absolute inset-0" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </PopoverPanel>
+                    </Popover>
+
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-base/6 font-semibold text-white">
                             About
