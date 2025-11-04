@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.jsx';
+import Header1 from '../components/Header1.jsx';
 import '../styles/global.css';
 import {Image} from 'astro:assets';
 import shadPS4Logo from '/src/assets/shadPS4Logo.png';
@@ -17,14 +18,14 @@ const {title} = Astro.props;
         <title>{title}</title>
     </head>
     <body class="bg-root">
-        <Header client:load>
+        <Header1 client:load>
             <Image
                 src={shadPS4Logo}
                 alt="A bird sitting on a nest of eggs."
                 class="h-12 w-auto rounded-lg"
                 loading="eager"
             />
-        </Header>
+        </Header1>
         <slot />
     </body>
 </html>
