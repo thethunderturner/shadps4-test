@@ -4,6 +4,7 @@ import shadPS4Logo from '/src/assets/shadPS4Logo.png';
 import {Image} from 'astro:assets';
 import AboutPopover from './AboutPopover.astro';
 import GalleryPopover from './GalleryPopover.astro';
+import {FaCoffee, FaDiscord, FaGithub, FaTwitter, FaYoutube} from 'react-icons/fa';
 
 const pages = [
     {name: 'Home', href: '/'},
@@ -12,6 +13,14 @@ const pages = [
     {name: 'Forums', href: '/forums'},
     {name: 'Compatibility', href: '/compatibility'},
     {name: 'FAQ', href: '/faq'},
+];
+
+const external = [
+    {name: 'YouTube', href: 'https://www.youtube.com/@gmoralistube', icon: FaYoutube},
+    {name: 'Discord', href: 'https://discord.gg/bFJxfftGW6', icon: FaDiscord},
+    {name: 'GitHub', href: 'https://github.com/shadps4-emu/shadPS4', icon: FaGithub},
+    {name: 'X', href: 'https://twitter.com/shadps4', icon: FaTwitter},
+    {name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee},
 ];
 ---
 
@@ -41,11 +50,11 @@ const pages = [
 
         <!-- Tags -->
         <div class="hidden flex-row justify-evenly gap-x-4 lg:flex">
-            <div class="size-7 bg-white"></div>
-            <div class="size-7 bg-white"></div>
-            <div class="size-7 bg-white"></div>
-            <div class="size-7 bg-white"></div>
-            <div class="size-7 bg-white"></div>
+            {external.map(item => (
+                <a href={item.href} class="text-sm/6 font-semibold text-white">
+                    <item.icon className="size-7" />
+                </a>
+            ))}
         </div>
 
         <!-- Mobile trigger -->
