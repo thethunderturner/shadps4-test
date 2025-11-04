@@ -5,6 +5,7 @@ import {Image} from 'astro:assets';
 import AboutPopover from './AboutPopover.astro';
 import GalleryPopover from './GalleryPopover.astro';
 import {FaCoffee, FaDiscord, FaGithub, FaTwitter, FaYoutube} from 'react-icons/fa';
+import ThemeIcon from './ThemeIcon.astro';
 
 const pages = [
     {name: 'Home', href: '/'},
@@ -55,6 +56,7 @@ const external = [
                     <item.icon className="size-7" />
                 </a>
             ))}
+            <ThemeIcon />
         </div>
 
         <!-- Mobile trigger -->
