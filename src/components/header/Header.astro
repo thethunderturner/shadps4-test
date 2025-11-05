@@ -50,7 +50,7 @@ const external = [
             <div class="flex flex-row gap-x-4 justify-center items-center">
                 {
                     external.map(item => (
-                        <a href={item.href} class="text-sm/6 font-semibold text-text">
+                        <a aria-label={item.name} href={item.href} class="text-sm/6 font-semibold text-text">
                             <item.icon className="size-7" />
                         </a>
                     ))
