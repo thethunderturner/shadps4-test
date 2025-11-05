@@ -99,24 +99,62 @@ const startMac = [
         total: 206,
     },
 ];
+const colorByTag: Record<string, string> = {
+    Nothing: 'bg-red-500',
+    Boots: 'bg-amber-500',
+    Menus: 'bg-yellow-500',
+    Ingame: 'bg-blue-500',
+    Playable: 'bg-emerald-500',
+};
 ---
 
 <Layout title="Compatibility">
     <div class="flex justify-center gap-16">
         <!--Windows Tab-->
-        <div class="flex h-80 w-110 flex-col rounded-lg bg-compat-card p-4 border-border border">
+        <div class="flex max-h-full w-110 flex-col rounded-lg bg-compat-card p-4 border-border border">
             <!-- Header -->
             <div class="flex flex-row gap-x-4 border-b border-border pb-4">
                 <FaWindows className="size-12 fill-gray-600 dark:fill-white" />
                 <div class="flex flex-col">
                     <span class="text-xl font-normal text-gray-600 dark:text-white">Windows</span>
                     <span class="text-sm font-normal text-gray-600 dark:text-gray-300"
-                        >Tested games: {startWin[0]['total']}</span
+                    >Tested games: {startWin[0]['total']}</span
                     >
                 </div>
             </div>
             <!-- Chart -->
-            <div></div>
+            <div class="mt-4 flex flex-col gap-3 overflow-y-auto pr-1">
+                {
+                    startWin.map(({tag, count, percent, total}) => {
+                        const widthPct = (count / total) * 100;
+                        const barColor = colorByTag[tag] ?? 'bg-gray-500';
+
+                        return (
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-baseline justify-between">
+                                    <span class="text-sm text-gray-700 dark:text-gray-200">{tag}</span>
+                                    <span class="text-xs tabular-nums text-gray-600 dark:text-gray-300">
+                                        {count} • {percent.toFixed(2)}%
+                                    </span>
+                                </div>
+
+                                {/* Accessible progress bar */}
+                                <div
+                                    class="h-3 w-full overflow-hidden rounded-full bg-gray-200/70 dark:bg-white/10"
+                                    role="progressbar"
+                                    aria-label={`${tag} games`}
+                                    aria-valuemin={0}
+                                    aria-valuenow={Math.round(widthPct)}
+                                    aria-valuemax={100}
+                                    title={`${count} games (${percent.toFixed(2)}%)`}
+                                >
+                                    <div class={`h-full ${barColor} rounded-full`} style={{width: `${widthPct}%`}} />
+                                </div>
+                            </div>
+                        );
+                    })
+                }
+            </div>
         </div>
         <!--Linux Tab-->
         <div class="flex h-80 w-110 flex-col rounded-lg bg-compat-card p-4 border-border border">
