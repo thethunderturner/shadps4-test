@@ -8,11 +8,11 @@
     --color-border: var(--color-gray-100);
     --color-compat-card: oklch(0.898 0 89.876);
     --color-text: var(--color-black);
-    --color-status-playable: oklch(.723 .219 149.579);
-    --color-status-ingame: oklch(.488 .243 264.376);
-    --color-status-menus: oklch(.673 .182 276.935);
-    --color-status-boots: oklch(.681 .162 75.834);
-    --color-status-nothing: oklch(.577 .245 27.325);
+    --color-status-playable: oklch(0.723 0.219 149.579);
+    --color-status-ingame: oklch(0.488 0.243 264.376);
+    --color-status-menus: oklch(0.673 0.182 276.935);
+    --color-status-boots: oklch(0.681 0.162 75.834);
+    --color-status-nothing: oklch(0.577 0.245 27.325);
 }
 
 :root {
