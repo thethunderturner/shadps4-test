@@ -14,7 +14,7 @@ const gallery = [
         aria-controls="gallery-popover"
         aria-expanded="false"
     >
-        <span class="text-base/6 font-semibold text-white">Gallery</span>
+        <span class="text-base/6 font-semibold text-text">Gallery</span>
         <svg
             viewBox="0 0 20 20"
             data-slot="icon"
@@ -40,7 +40,7 @@ const gallery = [
         <div class="flex flex-col p-2">
             {gallery.map(item => (
                 <a href={item.href}>
-                    <span class="block p-2 font-semibold text-white">{item.name}</span>
+                    <span class="block p-2 font-semibold text-text">{item.name}</span>
                 </a>
             ))}
         </div>
