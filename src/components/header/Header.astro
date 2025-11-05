@@ -28,15 +28,15 @@ const external = [
     <nav class="mb-16 flex h-16 w-full items-center justify-between border-b border-border bg-header px-4">
         <!-- Logo -->
         <div class="flex items-center gap-x-2 lg:flex-row w-fit">
-            <Image src={shadPS4Logo} alt="shadps4_logo" class="h-12 w-auto rounded-lg" loading="eager" />
-            <span class="text-2xl/6 font-semibold text-text">ShadPS4</span>
+            <Image src={shadPS4Logo} alt="shadps4_logo" class="size-7 rounded-sm" loading="eager" />
+            <span class="text-lg/6 font-semibold text-text">ShadPS4</span>
         </div>
 
         <!-- Menu -->
         <div class="hidden flex-row gap-x-4 lg:flex">
             {
                 pages.map(item => (
-                    <a href={item.href} class="text-base/6 font-semibold text-text">
+                    <a href={item.href} class="text-lg/6 font-semibold text-text">
                         {item.name}
                     </a>
                 ))
