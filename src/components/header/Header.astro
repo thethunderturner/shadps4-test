@@ -51,11 +51,14 @@ const external = [
 
         <!-- Tags -->
         <div class="hidden flex-row justify-evenly gap-x-4 lg:flex">
-            {external.map(item => (
-                <a href={item.href} class="text-sm/6 font-semibold text-text">
-                    <item.icon className="size-7" />
-                </a>
-            ))}
+            <div class="flex flex-row gap-x-4 justify-center items-center">
+                {external.map(item => (
+                    <a href={item.href} class="text-sm/6 font-semibold text-text">
+                        <item.icon className="size-7" />
+                    </a>
+                ))}
+            </div>
+            <div class="h-10 mx-auto w-1 dark:bg-gray-100 bg-gray-700 rounded-sm"></div>
             <ThemeIcon />
         </div>
 
