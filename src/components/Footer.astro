@@ -1,3 +1,24 @@
 ---
-const {pages, external} = Astro.props
+import type {IconType} from 'react-icons';
+import {Image} from 'astro:assets';
+import shadPS4Logo from '/src/assets/shadPS4Logo.png';
+
+const {pages, external} = Astro.props;
+interface PageItem {
+    name: string;
+    href: string;
+}
+
+interface ExternalItem {
+    name: string;
+    href: string;
+    icon: IconType;
+}
+
+interface Props {
+    pages: PageItem[];
+    external: ExternalItem[];
+}
 ---
+
+<footer class="max-h-fit"></footer>

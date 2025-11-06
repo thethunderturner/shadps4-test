@@ -34,11 +34,11 @@ const external = [
         <title>{title}</title>
     </head>
     <body class="bg-root">
-        <Header pages={pages} external={external}/>
+        <Header pages={pages} external={external} />
         <div class="px-[15%] flex flex-col gap-y-16">
             <h2 class="text-2xl/7 font-bold text-white sm:truncate sm:text-3xl sm:tracking-tight">{title}</h2>
             <slot />
         </div>
-        <Footer pages={pages} external={external}/>
+        <Footer pages={pages} external={external} />
     </body>
 </html>

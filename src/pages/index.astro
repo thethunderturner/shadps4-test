@@ -8,24 +8,20 @@ const modules = import.meta.glob('/src/assets/game_images/*.{png,jpg,jpeg,webp,s
     import: 'default',
 }) as Record<string, string>;
 const images = Object.values(modules);
-console.log(modules)
+console.log(modules);
 ---
+
 <Layout title="Home">
     <div class="flex flex-row justify-between h-120 w-full gap-x-4">
         <div class="grid grid-cols-3 grid-rows-3 w-full h-full opacity-40">
-            {images.map(item => (
-                <div class="w-full h-full overflow-hidden">
-                    <Image
-                        src={item}
-                        alt="image"
-                        loading="eager"
-                        class="w-full h-full object-cover"
-                    />
-                </div>
-            ))}
+            {
+                images.map(item => (
+                    <div class="w-full h-full overflow-hidden">
+                        <Image src={item} alt="image" loading="eager" class="w-full h-full object-cover" />
+                    </div>
+                ))
+            }
         </div>
-        <div class="h-full w-full bg-amber-400">
-
-        </div>
+        <div class="h-full w-full bg-amber-400"></div>
     </div>
 </Layout>
