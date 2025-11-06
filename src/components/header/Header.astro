@@ -6,22 +6,7 @@ import GalleryPopover from './GalleryPopover.astro';
 import {FaCoffee, FaDiscord, FaGithub, FaTwitter, FaYoutube} from 'react-icons/fa';
 import ThemeIcon from './ThemeIcon.astro';
 
-const pages = [
-    {name: 'Home', href: '/'},
-    {name: 'Downloads', href: '/downloads'},
-    {name: 'Quickstart', href: '/quickstart'},
-    {name: 'Forums', href: '/forums'},
-    {name: 'Compatibility', href: '/compatibility'},
-    {name: 'FAQ', href: '/faq'},
-];
-
-const external = [
-    {name: 'YouTube', href: 'https://www.youtube.com/@gmoralistube', icon: FaYoutube},
-    {name: 'Discord', href: 'https://discord.gg/bFJxfftGW6', icon: FaDiscord},
-    {name: 'GitHub', href: 'https://github.com/shadps4-emu/shadPS4', icon: FaGithub},
-    {name: 'X', href: 'https://twitter.com/shadps4', icon: FaTwitter},
-    {name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee},
-];
+const {pages, external} = Astro.props;
 ---
 
 <header>
