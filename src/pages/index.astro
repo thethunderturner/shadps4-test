@@ -1,27 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets';
-
-// Grab all images from the folder
-const modules = import.meta.glob('/src/assets/game_images/*.{png,jpg,jpeg,webp,svg}', {
-    eager: true,
-    import: 'default',
-}) as Record<string, string>;
-const images = Object.values(modules);
-console.log(modules);
+import gamesImg from '../assets/game_images/Untitled.png';
+import { Aside } from '@astrojs/starlight/components';
 ---
 
 <Layout title="Home">
-    <div class="flex flex-row justify-between h-120 w-full gap-x-4">
-        <div class="grid grid-cols-3 grid-rows-3 w-full h-full opacity-40">
-            {
-                images.map(item => (
-                    <div class="w-full h-full overflow-hidden">
-                        <Image src={item} alt="image" loading="eager" class="w-full h-full object-cover" />
-                    </div>
-                ))
-            }
+    <div class="relative w-full">
+        <Image
+            src={gamesImg}
+            alt="Games"
+            loading="eager"
+            class="h-full w-full flex-col items-center justify-center opacity-30 mask-x-from-20% mask-x-to-100%"
+        />
+
+        <!-- Text overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-y-16">
+            <span class="text-8xl font-bold text-white">shadPS4</span>
+            <span class="mt-2 font-semibold text-white">
+                shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++
+              </span>
         </div>
-        <div class="h-full w-full bg-amber-400"></div>
     </div>
+    <Aside>shadPS4 is early in development, don't expect a flawless experience.</Aside>
+    Why? This project began for fun. Given our limited free time, it may take some time before shadPS4 can run more complex games, but we're committed to making small, regular updates.
+    The emulator is avaiable for Windows, Linux and macOS.
 </Layout>
