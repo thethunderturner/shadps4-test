@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets';
 import gamesImg from '../assets/game_images/Untitled.png';
-import { Aside } from '@astrojs/starlight/components';
 ---
 
 <Layout title="Home">
@@ -22,7 +21,11 @@ import { Aside } from '@astrojs/starlight/components';
               </span>
         </div>
     </div>
-    <Aside>shadPS4 is early in development, don't expect a flawless experience.</Aside>
-    Why? This project began for fun. Given our limited free time, it may take some time before shadPS4 can run more complex games, but we're committed to making small, regular updates.
-    The emulator is avaiable for Windows, Linux and macOS.
+
+    <div class="grid grid-cols-2 grid-rows-2 gap-2 px-40">
+        <div class="rounded-tl-lg h-100 w-full bg-compat-card border-border border-2">01</div>
+        <div class="rounded-tr-lg h-100 w-full bg-compat-card border-border border-2">01</div>
+        <div class="rounded-bl-lg h-100 w-full bg-compat-card border-border border-2">01</div>
+        <div class="rounded-br-lg h-100 w-full bg-compat-card border-border border-2">01</div>
+    </div>
 </Layout>
