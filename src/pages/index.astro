@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets';
 import gamesImg from '../assets/game_images/Untitled.png';
+import ExternalCard from '../components/index/ExternalCard.astro';
+import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 ---
 
 <Layout title="Home">
@@ -22,10 +24,58 @@ import gamesImg from '../assets/game_images/Untitled.png';
         </div>
     </div>
 
-    <div class="grid grid-cols-2 grid-rows-2 gap-2 px-40">
-        <div class="rounded-tl-lg h-100 w-full bg-compat-card border-border border-2">01</div>
-        <div class="rounded-tr-lg h-100 w-full bg-compat-card border-border border-2">01</div>
-        <div class="rounded-bl-lg h-100 w-full bg-compat-card border-border border-2">01</div>
-        <div class="rounded-br-lg h-100 w-full bg-compat-card border-border border-2">01</div>
+    <!-- Cards -->
+    <div class="grid grid-cols-2 grid-rows-2 gap-6 px-40">
+        <!-- GitHub -->
+        <ExternalCard
+            href="https://github.com/shadps4-emu/shadPS4"
+            aria="GitHub repository"
+            icon={FaGithub}
+            primary_color="oklch(0.97 0.01 0)"
+            secondary_color="oklch(0.1 0.02 248.35)"
+            name="GitHub"
+            tag="Contributing Code"
+            description="Built by a community of passionate developers and problem-solvers, who contribute in their free time. Pull requests are always welcome! Have a look at the code and file an issue, or open a pull request. Small commits, big dreams."
+            button="Explore repo"
+        />
+
+        <!-- Discord -->
+        <ExternalCard
+            href="https://discord.gg/bFJxfftGW6"
+            aria="Discord server"
+            icon={FaDiscord}
+            primary_color="#5864F2"
+            secondary_color="oklch(0.97 0.01 0)"
+            name="Discord"
+            tag="Support and general discussions"
+            description="If you need help, have questions, or just want to chat, join our Discord server!"
+            button="Join server"
+        />
+
+        <!-- YouTube -->
+        <ExternalCard
+            href="https://www.youtube.com/@gmoralistube"
+            aria="Youtube channel"
+            icon={FaYoutube}
+            primary_color="#FF0033"
+            secondary_color="white"
+            name="YouTube"
+            tag="For demos or previews of upcoming releases"
+            description="Watch the emulator progress on our YouTube channel, where we post demos, previews of games that show emulation progress, and more."
+            button="Watch"
+        />
+
+        <!-- Ko-fi -->
+        <ExternalCard
+            href="https://ko-fi.com/shadps4"
+            aria="Support on Ko-fi"
+            icon={FaCoffee}
+            primary_color="oklch(0.97 0.01 0)"
+            secondary_color="oklch(0.68 0.21 38.31)"
+            name="Ko-fi"
+            tag="Optional donations"
+            description="If shadPS4 fixes your nostalgia, a coffee helps developing efforts, such as purchasing necessary hardware, games, and project maintenance costs."
+            button="Donate"
+        />
     </div>
 </Layout>
