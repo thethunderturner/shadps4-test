@@ -1,27 +1,81 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import {Image} from 'astro:assets';
-
-// Grab all images from the folder
-const modules = import.meta.glob('/src/assets/game_images/*.{png,jpg,jpeg,webp,svg}', {
-    eager: true,
-    import: 'default',
-}) as Record<string, string>;
-const images = Object.values(modules);
-console.log(modules);
+import gamesImg from '../assets/game_images/Untitled.png';
+import ExternalCard from '../components/index/ExternalCard.astro';
+import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 ---
 
 <Layout title="Home">
-    <div class="flex flex-row justify-between h-120 w-full gap-x-4">
-        <div class="grid grid-cols-3 grid-rows-3 w-full h-full opacity-40">
-            {
-                images.map(item => (
-                    <div class="w-full h-full overflow-hidden">
-                        <Image src={item} alt="image" loading="eager" class="w-full h-full object-cover" />
-                    </div>
-                ))
-            }
+    <div class="relative w-full">
+        <Image
+            src={gamesImg}
+            alt="Games"
+            loading="eager"
+            class="h-full w-full flex-col items-center justify-center opacity-30 mask-x-from-20% mask-x-to-100%"
+        />
+
+        <!-- Text overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-y-16">
+            <span class="text-8xl font-bold text-white">shadPS4</span>
+            <span class="mt-2 font-semibold text-white">
+                shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++
+            </span>
         </div>
-        <div class="h-full w-full bg-amber-400"></div>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-2 grid-rows-2 gap-6 px-40">
+        <!-- GitHub -->
+        <ExternalCard
+            href="https://github.com/shadps4-emu/shadPS4"
+            aria="GitHub repository"
+            icon={FaGithub}
+            primary_color="oklch(0.97 0.01 0)"
+            secondary_color="oklch(0.1 0.02 248.35)"
+            name="GitHub"
+            tag="Contributing Code"
+            description="Built by a community of passionate developers and problem-solvers, who contribute in their free time. Pull requests are always welcome! Have a look at the code and file an issue, or open a pull request. Small commits, big dreams."
+            button="Explore repo"
+        />
+
+        <!-- Discord -->
+        <ExternalCard
+            href="https://discord.gg/bFJxfftGW6"
+            aria="Discord server"
+            icon={FaDiscord}
+            primary_color="#5864F2"
+            secondary_color="oklch(0.97 0.01 0)"
+            name="Discord"
+            tag="Support and general discussions"
+            description="If you need help, have questions, or just want to chat, join our Discord server!"
+            button="Join server"
+        />
+
+        <!-- YouTube -->
+        <ExternalCard
+            href="https://www.youtube.com/@gmoralistube"
+            aria="Youtube channel"
+            icon={FaYoutube}
+            primary_color="#FF0033"
+            secondary_color="white"
+            name="YouTube"
+            tag="For demos or previews of upcoming releases"
+            description="Watch the emulator progress on our YouTube channel, where we post demos, previews of games that show emulation progress, and more."
+            button="Watch"
+        />
+
+        <!-- Ko-fi -->
+        <ExternalCard
+            href="https://ko-fi.com/shadps4"
+            aria="Support on Ko-fi"
+            icon={FaCoffee}
+            primary_color="oklch(0.97 0.01 0)"
+            secondary_color="oklch(0.68 0.21 38.31)"
+            name="Ko-fi"
+            tag="Optional donations"
+            description="If shadPS4 fixes your nostalgia, a coffee helps developing efforts, such as purchasing necessary hardware, games, and project maintenance costs."
+            button="Donate"
+        />
     </div>
 </Layout>

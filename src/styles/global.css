@@ -19,8 +19,8 @@
     @variant dark {
         --color-header: var(--color-gray-950);
         --color-root: oklch(0.19 0.03 269.8 / 1);
-        --color-border: var(--color-gray-700);
-        --color-compat-card: oklch(0.25 0.02 269.25);
+        --color-border: var(--color-gray-800);
+        --color-compat-card: oklch(0.21 0.02 269.1);
         --color-text: var(--color-white);
     }
 }
