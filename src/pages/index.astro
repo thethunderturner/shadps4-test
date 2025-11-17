@@ -4,6 +4,7 @@ import {Image} from 'astro:assets';
 import gamesImg from '../assets/game_images/Untitled.png';
 import ExternalCard from '../components/index/ExternalCard.astro';
 import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
+import shadPS4Logo from '/src/assets/shadPS4Logo.png';
 ---
 
 <Layout title="Home">
@@ -17,7 +18,10 @@ import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 
         <!-- Text overlay -->
         <div class="absolute inset-0 flex flex-col items-center justify-center gap-y-16">
-            <span class="text-8xl font-bold text-white">shadPS4</span>
+            <div class="flex flex-row justify-evenly items-center gap-x-8">
+                <Image src={shadPS4Logo} alt="shadps4_logo" class="size-24 rounded-sm" loading="eager" />
+                <span class="text-8xl font-bold text-white">shadPS4</span>
+            </div>
             <span class="mt-2 font-semibold text-white">
                 shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++
             </span>
