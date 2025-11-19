@@ -10,7 +10,7 @@ interface Post {
     };
 }
 
-const matches = import.meta.glob<Post>('/src/blog/posts/*.mdx', {eager: true});
+const matches = import.meta.glob<Post>('/src/pages/posts/*.mdx', {eager: true});
 const posts = Object.values(matches);
 
 // Take the top 3 posts
