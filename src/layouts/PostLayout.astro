@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+import Header from '../components/header/Header.astro';
+import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
+import {RiTwitterXFill} from 'react-icons/ri';
+import Footer from '../components/Footer.astro';
+const {title, frontmatter} = Astro.props;
+
+const pages = [
+    {name: 'Home', href: '/shadps4-test'},
+    {name: 'Downloads', href: '/shadps4-test/downloads'},
+    {name: 'Quickstart', href: '/shadps4-test/quickstart'},
+    {name: 'Forums', href: '/shadps4-test/forums'},
+    {name: 'Blog', href: '/shadps4-test/blog'},
+    {name: 'Compatibility', href: '/shadps4-test/compatibility'},
+];
+
+const external = [
+    {name: 'YouTube', href: 'https://www.youtube.com/@gmoralistube', icon: FaYoutube},
+    {name: 'Discord', href: 'https://discord.gg/bFJxfftGW6', icon: FaDiscord},
+    {name: 'GitHub', href: 'https://github.com/shadps4-emu/shadPS4', icon: FaGithub},
+    {name: 'X', href: 'https://twitter.com/shadps4', icon: RiTwitterXFill},
+    {name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee},
+];
+---
+
+<!doctype html>l
+<html lang="en">
+<!--Thank you for looking at the source code!-->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+</head>
+<body class="bg-root min-h-screen flex flex-col">
+<Header pages={pages} external={external} />
+<main class="flex-1 px-[15%] flex flex-col gap-y-8">
+    <div class="px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:max-w-7xl">
+            <h2 class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase dark:text-gray-400">{frontmatter.date}</h2>
+            <h1 class="mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 dark:text-white sm:text-6xl">{frontmatter.title}</h1>
+            <div class="mt-16 grid grid-cols-1 gap-8 pb-24 lg:grid-cols-[15rem_1fr] xl:grid-cols-[15rem_1fr_15rem]">
+                <!--Left container-->
+                <div class="flex flex-wrap items-center gap-8 max-lg:justify-between lg:flex-col lg:items-start">
+                    <div class="flex flex-wrap gap-2">
+                        {frontmatter.tags.map(tag => (
+                            <div class="rounded-full border-border border bg-compat-card px-2 text-sm/6 font-medium text-gray-500">
+                                {tag}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <!--Right container (content)-->
+                <div class="max-w-2xl xl:mx-auto text-gray-200">
+                    <slot />
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<Footer />
+</body>
+</html>
