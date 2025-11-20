@@ -10,6 +10,7 @@
         "prettier": "npx prettier --write ./src"
     },
     "dependencies": {
+        "@astrojs/mdx": "^4.3.10",
         "@astrojs/react": "^4.4.2",
         "@headlessui/react": "^2.2.3",
         "@heroicons/react": "^2.2.0",

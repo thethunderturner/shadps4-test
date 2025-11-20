@@ -11,8 +11,8 @@ const pages = [
     {name: 'Downloads', href: '/shadps4-test/downloads'},
     {name: 'Quickstart', href: '/shadps4-test/quickstart'},
     {name: 'Forums', href: '/shadps4-test/forums'},
+    {name: 'Blog', href: '/shadps4-test/blog'},
     {name: 'Compatibility', href: '/shadps4-test/compatibility'},
-    {name: 'FAQ', href: '/shadps4-test/faq'},
 ];
 
 const external = [
@@ -34,12 +34,12 @@ const external = [
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="bg-root">
+    <body class="bg-root min-h-screen flex flex-col">
         <Header pages={pages} external={external} />
-        <div class="px-[15%] flex flex-col gap-y-16">
+        <main class="flex-1 px-[15%] flex flex-col gap-y-8 pt-8">
             <h2 class="text-2xl/7 font-bold text-white sm:truncate sm:text-3xl sm:tracking-tight">{title}</h2>
             <slot />
-        </div>
-        <Footer pages={pages} external={external} />
+        </main>
+        <Footer />
     </body>
 </html>

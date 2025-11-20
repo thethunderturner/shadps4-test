@@ -1,15 +1,5 @@
 import {useState} from 'react';
-import {
-    Dialog,
-    DialogPanel,
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Popover,
-    PopoverButton,
-    PopoverGroup,
-    PopoverPanel,
-} from '@headlessui/react';
+import {Dialog, DialogPanel, Disclosure, DisclosureButton, DisclosurePanel, Popover, PopoverButton, PopoverGroup, PopoverPanel} from '@headlessui/react';
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline';
 import {ChevronDownIcon} from '@heroicons/react/20/solid';
 import {FaDiscord, FaYoutube, FaGithub, FaTwitter, FaCoffee} from 'react-icons/fa';
@@ -84,10 +74,7 @@ export default function Header({children}) {
                         >
                             <div className="p-4">
                                 {gallery.map(item => (
-                                    <div
-                                        key={item.name}
-                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6"
-                                    >
+                                    <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6">
                                         <div className="flex-auto">
                                             <a href={item.href} className="block font-semibold text-white">
                                                 {item.name}
@@ -112,10 +99,7 @@ export default function Header({children}) {
                         >
                             <div className="p-4">
                                 {about.map(item => (
-                                    <div
-                                        key={item.name}
-                                        className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6"
-                                    >
+                                    <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-2 text-base/6">
                                         <div className="flex-auto">
                                             <a href={item.href} className="block font-semibold text-white">
                                                 {item.name}
@@ -162,11 +146,7 @@ export default function Header({children}) {
                             {children}
                             <span className="text-2xl font-semibold text-white">ShadPS4</span>
                         </div>
-                        <button
-                            type="button"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="-m-2.5 rounded-md p-2.5 text-white"
-                        >
+                        <button type="button" onClick={() => setMobileMenuOpen(false)} className="-m-2.5 rounded-md p-2.5 text-white">
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon aria-hidden="true" className="size-6" />
                         </button>
@@ -175,11 +155,7 @@ export default function Header({children}) {
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
                                 {pages.map(item => (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white"
-                                    >
+                                    <a key={item.name} href={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white">
                                         {item.name}
                                     </a>
                                 ))}
@@ -187,10 +163,7 @@ export default function Header({children}) {
                                 <Disclosure as="div" className="-mx-3">
                                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white">
                                         About
-                                        <ChevronDownIcon
-                                            aria-hidden="true"
-                                            className="size-5 flex-none group-data-open:rotate-180"
-                                        />
+                                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                                     </DisclosureButton>
                                     <DisclosurePanel className="mt-2 space-y-2">
                                         {about.map(item => (
@@ -208,10 +181,7 @@ export default function Header({children}) {
                                 <Disclosure as="div" className="-mx-3">
                                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white">
                                         External
-                                        <ChevronDownIcon
-                                            aria-hidden="true"
-                                            className="size-5 flex-none group-data-open:rotate-180"
-                                        />
+                                        <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                                     </DisclosureButton>
                                     <DisclosurePanel className="mt-2 space-y-2">
                                         {external.map(item => (

@@ -4,6 +4,8 @@ import {Image} from 'astro:assets';
 import gamesImg from '../assets/game_images/Untitled.png';
 import ExternalCard from '../components/index/ExternalCard.astro';
 import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
+import shadPS4Logo from '/src/assets/shadPS4Logo.png';
+import BlogPreview from '../components/index/BlogPreview.astro';
 ---
 
 <Layout title="Home">
@@ -17,10 +19,11 @@ import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 
         <!-- Text overlay -->
         <div class="absolute inset-0 flex flex-col items-center justify-center gap-y-16">
-            <span class="text-8xl font-bold text-white">shadPS4</span>
-            <span class="mt-2 font-semibold text-white">
-                shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++
-            </span>
+            <div class="flex flex-row justify-evenly items-center gap-x-8">
+                <Image src={shadPS4Logo} alt="shadps4_logo" class="size-24 rounded-sm" loading="eager" />
+                <span class="text-8xl font-bold text-white">shadPS4</span>
+            </div>
+            <span class="mt-2 font-semibold text-white"> shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++ </span>
         </div>
     </div>
 
@@ -78,4 +81,15 @@ import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
             button="Donate"
         />
     </div>
+
+    <!-- Blog Preview heading-->
+    <div>
+        <h2 class="text-2xl/7 font-bold text-white sm:truncate sm:text-3xl sm:tracking-tight">From the blog</h2>
+        <p class="mt-2 text-lg/8 text-gray-300">
+            Find out about the latest updates on shadPS4. Read more <a class="font-bold text-lg/8" href="">here</a>.
+        </p>
+    </div>
+
+    <!-- Blog preview card -->
+    <BlogPreview />
 </Layout>

@@ -4,10 +4,10 @@ const {href, aria, icon: Icon, primary_color, secondary_color, name, tag, descri
 
 <a
     href={href}
-    class="group block rounded-xl p-6 bg-compat-card border border-border shadow-md transform transition hover:-translate-y-1 hover:shadow-2xl"
+    class="flex flex-col justify-between group rounded-xl p-6 bg-compat-card border border-border shadow-md transform hover:transition hover:-translate-y-1 hover:shadow-2xl"
     aria-label={aria}
 >
-    <div class="flex items-start justify-between">
+    <div class="flex flex-col">
         <div class="flex items-center gap-3">
             <div class="rounded-full p-2 text-2xl" style={`background-color: ${primary_color};`}>
                 {Icon && <Icon className="size-8" style={secondary_color ? {color: secondary_color} : {}} />}
@@ -17,17 +17,18 @@ const {href, aria, icon: Icon, primary_color, secondary_color, name, tag, descri
                 <p class="text-sm text-zinc-300">{tag}</p>
             </div>
         </div>
+        <p class="mt-4 text-sm text-zinc-300">
+            {description}
+        </p>
     </div>
 
-    <p class="mt-4 text-sm text-zinc-300">
-        {description}
-    </p>
-
-    <div class="mt-6 flex items-center gap-3">
-        <span
-            class="ml-auto inline-flex items-center gap-2 rounded-md bg-white/6 px-3 py-1 text-xs text-white transition group-hover:bg-white/10"
-        >
-            {button}
-        </span>
+    <div>
+        <div class="mt-6 flex items-center gap-3">
+            <span
+                class="ml-auto inline-flex items-center gap-2 rounded-md border-2 border-border bg-white/6 px-3 py-1 text-xs text-white group-hover:bg-white/10"
+            >
+                {button}
+            </span>
+        </div>
     </div>
 </a>

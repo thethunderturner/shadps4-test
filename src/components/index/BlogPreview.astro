@@ -1,0 +1,55 @@
+---
+interface Post {
+    url: string;
+    frontmatter: {
+        title: string;
+        description: string;
+        date: string;
+        tags: string[];
+        image: string;
+    };
+}
+
+const matches = import.meta.glob<Post>('/src/pages/posts/*.{mdx,md}', {eager: true});
+const posts = Object.values(matches);
+
+// Take the top 3 posts
+const top = posts.slice(0, 3);
+---
+
+<div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+    {
+        top.map(item => (
+            <article class="flex max-w-xl flex-col items-start justify-between">
+                <a class="overflow-hidden rounded-lg" href={item.url}>
+                    <img
+                        src={item.frontmatter.image}
+                        alt={item.frontmatter.title}
+                        class="aspect-video w-full object-cover hover:scale-102 ease-in-out transition"
+                        loading="eager"
+                    />
+                </a>
+                <div class="flex items-center gap-x-4 text-xs pt-4">
+                    <div class="text-gray-400">
+                        {new Date(item.frontmatter.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                        })}
+                    </div>
+                    {item.frontmatter.tags.map(tag => (
+                        <div class="rounded-full border-border border bg-compat-card px-2 text-sm/6 font-medium text-gray-500">{tag}</div>
+                    ))}
+                </div>
+                <div class="group relative grow">
+                    <h3 class="mt-3 text-lg/6 font-semibold text-white">
+                        <a href={item.url} aria-label="asasas">
+                            {item.frontmatter.title}
+                        </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm/6 text-gray-400">{item.frontmatter.description}</p>
+                </div>
+            </article>
+        ))
+    }
+</div>
