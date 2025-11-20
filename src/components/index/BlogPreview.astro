@@ -10,7 +10,7 @@ interface Post {
     };
 }
 
-const matches = import.meta.glob<Post>('/src/pages/posts/*.mdx', {eager: true});
+const matches = import.meta.glob<Post>('/src/pages/posts/*.{mdx,md}', {eager: true});
 const posts = Object.values(matches);
 
 // Take the top 3 posts
@@ -21,7 +21,7 @@ const top = posts.slice(0, 3);
     {
         top.map(item => (
             <article class="flex max-w-xl flex-col items-start justify-between">
-                <img src={item.frontmatter.image} alt={item.frontmatter.title} class="aspect-video w-full rounded-xl object-cover" loading="eager"/>
+                <img src={item.frontmatter.image} alt={item.frontmatter.title} class="aspect-video w-full rounded-xl object-cover" loading="eager" />
                 <div class="flex items-center gap-x-4 text-xs pt-4">
                     <div class="text-gray-400">
                         {new Date(item.frontmatter.date).toLocaleDateString('en-US', {
@@ -31,11 +31,7 @@ const top = posts.slice(0, 3);
                         })}
                     </div>
                     {item.frontmatter.tags.map(tag => (
-                        <div
-                            class="relative z-10 rounded-full bg-gray-800/60 px-3 py-1.5 font-medium text-gray-300"
-                        >
-                            {tag}
-                        </div>
+                        <div class="relative z-10 rounded-full bg-gray-800/60 px-3 py-1.5 font-medium text-gray-300">{tag}</div>
                     ))}
                 </div>
                 <div class="group relative grow">
