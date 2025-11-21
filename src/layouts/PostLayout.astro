@@ -5,6 +5,7 @@ import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 import {RiTwitterXFill} from 'react-icons/ri';
 import Footer from '../components/Footer.astro';
 const {title, frontmatter} = Astro.props;
+import {Image} from 'astro:assets';
 
 const pages = [
     {name: 'Home', href: '/shadps4-test'},
@@ -22,17 +23,6 @@ const external = [
     {name: 'X', href: 'https://twitter.com/shadps4', icon: RiTwitterXFill},
     {name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee},
 ];
-
-function parseDDMMYYYY(dateStr: string) {
-    const [day, month, year] = dateStr.split('/');
-    const date = new Date(`${year}-${month}-${day}`);
-    return date.toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    });
-}
 ---
 
 <!doctype html>
@@ -51,7 +41,7 @@ function parseDDMMYYYY(dateStr: string) {
             <div class="px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:max-w-7xl">
                     <h2 class="mt-16 font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase dark:text-gray-400">
-                        {parseDDMMYYYY(frontmatter.date)}
+                        {new Date(frontmatter.date).toDateString()}
                     </h2>
                     <h1 class="mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 dark:text-white sm:text-6xl">
                         {frontmatter.title}
@@ -70,7 +60,16 @@ function parseDDMMYYYY(dateStr: string) {
 
                         <!--Right container (content)-->
                         <div class="max-w-2xl xl:mx-auto text-gray-200">
-                            <img src={frontmatter.image} alt={frontmatter.title} class="mb-10 aspect-video w-full rounded-lg object-cover shadow-xl" />
+                            {
+                                frontmatter.image && (
+                                    <Image
+                                        src={frontmatter.image}
+                                        alt={frontmatter.title}
+                                        class="mb-10 aspect-video w-full rounded-lg object-cover shadow-xl"
+                                        loading="eager"
+                                    />
+                                )
+                            }
                             <slot />
                         </div>
                     </div>
