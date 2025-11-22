@@ -57,7 +57,7 @@ const toc = buildToc(headings);
                         // remove active class from all links
                         tocLinks.forEach(link => link.classList.remove('toc-active'));
 
-                        // add active class to the current link
+                        // add an active class to the current link
                         const activeLink = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
                         if (activeLink) {
                             activeLink.classList.add('toc-active');

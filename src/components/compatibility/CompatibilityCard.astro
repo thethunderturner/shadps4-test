@@ -8,6 +8,11 @@ const colorByTag: Record<string, string> = {
     Ingame: 'bg-status-ingame',
     Playable: 'bg-status-playable',
 };
+
+interface Props {
+    osStart: {tag: string; count: number; percent: number; total: number}[];
+    name: string;
+}
 ---
 
 <div class="flex max-h-full w-110 flex-col rounded-lg bg-compat-card p-4 border-border border-2">
