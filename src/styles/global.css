@@ -33,6 +33,6 @@
     }
 
     .toc-active {
-        @apply text-white;
+        @apply font-medium text-white;
     }
 }

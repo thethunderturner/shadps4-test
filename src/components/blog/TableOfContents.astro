@@ -1,81 +1,76 @@
 ---
-interface Heading {
+import TOCHeading from './TOCHeading.astro';
+
+export interface Heading {
     depth: number;
     slug: string;
     text: string;
+    subheadings: Heading[];
 }
 
-const {headings} = Astro.props as {headings: Heading[]};
+interface Props {
+    headings: {depth: number; slug: string; text: string}[];
+}
 
-const toc: Heading[] = headings.filter(h => h.depth >= 1 && h.depth < 4);
+const {headings} = Astro.props;
+
+function buildToc(headings: Props['headings']) {
+    const toc: Heading[] = [];
+    const parentHeadings = new Map<number, Heading>();
+
+    headings.forEach(h => {
+        const heading: Heading = {...h, subheadings: []};
+        parentHeadings.set(heading.depth, heading);
+
+        // find parent
+        const parent = parentHeadings.get(heading.depth - 1);
+
+        if (parent) {
+            parent.subheadings.push(heading);
+        } else {
+            toc.push(heading);
+        }
+    });
+    return toc;
+}
+
+const toc = buildToc(headings);
 ---
 
-<nav class="toc-container">
-    <h3 class="text-sm font-semibold text-gray-200 mb-4">On this page</h3>
+<nav class="toc-container sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto">
+    <h3 class="text-lg font-semibold text-gray-200 mb-4">On this page</h3>
 
-    <ul class="flex flex-col text-sm">
-        {
-            toc.map(heading => (
-                <li>
-                    <a
-                        href={`#${heading.slug}`}
-                        class="toc-link block py-2 pr-2 text-gray-500 hover:text-white transition-all duration-200 -ml-px"
-                        style={`padding-left: ${heading.depth - 1}rem`}
-                    >
-                        {heading.text}
-                    </a>
-                </li>
-            ))
-        }
+    <ul class="flex flex-col gap-2">
+        {toc.map(heading => <TOCHeading heading={heading} />)}
     </ul>
 </nav>
 
 <script>
     const initTOC = () => {
         const tocLinks = document.querySelectorAll('.toc-link');
-        const headings = document.querySelectorAll('.prose h1, .prose h2, .prose h3');
-
-        const visibleHeadings = new Map();
+        const sections = document.querySelectorAll('.prose h1, .prose h2, .prose h3');
 
         const observer = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        visibleHeadings.set(entry.target.id, entry);
-                    } else {
-                        visibleHeadings.delete(entry.target.id);
-                    }
-                });
-
-                const visibleIds = Array.from(visibleHeadings.keys());
-
-                if (visibleIds.length > 0) {
-                    let activeId = null;
-
-                    for (const heading of headings) {
-                        if (visibleHeadings.has(heading.id)) {
-                            activeId = heading.id;
-                            break;
-                        }
-                    }
-
-                    if (activeId) {
-                        // Remove active class
+                        // remove active class from all links
                         tocLinks.forEach(link => link.classList.remove('toc-active'));
 
-                        // Add active class
-                        const activeLink = document.querySelector(`.toc-link[href="#${activeId}"]`);
-                        if (activeLink) activeLink.classList.add('toc-active');
+                        // add active class to the current link
+                        const activeLink = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('toc-active');
+                        }
                     }
-                }
+                });
             },
-            {
-                rootMargin: '-80px 0px -40% 0px',
-            },
+            {rootMargin: '-100px 0px -66% 0px'},
         );
 
-        headings.forEach(h => observer.observe(h));
+        sections.forEach(section => observer.observe(section));
     };
 
     initTOC();
+    document.addEventListener('astro:page-load', initTOC);
 </script>
