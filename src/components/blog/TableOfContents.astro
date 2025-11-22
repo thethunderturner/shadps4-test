@@ -1,0 +1,81 @@
+---
+interface Heading {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+const {headings} = Astro.props as {headings: Heading[]};
+
+const toc: Heading[] = headings.filter(h => h.depth >= 1 && h.depth < 4);
+---
+
+<nav class="toc-container">
+    <h3 class="text-sm font-semibold text-gray-200 mb-4">On this page</h3>
+
+    <ul class="flex flex-col text-sm">
+        {
+            toc.map(heading => (
+                <li>
+                    <a
+                        href={`#${heading.slug}`}
+                        class="toc-link block py-2 pr-2 text-gray-500 hover:text-white transition-all duration-200 -ml-px"
+                        style={`padding-left: ${heading.depth - 1}rem`}
+                    >
+                        {heading.text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+
+<script>
+    const initTOC = () => {
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const headings = document.querySelectorAll('.prose h1, .prose h2, .prose h3');
+
+        const visibleHeadings = new Map();
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        visibleHeadings.set(entry.target.id, entry);
+                    } else {
+                        visibleHeadings.delete(entry.target.id);
+                    }
+                });
+
+                const visibleIds = Array.from(visibleHeadings.keys());
+
+                if (visibleIds.length > 0) {
+                    let activeId = null;
+
+                    for (const heading of headings) {
+                        if (visibleHeadings.has(heading.id)) {
+                            activeId = heading.id;
+                            break;
+                        }
+                    }
+
+                    if (activeId) {
+                        // Remove active class
+                        tocLinks.forEach(link => link.classList.remove('toc-active'));
+
+                        // Add active class
+                        const activeLink = document.querySelector(`.toc-link[href="#${activeId}"]`);
+                        if (activeLink) activeLink.classList.add('toc-active');
+                    }
+                }
+            },
+            {
+                rootMargin: '-80px 0px -40% 0px',
+            },
+        );
+
+        headings.forEach(h => observer.observe(h));
+    };
+
+    initTOC();
+</script>

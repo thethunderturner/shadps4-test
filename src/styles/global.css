@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -22,5 +22,17 @@
         --color-border: var(--color-gray-800);
         --color-compat-card: oklch(0.21 0.02 269.1);
         --color-text: var(--color-white);
+    }
+
+    /* Scroll Margin: Prevents the sticky header from covering the title when you click.*/
+    .prose h1,
+    .prose h2,
+    .prose h3 {
+        /* Header height + 1rem padding */
+        scroll-margin-top: 5rem;
+    }
+
+    .toc-active {
+        @apply text-white;
     }
 }

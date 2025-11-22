@@ -5,8 +5,9 @@ import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 import {RiTwitterXFill} from 'react-icons/ri';
 import Footer from '../components/Footer.astro';
 import {Image} from 'astro:assets';
+import TableOfContents from '../components/blog/TableOfContents.astro';
+import TableOfContents2 from '../components/blog/TableOfContents2.astro';
 
-// 1. Accept the 'headings' prop
 const {title, frontmatter, headings} = Astro.props;
 
 const pages = [
@@ -32,12 +33,13 @@ const external = [
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/shadps4-test/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
     <body class="bg-root min-h-screen flex flex-col">
         <Header pages={pages} external={external} />
+
         <main class="flex-1 px-[15%] flex flex-col gap-y-8">
             <div class="px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:max-w-7xl">
@@ -49,7 +51,7 @@ const external = [
                     </h1>
 
                     <div class="mt-16 grid grid-cols-1 gap-8 pb-24 lg:grid-cols-[15rem_1fr] xl:grid-cols-[15rem_1fr_15rem]">
-                        <aside class="flex flex-col gap-8 lg:sticky lg:top-24 self-start">
+                        <aside class="flex flex-col gap-8 lg:sticky lg:top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto">
                             <div>
                                 <h3 class="text-sm font-semibold text-gray-200 mb-4">Tags</h3>
                                 <div class="flex flex-wrap gap-2">
@@ -64,31 +66,23 @@ const external = [
                             {
                                 headings && headings.length > 0 && (
                                     <div class="hidden lg:block">
-                                        <h3 class="text-sm font-semibold text-gray-200 mb-4">Table of Contents</h3>
-                                        <ul class="flex flex-col gap-3 text-sm text-gray-400">
-                                            {headings.map(heading => (
-                                                <li class:list={[{'pl-4': heading.depth === 3}]}>
-                                                    <a href={`#${heading.slug}`} class="hover:text-white transition-colors duration-200 block line-clamp-1">
-                                                        {heading.text}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <TableOfContents headings={headings} />
                                     </div>
                                 )
                             }
                         </aside>
 
-                        <div class="max-w-2xl xl:mx-auto text-text prose dark:prose-invert"> {
-                            frontmatter.image && (
-                                <Image
-                                    src={frontmatter.image}
-                                    alt={frontmatter.title}
-                                    class="mb-10 aspect-video w-full rounded-lg object-cover shadow-xl"
-                                    loading="eager"
-                                />
-                            )
-                        }
+                        <div class="max-w-2xl xl:mx-auto text-text prose dark:prose-invert">
+                            {
+                                frontmatter.image && (
+                                    <Image
+                                        src={frontmatter.image}
+                                        alt={frontmatter.title}
+                                        class="mb-10 aspect-video w-full rounded-lg object-cover shadow-xl"
+                                        loading="eager"
+                                    />
+                                )
+                            }
                             <slot />
                         </div>
                     </div>
