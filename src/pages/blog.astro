@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Welcome from '../components/Welcome.astro';
+import BlogPage from '../components/blog/BlogPage';
+import {getCollection} from 'astro:content';
+
+const posts = await getCollection('blog');
+
+// sort by date
+const sortedPosts = posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 ---
 
 <Layout title="Blog">
-    <Welcome />
+    <BlogPage client:load posts={sortedPosts} />
 </Layout>
