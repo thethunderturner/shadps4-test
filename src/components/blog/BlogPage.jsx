@@ -16,9 +16,6 @@ export default function BlogPage({posts}) {
         return posts.filter(post => post.data.tags.includes(selectedTag));
     }, [posts, selectedTag]);
 
-    // helper url because im running on GH pages
-    const BASE_URL = '/shadps4-test';
-
     return (
         <div>
             {/* Header & Filter Section */}
@@ -32,8 +29,8 @@ export default function BlogPage({posts}) {
                         <select
                             id="tag-filter"
                             value={selectedTag}
-                            onChange={(e) => setSelectedTag(e.target.value)}
-                            className="w-full cursor-pointer appearance-none rounded-lg text-sm text-white bg-header px-4 py-2 border-border border-2 outline-none"
+                            onChange={e => setSelectedTag(e.target.value)}
+                            className="bg-header border-border w-full cursor-pointer appearance-none rounded-lg border-2 px-4 py-2 text-sm text-white outline-none"
                         >
                             <option value="all">All Posts</option>
                             {allTags.map(tag => (
@@ -53,7 +50,7 @@ export default function BlogPage({posts}) {
             <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredPosts.map(post => (
                     <article key={post.slug} className="animate-in fade-in flex max-w-xl flex-col items-start justify-between duration-500">
-                        <a className="w-full overflow-hidden rounded-lg bg-gray-800" href={`${BASE_URL}/blog/${post.slug}`}>
+                        <a className="w-full overflow-hidden rounded-lg bg-gray-800" href={post.url}>
                             {post.data.image && (
                                 <img
                                     src={post.data.image.src}
@@ -74,7 +71,7 @@ export default function BlogPage({posts}) {
 
                             <div className="flex flex-wrap gap-2">
                                 {post.data.tags.map(tag => (
-                                    <span className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
+                                    <span key={tag} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
                                         {tag}
                                     </span>
                                 ))}
@@ -83,7 +80,7 @@ export default function BlogPage({posts}) {
 
                         <div className="group relative grow">
                             <h3 className="mt-3 text-lg/6 font-semibold text-white">
-                                <a href={`${BASE_URL}/blog/${post.slug}`}>{post.data.title}</a>
+                                <a href={post.url}>{post.data.title}</a>
                             </h3>
                             <p className="mt-5 line-clamp-3 text-sm/6 text-gray-400">{post.data.description}</p>
                         </div>

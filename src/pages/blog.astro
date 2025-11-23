@@ -7,8 +7,13 @@ const posts = await getCollection('blog');
 
 // sort by date
 const sortedPosts = posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+
+// helper url because im running on GH pages
+const BASE_URL = '/shadps4-test';
+// keep routing logic in Astro and the react component generic. Precompute the url in the component and pass it down.
+const processedPosts = sortedPosts.map(post => ({...post, url: `${BASE_URL}/blog/${post.slug}`}));
 ---
 
 <Layout title="Blog">
-    <BlogPage client:load posts={sortedPosts} />
+    <BlogPage client:load posts={processedPosts} />
 </Layout>
