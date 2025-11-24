@@ -8,11 +8,13 @@
     --color-border: var(--color-gray-100);
     --color-compat-card: oklch(0.898 0 90);
     --color-text: var(--color-black);
-    --color-status-playable: oklch(0.723 0.219 149.579);
-    --color-status-ingame: oklch(0.488 0.243 264.376);
-    --color-status-menus: oklch(0.673 0.182 276.935);
-    --color-status-boots: oklch(0.681 0.162 75.834);
-    --color-status-nothing: oklch(0.577 0.245 27.325);
+
+    /*Compatibility colors*/
+    --color-status-playable: var(--color-green-500);
+    --color-status-ingame: var(--color-blue-500);
+    --color-status-menus: var(--color-violet-500);
+    --color-status-boots: var(--color-yellow-500);
+    --color-status-nothing: var(--color-red-500);
 }
 
 :root {

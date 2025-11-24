@@ -1,13 +1,6 @@
 ---
+import {compatColor} from '../utils/utils';
 const {name, osStart} = Astro.props;
-
-const colorByTag: Record<string, string> = {
-    Nothing: 'bg-status-nothing',
-    Boots: 'bg-status-boots',
-    Menus: 'bg-status-menus',
-    Ingame: 'bg-status-ingame',
-    Playable: 'bg-status-playable',
-};
 
 interface Props {
     osStart: {tag: string; count: number; percent: number; total: number}[];
@@ -29,7 +22,7 @@ interface Props {
         {
             osStart.map(({tag, count, percent, total}) => {
                 const widthPct = (count / total) * 100;
-                const barColor = colorByTag[tag] ?? 'bg-gray-500';
+                const barColor = compatColor[tag] ?? 'bg-gray-500';
 
                 return (
                     <div class="flex flex-col gap-1">
