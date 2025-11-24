@@ -606,18 +606,20 @@ export default function CompatibilityTable({games = SAMPLE_GAMES}) {
                         currentGames.map(game => (
                             <tr key={game.id} className="bg-neutral-primary-soft border-border border-b hover:bg-white/5">
                                 <td className="px-6 py-4">
-                                    <div className="flex h-8 w-8 items-center justify-center rounded bg-gray-700 text-xs">
-                                        IMG
-                                    </div>
+                                    <div className="flex h-8 w-8 items-center justify-center rounded bg-gray-700 text-xs">IMG</div>
                                 </td>
                                 <th scope="row" className="text-heading px-6 py-4 font-medium whitespace-nowrap text-white">
                                     {game.title}
                                 </th>
                                 <td className="px-6 py-4">{game.code}</td>
-                                <td className="px-6 py-4"><RegionFlag region={game.region} /></td>
-                                <td className="px-6 py-4"><StatusBadge status={game.status} /></td>
+                                <td className="px-6 py-4">
+                                    <RegionFlag region={game.region} />
+                                </td>
+                                <td className="px-6 py-4">
+                                    <StatusBadge status={game.status} />
+                                </td>
                                 <td className="px-6 py-4">{game.version}</td>
-                                <td className="px-6 py-4 size-7">{game.os}</td>
+                                <td className="size-7 px-6 py-4">{game.os}</td>
                                 <td className="px-6 py-4">{game.updatedDate}</td>
                             </tr>
                         ))

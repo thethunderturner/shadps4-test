@@ -12,6 +12,6 @@ const compatTextColor = {
     Menus: 'bg-status-menus',
     Ingame: 'bg-status-ingame',
     Playable: 'bg-status-playable',
-}
+};
 
 export {compatColor};

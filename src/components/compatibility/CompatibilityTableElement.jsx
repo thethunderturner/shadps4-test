@@ -1,17 +1,13 @@
-import { compatColor } from '../utils/utils';
+import {compatColor} from '../utils/utils';
 import React from 'react';
-import "/node_modules/flag-icons/css/flag-icons.min.css";
+import '/node_modules/flag-icons/css/flag-icons.min.css';
 
-function StatusBadge({ status }) {
+function StatusBadge({status}) {
     const badgeColor = compatColor[status] ?? 'bg-gray-500';
-    return (
-        <span className={`rounded ${badgeColor} px-2 py-1 text-xs font-semibold`}>
-            {status}
-        </span>
-    );
+    return <span className={`rounded ${badgeColor} px-2 py-1 text-xs font-semibold`}>{status}</span>;
 }
 
-function RegionFlag({ region }) {
+function RegionFlag({region}) {
     switch (region) {
         case 'USA':
             return <span className="fi fi-us"></span>;
