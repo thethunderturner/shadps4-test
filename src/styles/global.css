@@ -3,10 +3,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-header: var(--color-gray-50);
+    --color-header: var(--color-gray-200);
     --color-root: var(--color-white);
     --color-border: var(--color-gray-100);
-    --color-compat-card: oklch(0.898 0 89.876);
+    --color-compat-card: oklch(0.898 0 90);
     --color-text: var(--color-black);
     --color-status-playable: oklch(0.723 0.219 149.579);
     --color-status-ingame: oklch(0.488 0.243 264.376);
