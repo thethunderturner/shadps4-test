@@ -4,18 +4,26 @@ import {SAMPLE_GAMES} from '../utils/utils.js';
 
 export default function CompatibilityTable({games = SAMPLE_GAMES}) {
     const [searchTerm, setSearchTerm] = useState('');
+    const [statusFilter, setStatusFilter] = useState('All');
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
+    const statuses = ['Playable', 'Ingame', 'Menus', 'Boots', 'Nothing'];
 
-    // search logic
+    // search and filter Logic
     const filteredGames = useMemo(() => {
         return games.filter(game => {
+            // filter based on status
+            if (statusFilter !== 'All' && game.status !== statusFilter) {
+                return false;
+            }
+
+            // search filter
             const term = searchTerm.toLowerCase();
             const titleMatch = game.title.toLowerCase().includes(term);
             const codeMatch = game.code.toLowerCase().includes(term);
             return titleMatch || codeMatch;
         });
-    }, [games, searchTerm]);
+    }, [games, searchTerm, statusFilter]);
 
     // pagination logic
     const totalItems = filteredGames.length;
@@ -28,6 +36,11 @@ export default function CompatibilityTable({games = SAMPLE_GAMES}) {
     // handlers for pagination
     const handleSearch = e => {
         setSearchTerm(e.target.value);
+        setCurrentPage(1);
+    };
+
+    const handleStatusChange = e => {
+        setStatusFilter(e.target.value);
         setCurrentPage(1);
     };
 
@@ -59,8 +72,29 @@ export default function CompatibilityTable({games = SAMPLE_GAMES}) {
 
     return (
         <div className="bg-gray-750 border-border relative overflow-x-auto rounded-lg border shadow-xs">
-            <div className="flex flex-row items-center justify-end">
-                <div className="flex-column flex flex-wrap items-center justify-between space-y-4 p-4 md:flex-row md:space-y-0">
+            <div className="flex flex-row items-center justify-between p-4">
+                {/* status filter */}
+                <div className="relative w-full md:w-48">
+                    <select
+                        value={statusFilter}
+                        onChange={handleStatusChange}
+                        className="bg-header border-border w-full cursor-pointer appearance-none rounded-lg border-2 px-4 py-2 text-sm text-white outline-none"
+                    >
+                        <option value="All">All Statuses</option>
+                        {statuses.map(status => (
+                            <option key={status} value={status}>
+                                {status}
+                            </option>
+                        ))}
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                        <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                    </div>
+                </div>
+                {/* search filter */}
+                <div className="flex-column flex flex-wrap items-center justify-between space-y-4 md:flex-row md:space-y-0">
                     <label htmlFor="table-search" className="sr-only">
                         Search
                     </label>
