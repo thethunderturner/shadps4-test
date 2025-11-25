@@ -62,7 +62,7 @@ export default function BlogPage({posts}) {
 
                         <div className="flex items-center gap-x-4 pt-4 text-xs">
                             <div className="text-gray-400">
-                                {new Date(post.data.date).toLocaleDateString('en-US', {
+                                {new Date(post.data.pubDate).toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: 'short',
                                     day: 'numeric',
