@@ -1,5 +1,5 @@
 ---
-import {compatColor} from '../utils/utils';
+import {statusStyles} from './utils.tsx';
 const {name, osStart} = Astro.props;
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
         {
             osStart.map(({tag, count, percent, total}) => {
                 const widthPct = (count / total) * 100;
-                const barColor = compatColor[tag] ?? 'bg-gray-500';
+                const barColor = statusStyles[tag] ?? 'bg-gray-500';
 
                 return (
                     <div class="flex flex-col gap-1">

@@ -1,4 +1,30 @@
-const compatColor = {
+import EuFlag from '../../assets/images/region/eu.svg';
+import JpFlag from '../../assets/images/region/jp.svg';
+import UsaFlag from '../../assets/images/region/us.svg';
+import AsFlag from '../../assets/images/region/cn.svg';
+import XxFlag from '../../assets/images/region/xx.svg';
+import Windows from '../../assets/images/os/Windows.png';
+import Linux from '../../assets/images/os/Linux.png';
+import macOS from '../../assets/images/os/MacOS.png';
+
+type Game = {
+    id: number;
+    title: string;
+    code: string;
+    type: string;
+    status: GameStatus;
+    os: GameOs;
+    version: string;
+    updatedDate: string;
+    region: GameRegion;
+    image: any;
+};
+
+type GameStatus = 'Nothing' | 'Boots' | 'Menus' | 'Ingame' | 'Playable';
+type GameRegion = 'USA' | 'Europe' | 'Japan' | 'Asia' | 'Unknown';
+type GameOs = 'Windows' | 'Linux' | 'macOS';
+
+const statusStyles: Record<GameStatus, string> = {
     Nothing: 'bg-status-nothing text-text-nothing',
     Boots: 'bg-status-boots',
     Menus: 'bg-status-menus',
@@ -6,7 +32,37 @@ const compatColor = {
     Playable: 'bg-status-playable',
 };
 
-const SAMPLE_GAMES = [
+function StatusBadge({status}: {status: GameStatus}) {
+    return <span className={`rounded px-2 py-1 text-xs font-semibold ${statusStyles[status]}`}>{status}</span>;
+}
+
+function RegionBadge({region}: {region: GameRegion}) {
+    switch (region) {
+        case 'Europe':
+            return <img src={EuFlag.src} alt="Europe Flag" className="size-8" />;
+        case 'Japan':
+            return <img src={JpFlag.src} alt="Japan Flag" className="size-8" />;
+        case 'USA':
+            return <img src={UsaFlag.src} alt="USA Flag" className="size-8" />;
+        case 'Asia':
+            return <img src={AsFlag.src} alt="Asia Flag" className="size-8" />;
+        default:
+            return <img src={XxFlag.src} alt="Unknown Flag" className="size-8" />;
+    }
+}
+
+function OsBadge({os}: {os: GameOs}) {
+    switch (os) {
+        case 'Windows':
+            return <img src={Windows.src} alt="Windows Logo" className="size-8" />;
+        case 'Linux':
+            return <img src={Linux.src} alt="Linux Logo" className="size-8" />;
+        case 'macOS':
+            return <img src={macOS.src} alt="macOS Logo" className="size-8" />;
+    }
+}
+
+const SAMPLE_GAMES: Game[] = [
     {
         id: 130,
         title: 'NBA 2K18',
@@ -487,6 +543,246 @@ const SAMPLE_GAMES = [
         region: 'USA',
         image: true,
     },
+    {
+        id: 1558,
+        title: 'Hatsune Miku: VR Future Live',
+        code: 'CUSA04771',
+        type: 'PS4game',
+        status: 'Nothing',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1557,
+        title: 'Hatsune Miku: Project DIVA Future Tone',
+        code: 'CUSA06093',
+        type: 'PS4game',
+        status: 'Playable',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1556,
+        title: 'GoPro',
+        code: 'CUSA04180',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1555,
+        title: 'God of War Ragnarök',
+        code: 'CUSA34384',
+        type: 'PS4game',
+        status: 'Nothing',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1554,
+        title: 'Genshin Impact',
+        code: 'CUSA23681',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1553,
+        title: 'Freevee',
+        code: 'CUSA25926',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'Unknown',
+        image: false,
+    },
+    {
+        id: 1391,
+        title: 'Fortnite',
+        code: 'CUSA07022',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1538,
+        title: 'Fallout Shelter',
+        code: 'CUSA11772',
+        type: 'PS4game',
+        status: 'Playable',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1537,
+        title: 'Fall Guys',
+        code: 'CUSA29236',
+        type: 'PS4game',
+        status: 'Menus',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'Unknown',
+        image: false,
+    },
+    {
+        id: 1536,
+        title: 'DRIVECLUB™',
+        code: 'CUSA00093',
+        type: 'PS4game',
+        status: 'Ingame',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1535,
+        title: 'DOOM Eternal',
+        code: 'CUSA13338',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1534,
+        title: 'DISSIDIA FINAL FANTASY NT Free Edition',
+        code: 'CUSA14210',
+        type: 'PS4game',
+        status: 'Menus',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1533,
+        title: 'Disney+',
+        code: 'CUSA15607',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1532,
+        title: 'DAZN',
+        code: 'CUSA09505',
+        type: 'PS4game',
+        status: 'Nothing',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1531,
+        title: 'DanMachi BATTLE CHRONICLE',
+        code: 'CUSA46310',
+        type: 'PS4game',
+        status: 'Boots',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1530,
+        title: 'Danganronpa 1.2 RELOAD',
+        code: 'CUSA06808',
+        type: 'PS4game',
+        status: 'Ingame',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1529,
+        title: 'Crunchyroll',
+        code: 'CUSA00095',
+        type: 'PS4game',
+        status: 'Nothing',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1528,
+        title: 'Crow: The Legend',
+        code: 'CUSA14043',
+        type: 'PS4game',
+        status: 'Nothing',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1526,
+        title: 'CODE VEIN',
+        code: 'CUSA10410',
+        type: 'PS4game',
+        status: 'Menus',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
+    {
+        id: 1525,
+        title: 'Clicker Heroes',
+        code: 'CUSA05209',
+        type: 'PS4game',
+        status: 'Ingame',
+        os: 'Linux',
+        version: '0.12.5',
+        updatedDate: '25/11/2025',
+        region: 'USA',
+        image: true,
+    },
 ];
 
-export {compatColor, SAMPLE_GAMES};
+export {statusStyles, SAMPLE_GAMES, type Game, type GameStatus, StatusBadge, OsBadge, RegionBadge};

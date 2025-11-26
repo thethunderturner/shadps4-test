@@ -1,6 +1,6 @@
 import React, {useState, useMemo} from 'react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
-import defaultImage from '../../assets/images/default-hero-image.jpg'
+import defaultImage from '../../assets/images/default-hero-image.jpg';
 
 export default function BlogPage({posts}) {
     const [selectedTag, setSelectedTag] = useState('all');
@@ -69,11 +69,15 @@ export default function BlogPage({posts}) {
                             </div>
 
                             <div className="flex flex-wrap gap-2">
-                                {post.data.tags && post.data.tags.map(tag => (
-                                    <span key={tag.id} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
-                                        {tag}
-                                    </span>
-                                ))}
+                                {post.data.tags &&
+                                    post.data.tags.map(tag => (
+                                        <span
+                                            key={tag.id}
+                                            className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
                             </div>
                         </div>
 
