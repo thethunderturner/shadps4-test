@@ -53,7 +53,7 @@ export default function BlogPage({posts}) {
                     <article key={post.slug} className="animate-in fade-in flex max-w-xl flex-col items-start justify-between duration-500">
                         <a className="w-full overflow-hidden rounded-lg bg-gray-800" href={post.url}>
                             <img
-                                src={post.data.image?.src ?? defaultImage.src}
+                                src={post.data.heroImage?.src ?? defaultImage.src}
                                 alt={post.data.title}
                                 className="aspect-video w-full object-cover transition duration-300 ease-in-out hover:scale-105"
                             />
@@ -69,7 +69,7 @@ export default function BlogPage({posts}) {
                             </div>
 
                             <div className="flex flex-wrap gap-2">
-                                {post.data.tags.map(tag => (
+                                {post.data.tags && post.data.tags.map(tag => (
                                     <span key={tag} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
                                         {tag}
                                     </span>

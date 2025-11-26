@@ -14,7 +14,7 @@ const recentPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() -
             <article class="flex max-w-xl flex-col items-start justify-between">
                 <a class="overflow-hidden rounded-lg w-full" href={`/shadps4-test/blog/${post.slug}`}>
                     <Image
-                        src={post.data.image ?? defaultImage}
+                        src={post.data.heroImage ?? defaultImage}
                         alt={post.data.title}
                         class="aspect-video w-full object-cover hover:scale-105 ease-in-out transition duration-300"
                     />
@@ -30,7 +30,7 @@ const recentPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() -
                     </div>
 
                     <div class="flex gap-2">
-                        {post.data.tags.map(tag => (
+                        {post.data.tags && post.data.tags.map(tag => (
                             <span class="rounded-full border-border border bg-compat-card px-2 py-0.5 text-xs font-medium text-gray-500">{tag}</span>
                         ))}
                     </div>
