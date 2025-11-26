@@ -1,5 +1,6 @@
 import React, {useState, useMemo} from 'react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
+import defaultImage from '../../assets/images/default-hero-image.jpg'
 
 export default function BlogPage({posts}) {
     const [selectedTag, setSelectedTag] = useState('all');
@@ -51,13 +52,11 @@ export default function BlogPage({posts}) {
                 {filteredPosts.map(post => (
                     <article key={post.slug} className="animate-in fade-in flex max-w-xl flex-col items-start justify-between duration-500">
                         <a className="w-full overflow-hidden rounded-lg bg-gray-800" href={post.url}>
-                            {post.data.image && (
-                                <img
-                                    src={post.data.image.src}
-                                    alt={post.data.title}
-                                    className="aspect-video w-full object-cover transition duration-300 ease-in-out hover:scale-105"
-                                />
-                            )}
+                            <img
+                                src={post.data.image?.src ?? defaultImage.src}
+                                alt={post.data.title}
+                                className="aspect-video w-full object-cover transition duration-300 ease-in-out hover:scale-105"
+                            />
                         </a>
 
                         <div className="flex items-center gap-x-4 pt-4 text-xs">
