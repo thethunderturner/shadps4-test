@@ -132,7 +132,7 @@ export default function CompatibilityTable() {
                     <tbody className="divide-y divide-zinc-200 dark:divide-zinc-900">
                         {table.getRowModel().rows.length === 0 ? (
                             <tr>
-                                <td colSpan={columns.length} className="text-text px-6 py-8 text-center">
+                                <td colSpan={columns.length} className="text-text px-6 py-8 text-center dark:bg-zinc-950">
                                     No games found matching your criteria.
                                 </td>
                             </tr>
