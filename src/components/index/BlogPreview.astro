@@ -1,11 +1,11 @@
 ---
 import {getCollection} from 'astro:content';
 import {Image} from 'astro:assets';
-
+import defaultImage from '../../assets/images/default-hero-image.jpg'
 const allPosts = await getCollection('blog');
 
 // sort by Date (top 3)
-const recentPosts = allPosts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()).slice(0, 3);
+const recentPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()).slice(0, 3);
 ---
 
 <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -14,7 +14,7 @@ const recentPosts = allPosts.sort((a, b) => new Date(b.data.date).valueOf() - ne
             <article class="flex max-w-xl flex-col items-start justify-between">
                 <a class="overflow-hidden rounded-lg w-full" href={`/shadps4-test/blog/${post.slug}`}>
                     <Image
-                        src={post.data.image}
+                        src={post.data.image ?? defaultImage}
                         alt={post.data.title}
                         class="aspect-video w-full object-cover hover:scale-105 ease-in-out transition duration-300"
                     />
@@ -22,7 +22,7 @@ const recentPosts = allPosts.sort((a, b) => new Date(b.data.date).valueOf() - ne
 
                 <div class="flex items-center gap-x-4 text-xs pt-4">
                     <div class="text-gray-400">
-                        {post.data.date.toLocaleDateString('en-US', {
+                        {post.data.pubDate.toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'short',
                             day: 'numeric',
