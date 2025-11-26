@@ -70,7 +70,7 @@ export default function BlogPage({posts}) {
 
                             <div className="flex flex-wrap gap-2">
                                 {post.data.tags && post.data.tags.map(tag => (
-                                    <span key={tag} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
+                                    <span key={tag.id} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
                                         {tag}
                                     </span>
                                 ))}
