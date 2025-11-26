@@ -6,7 +6,7 @@ import {getCollection} from 'astro:content';
 const posts = await getCollection('blog');
 
 // sort by date
-const sortedPosts = posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
 
 // helper url because im running on GH pages
 const BASE_URL = '/shadps4-test';
