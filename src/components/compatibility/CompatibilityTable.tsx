@@ -21,31 +21,38 @@ export default function CompatibilityTable() {
         () => [
             columnHelper.accessor('image', {
                 header: 'Cover',
+                size: 100,
                 cell: info => info.getValue(),
             }),
             columnHelper.accessor('code', {
                 header: 'Code',
+                size: 150,
             }),
             columnHelper.accessor('title', {
                 header: 'Title',
             }),
             columnHelper.accessor('region', {
                 header: 'Region',
+                size: 110,
                 cell: info => <RegionBadge region={info.getValue()} />,
             }),
             columnHelper.accessor('status', {
                 header: 'Status',
+                size: 130,
                 cell: info => <StatusBadge status={info.getValue()} />,
             }),
             columnHelper.accessor('version', {
                 header: 'Version',
+                size: 110,
             }),
             columnHelper.accessor('os', {
                 header: 'OS',
+                size: 110,
                 cell: info => <OsBadge os={info.getValue()} />,
             }),
             columnHelper.accessor('updatedDate', {
                 header: 'Last Updated',
+                size: 150,
             }),
         ],
         [],
@@ -73,6 +80,7 @@ export default function CompatibilityTable() {
 
     const pageIndex = table.getState().pagination.pageIndex;
     const pageCount = table.getPageCount();
+    const statuses = ['All', 'Playable', 'Ingame', 'Boots', 'Menus', 'Nothing'];
 
     return (
         <div>
@@ -86,18 +94,12 @@ export default function CompatibilityTable() {
                             table.getColumn('status')?.setFilterValue(val === 'All' ? '' : val);
                         }}
                     >
-                        <option value="All">All</option>
-                        <option value="Playable">Playable</option>
-                        <option value="Ingame">In-game</option>
-                        <option value="Boots">Boots</option>
-                        <option value="Menus">Menus</option>
-                        <option value="Nothing">Nothing</option>
+                        {statuses.map(status => (
+                            <option key={status} value={status}>
+                                {status}
+                            </option>
+                        ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                        <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                        </svg>
-                    </div>
                 </div>
 
                 {/* search filter */}
@@ -112,20 +114,27 @@ export default function CompatibilityTable() {
                 </div>
             </div>
 
-            {/* --- Table --- */}
+            {/* Table */}
             <div className="border-border overflow-x-auto rounded-lg border-2">
-                <table className="w-full border-collapse text-left">
+                <table className="w-full table-fixed border-collapse text-left">
                     <thead className="bg-header">
                         {table.getHeaderGroups().map(headerGroup => (
                             <tr key={headerGroup.id}>
-                                {headerGroup.headers.map(header => (
-                                    <th
-                                        key={header.id}
-                                        className="border-b border-zinc-200 px-6 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase dark:border-zinc-900"
-                                    >
-                                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                                    </th>
-                                ))}
+                                {headerGroup.headers.map(header => {
+                                    // Make the title column have auto width
+                                    const isTitle = header.column.id === 'title';
+                                    const widthStyle = isTitle ? 'auto' : `${header.getSize()}px`;
+
+                                    return (
+                                        <th
+                                            key={header.id}
+                                            style={{width: widthStyle}}
+                                            className="border-b border-zinc-200 px-6 py-3 text-xs font-medium tracking-wider text-gray-500 uppercase dark:border-zinc-900"
+                                        >
+                                            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                                        </th>
+                                    );
+                                })}
                             </tr>
                         ))}
                     </thead>
@@ -140,7 +149,7 @@ export default function CompatibilityTable() {
                             table.getRowModel().rows.map(row => (
                                 <tr key={row.id} className="text-text dark:bg-zinc-950 dark:hover:bg-zinc-900">
                                     {row.getVisibleCells().map(cell => (
-                                        <td key={cell.id} className="px-6 py-4 text-sm whitespace-nowrap">
+                                        <td key={cell.id} className="overflow-hidden px-6 py-4 text-sm text-ellipsis whitespace-nowrap">
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </td>
                                     ))}
