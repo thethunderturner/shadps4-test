@@ -3,7 +3,6 @@ import React from 'react';
 
 interface Post {
     slug: string;
-    url: string;
     data: {
         title: string;
         description: string;
@@ -13,11 +12,12 @@ interface Post {
         tags?: string[];
     };
 }
+const BASE_URL = '/shadps4-test';
 
 export default function Post({post}: {post: Post}) {
     return (
         <article key={post.slug} className="flex max-w-xl flex-col items-start justify-between">
-            <a className="w-full overflow-hidden rounded-lg" href={post.url}>
+            <a className="w-full overflow-hidden rounded-lg" href={`${BASE_URL}/blog/${post.slug}`}>
                 <img
                     src={post.data.heroImage?.src ?? defaultImage.src}
                     alt={post.data.title}
@@ -50,7 +50,7 @@ export default function Post({post}: {post: Post}) {
 
             <div className="group relative grow">
                 <h3 className="mt-3 text-lg/6 font-semibold text-white">
-                    <a href={post.url}>{post.data.title}</a>
+                    <a href={`${BASE_URL}/blog/${post.slug}`}>{post.data.title}</a>
                 </h3>
                 <p className="mt-5 line-clamp-3 text-sm/6 text-gray-400">{post.data.description}</p>
             </div>

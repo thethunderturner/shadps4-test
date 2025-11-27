@@ -3,7 +3,7 @@ import {MdKeyboardArrowDown} from 'react-icons/md';
 import type {CollectionEntry} from 'astro:content';
 import Post from './Post.tsx';
 
-type BlogPost = CollectionEntry<'blog'> & {url: string};
+type BlogPost = CollectionEntry<'blog'>;
 interface BlogPageProps {
     posts: BlogPost[];
 }

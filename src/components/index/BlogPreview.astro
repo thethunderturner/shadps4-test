@@ -5,16 +5,11 @@ import Post from '../../components/blog/Post.tsx';
 
 // sort by Date (top 3)
 const recentPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()).slice(0, 3);
-
-// helper url because im running on GH pages
-const BASE_URL = '/shadps4-test';
-// keep routing logic in Astro and the react component generic. Precompute the url in the component and pass it down.
-const processedPosts = recentPosts.map(post => ({...post, url: `${BASE_URL}/blog/${post.slug}`}));
 ---
 
 <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
     {
-        processedPosts.map(post => (
+        recentPosts.map(post => (
             <Post post={post} />
         ))
     }
