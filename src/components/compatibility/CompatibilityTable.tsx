@@ -1,5 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {SAMPLE_GAMES, type Game, StatusBadge, OsBadge, RegionBadge} from './utils.tsx';
+import {MdKeyboardArrowDown} from 'react-icons/md';
 
 import {
     useReactTable,
@@ -86,7 +87,7 @@ export default function CompatibilityTable() {
         <div>
             <div className="mb-3 flex flex-col items-center justify-between gap-4 sm:flex-row">
                 {/* status Filter */}
-                <div className="relative w-full md:w-48">
+                <div className="relative w-48">
                     <select
                         className="bg-header border-border w-full cursor-pointer appearance-none rounded-lg border-2 px-4 py-2 text-sm text-white outline-none"
                         onChange={e => {
@@ -100,6 +101,10 @@ export default function CompatibilityTable() {
                             </option>
                         ))}
                     </select>
+
+                    <div className="text-text pointer-events-none absolute inset-y-0 right-0 flex items-center justify-end pr-4">
+                        <MdKeyboardArrowDown />
+                    </div>
                 </div>
 
                 {/* search filter */}
