@@ -1,20 +1,26 @@
 import React, {useState, useMemo} from 'react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
 import defaultImage from '../../assets/images/default-hero-image.jpg';
+import type { CollectionEntry } from 'astro:content';
 
-export default function BlogPage({posts}) {
+type BlogPost = CollectionEntry<'blog'> & { url: string };
+interface BlogPageProps {
+    posts: BlogPost[];
+}
+
+export default function BlogPage({posts}: BlogPageProps) {
     const [selectedTag, setSelectedTag] = useState('all');
 
     // extract unique tags (memoized for performance)
     const allTags = useMemo(() => {
-        const tags = posts.flatMap(post => post.data.tags);
+        const tags = posts.flatMap(post => post.data.tags || []);
         return [...new Set(tags)].sort();
     }, [posts]);
 
     // filter Posts based on selection
     const filteredPosts = useMemo(() => {
         if (selectedTag === 'all') return posts;
-        return posts.filter(post => post.data.tags.includes(selectedTag));
+        return posts.filter(post => post.data.tags?.includes(selectedTag));
     }, [posts, selectedTag]);
 
     return (
@@ -72,7 +78,7 @@ export default function BlogPage({posts}) {
                                 {post.data.tags &&
                                     post.data.tags.map(tag => (
                                         <span
-                                            key={tag.id}
+                                            key={tag}
                                             className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500"
                                         >
                                             {tag}
