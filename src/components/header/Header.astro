@@ -2,25 +2,7 @@
 import AboutPopover from './AboutPopover.astro';
 import GalleryPopover from './GalleryPopover.astro';
 import ThemeIcon from './ThemeIcon.astro';
-import type {IconType} from 'react-icons';
-
-interface PageItem {
-    name: string;
-    href: string;
-}
-
-interface ExternalItem {
-    name: string;
-    href: string;
-    icon: IconType;
-}
-
-interface Props {
-    pages: PageItem[];
-    external: ExternalItem[];
-}
-
-const {pages, external} = Astro.props;
+import {pages, external} from '../../layouts/navigation.ts'
 ---
 
 <header class="sticky top-0 z-50">
