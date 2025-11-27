@@ -1,7 +1,7 @@
 import React, {useState, useMemo} from 'react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
-import defaultImage from '../../assets/images/default-hero-image.jpg';
 import type {CollectionEntry} from 'astro:content';
+import Post from './Post.tsx';
 
 type BlogPost = CollectionEntry<'blog'> & {url: string};
 interface BlogPageProps {
@@ -81,48 +81,7 @@ export default function BlogPage({posts}: BlogPageProps) {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredPosts.map(post => (
-                    <article key={post.slug} className="flex max-w-xl flex-col items-start justify-between">
-                        <a className="w-full overflow-hidden rounded-lg" href={post.url}>
-                            <img
-                                src={post.data.heroImage?.src ?? defaultImage.src}
-                                alt={post.data.title}
-                                className="aspect-video w-full object-cover transition duration-300 ease-in-out hover:scale-105"
-                            />
-                        </a>
-
-                        <div className="flex w-full justify-between pt-4 text-xs">
-                            <div className="text-gray-400">
-                                {new Date(post.data.pubDate).toLocaleDateString('en-US', {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric',
-                                })}
-                            </div>
-
-                            <div className="flex items-center gap-x-4">
-                                {post.data.category && <span className="font-medium text-blue-400/90">{post.data.category}</span>}
-
-                                <div className="flex flex-wrap gap-2">
-                                    {post.data.tags &&
-                                        post.data.tags.map(tag => (
-                                            <span
-                                                key={tag}
-                                                className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500"
-                                            >
-                                                {tag}
-                                            </span>
-                                        ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="group relative grow">
-                            <h3 className="mt-3 text-lg/6 font-semibold text-white">
-                                <a href={post.url}>{post.data.title}</a>
-                            </h3>
-                            <p className="mt-5 line-clamp-3 text-sm/6 text-gray-400">{post.data.description}</p>
-                        </div>
-                    </article>
+                    <Post post={post} />
                 ))}
             </div>
         </div>

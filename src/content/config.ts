@@ -1,15 +1,20 @@
 import {defineCollection, z} from 'astro:content';
+import {CATEGORIES} from '../data/categories.ts';
 
 const blogCollection = defineCollection({
     type: 'content',
     schema: ({image}) =>
         z.object({
-            title: z.string(),
+            title: z.string().max(80),
             description: z.string(),
-            pubDate: z.coerce.date(),
-            tags: z.array(z.string()).optional(),
+            pubDate: z
+                .string()
+                .or(z.date())
+                .transform((val) => new Date(val)),
+            tags: z.optional(z.array(z.string())),
             heroImage: image().optional(),
-            category: z.string().optional(),
+            draft: z.boolean().default(false),
+            category: z.enum(CATEGORIES)
         }),
 });
 
