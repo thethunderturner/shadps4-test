@@ -32,20 +32,30 @@ const {title, frontmatter, headings} = Astro.props;
 
                     <div class="mt-16 grid grid-cols-1 gap-8 pb-24 lg:grid-cols-[15rem_1fr] xl:grid-cols-[15rem_1fr_15rem]">
                         <aside class="flex flex-col gap-8 lg:sticky lg:top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto">
-                            <div>
-                                <h3 class="text-sm font-semibold text-gray-200 mb-4">Tags</h3>
-                                <div class="flex flex-wrap gap-2">
-                                    {
-                                        frontmatter.tags &&
-                                            frontmatter.tags.map(tag => (
+                            {
+                                frontmatter.tags && (
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-gray-200 mb-4">Tags</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                            {frontmatter.tags.map(tag => (
                                                 <div class="rounded-full border-border border bg-compat-card px-2 text-sm/6 font-medium text-gray-500">
                                                     {tag}
                                                 </div>
-                                            ))
-                                    }
-                                </div>
-                            </div>
-
+                                            ))}
+                                        </div>
+                                    </div>
+                                )
+                            }
+                            {
+                                frontmatter.category && (
+                                    <div>
+                                        <h3 class="text-sm font-semibold text-gray-200 mb-4">Category</h3>
+                                        <div class="font-medium text-blue-400/90">
+                                            {frontmatter.category}
+                                        </div>
+                                    </div>
+                                )
+                            }
                             {
                                 headings && headings.length > 0 && (
                                     <div class="hidden lg:block">
