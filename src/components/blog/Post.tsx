@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Post {
+export interface Post {
     slug: string;
     optimizedImageSrc: string;
     data: {
@@ -14,7 +14,7 @@ interface Post {
 }
 const BASE_URL = '/shadps4-test';
 
-export default function Post({post}: {post: Post}) {
+export default function PostCard({post}: {post: Post}) {
     return (
         <article key={post.slug} className="flex max-w-xl flex-col items-start justify-between">
             <a className="w-full overflow-hidden rounded-lg" href={`${BASE_URL}/blog/${post.slug}`}>

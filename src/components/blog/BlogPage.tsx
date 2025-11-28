@@ -1,14 +1,9 @@
 import React, {useState, useMemo} from 'react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
-import type {CollectionEntry} from 'astro:content';
-import Post from './Post.tsx';
+import type {Post} from './Post.tsx';
+import PostCard from './Post.tsx';
 
-type BlogPost = CollectionEntry<'blog'>;
-interface BlogPageProps {
-    posts: BlogPost[];
-}
-
-export default function BlogPage({posts}: BlogPageProps) {
+export default function BlogPage(posts:Post[]) {
     const [filterValue, setFilterValue] = useState('all');
 
     const categories = useMemo(() => {
@@ -81,7 +76,7 @@ export default function BlogPage({posts}: BlogPageProps) {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {filteredPosts.map(post => (
-                    <Post post={post} />
+                    <PostCard post={post} />
                 ))}
             </div>
         </div>
