@@ -5,9 +5,8 @@ import ThemeIcon from './ThemeIcon.astro';
 import {pages, external} from '../../layouts/navigation.ts';
 ---
 
-<header class="sticky top-0 z-50">
-    <nav class="flex h-16 w-full items-center justify-between border-b border-border bg-header px-[15%]">
-        <!-- Menu -->
+<header class="sticky top-0 z-50 w-full border-b border-border bg-header">
+    <nav class="mx-auto flex h-16 w-full max-w-[1850px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <div class="hidden flex-row gap-x-4 lg:flex">
             {
                 pages.map(item => (
@@ -19,19 +18,17 @@ import {pages, external} from '../../layouts/navigation.ts';
             <GalleryPopover />
             <AboutPopover />
         </div>
-
-        <!-- Tags -->
-        <div class="hidden flex-row justify-evenly gap-x-4 lg:flex">
-            <div class="flex flex-row gap-x-4 justify-center items-center">
+        <div class="hidden flex-row items-center gap-x-2 lg:flex">
+            <div class="flex flex-row gap-x-2">
                 {
                     external.map(item => (
-                        <a aria-label={item.name} href={item.href} class="text-sm/6 font-semibold text-text">
-                            <item.icon className="size-7" />
+                        <a aria-label={item.name} href={item.href} class="text-text transition hover:text-white">
+                            <item.icon className="size-6" />
                         </a>
                     ))
                 }
             </div>
-            <div class="h-10 mx-auto w-1 dark:bg-gray-100 bg-gray-700 rounded-sm"></div>
+            <div class="h-6 w-px bg-gray-700 dark:bg-gray-600"></div>
             <ThemeIcon />
         </div>
 

@@ -7,7 +7,6 @@ const {title} = Astro.props;
 
 <!doctype html>
 <html lang="en">
-    <!--Thank you for looking at the source code!-->
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -15,10 +14,12 @@ const {title} = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="bg-root min-h-screen flex flex-col">
+    <body class="flex min-h-screen flex-col bg-root">
         <Header />
-        <main class="flex-1 px-[15%] flex flex-col gap-y-8 pt-8">
-            <h2 class="text-2xl/7 font-bold text-white sm:truncate sm:text-3xl sm:tracking-tight">{title}</h2>
+        <main class="mx-auto flex w-full max-w-[1850px] flex-1 flex-col gap-y-8 px-4 pt-8 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-white sm:truncate sm:text-3xl sm:tracking-tight">
+                {title}
+            </h2>
             <slot />
         </main>
         <Footer />
