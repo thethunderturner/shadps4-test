@@ -1,9 +1,9 @@
 import React, {useState, useMemo} from 'react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
-import type {Post} from './Post.tsx';
-import PostCard from './Post.tsx';
+import type {Post} from './PostCard.tsx';
+import PostCard from './PostCard.tsx';
 
-export default function BlogPage(posts:Post[]) {
+export default function BlogPage({posts}: {posts: Post[]}) {
     const [filterValue, setFilterValue] = useState('all');
 
     const categories = useMemo(() => {
