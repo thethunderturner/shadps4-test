@@ -2,13 +2,29 @@
 import Layout from '../layouts/Layout.astro';
 import BlogPage from '../components/blog/BlogPage.tsx';
 import {getCollection} from 'astro:content';
+import { getImage } from 'astro:assets';
+import defaultImage from '../assets/images/default-hero-image.jpg';
 
 const posts = await getCollection('blog');
 
 // sort by date
 const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+const postsWithImages = await Promise.all(sortedPosts.map(async (post) => {
+    const optimized = await getImage({
+        src: post.data.heroImage ?? defaultImage,
+        width: 720,
+        height: 405,
+        format: 'webp'
+    });
+
+    return {
+        ...post,
+        optimizedImageSrc: optimized.src,
+        url: `/blog/${post.slug}`
+    };
+}));
 ---
 
 <Layout title="Blog">
-    <BlogPage client:load posts={sortedPosts} />
+    <BlogPage client:load posts={postsWithImages} />
 </Layout>

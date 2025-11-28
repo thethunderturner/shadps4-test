@@ -2,11 +2,27 @@
 import {getCollection} from 'astro:content';
 const allPosts = await getCollection('blog');
 import Post from '../../components/blog/Post.tsx';
+import {getImage} from 'astro:assets';
+import defaultImage from '../../assets/images/default-hero-image.jpg';
 
 // sort by Date (top 3)
 const recentPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()).slice(0, 3);
+const postsWithImages = await Promise.all(recentPosts.map(async (post) => {
+    const optimized = await getImage({
+        src: post.data.heroImage ?? defaultImage,
+        width: 720,
+        height: 405,
+        format: 'webp'
+    });
+
+    return {
+        ...post,
+        optimizedImageSrc: optimized.src,
+        url: `/blog/${post.slug}`
+    };
+}));
 ---
 
 <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-    {recentPosts.map(post => <Post post={post} />)}
+    {postsWithImages.map(post => <Post post={post} />)}
 </div>

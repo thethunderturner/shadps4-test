@@ -1,8 +1,8 @@
-import defaultImage from '../../assets/images/default-hero-image.jpg';
 import React from 'react';
 
 interface Post {
     slug: string;
+    optimizedImageSrc: string;
     data: {
         title: string;
         description: string;
@@ -19,7 +19,7 @@ export default function Post({post}: {post: Post}) {
         <article key={post.slug} className="flex max-w-xl flex-col items-start justify-between">
             <a className="w-full overflow-hidden rounded-lg" href={`${BASE_URL}/blog/${post.slug}`}>
                 <img
-                    src={post.data.heroImage?.src ?? defaultImage.src}
+                    src={post.optimizedImageSrc}
                     alt={post.data.title}
                     className="aspect-video w-full object-cover transition duration-300 ease-in-out hover:scale-105"
                 />
