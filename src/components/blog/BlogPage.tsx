@@ -95,7 +95,7 @@ export default function BlogPage({posts}: {posts: Post[]}) {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {paginatedPosts.map((post, index) => (
-                    <PostCard key={post.slug} post={post} priority={index < 4}/>
+                    <PostCard key={post.slug} post={post} priority={index < 4} />
                 ))}
             </div>
 

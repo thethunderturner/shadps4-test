@@ -77,9 +77,9 @@ export default function CompatibilityTable() {
         getFilteredRowModel: getFilteredRowModel(),
         onGlobalFilterChange: setGlobalFilter,
         onColumnFiltersChange: setColumnFilters,
-        getColumnCanGlobalFilter: (column) => {
+        getColumnCanGlobalFilter: column => {
             return column.id === 'title' || column.id === 'code';
-        }
+        },
     });
 
     const pageIndex = table.getState().pagination.pageIndex;

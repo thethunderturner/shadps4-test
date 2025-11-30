@@ -1,9 +1,9 @@
 ---
-import {statusStyles} from './utils.tsx';
+import {statusStyles, type OS} from './utils.tsx';
 const {name, osStart} = Astro.props;
 
 interface Props {
-    osStart: {tag: string; count: number; percent: number; total: number}[];
+    osStart: OS[];
     name: string;
 }
 ---
@@ -35,7 +35,7 @@ interface Props {
 
                         {/* Accessible progress bar */}
                         <div
-                            class="h-3 w-full overflow-hidden rounded-full bg-gray-200/70 dark:bg-white/10"
+                            class="h-3 w-full overflow-hidden rounded bg-gray-200/70 dark:bg-white/10"
                             role="progressbar"
                             aria-label={`${tag} games`}
                             aria-valuemin={0}
@@ -43,7 +43,7 @@ interface Props {
                             aria-valuemax={100}
                             title={`${count} games (${percent.toFixed(2)}%)`}
                         >
-                            <div class={`h-full ${barColor} rounded-full`} style={{width: `${widthPct}%`}} />
+                            <div class={`h-full ${barColor} rounded`} style={{width: `${widthPct}%`}} />
                         </div>
                     </div>
                 );

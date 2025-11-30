@@ -20,6 +20,13 @@ type Game = {
     image: any;
 };
 
+type OS = {
+    tag: GameStatus;
+    percent: number;
+    count: number;
+    total: number;
+};
+
 type GameStatus = 'Nothing' | 'Boots' | 'Menus' | 'Ingame' | 'Playable';
 type GameRegion = 'USA' | 'Europe' | 'Japan' | 'Asia' | 'Unknown';
 type GameOs = 'Windows' | 'Linux' | 'macOS';
@@ -61,6 +68,103 @@ function OsBadge({os}: {os: GameOs}) {
             return <img src={macOS.src} alt="macOS Logo" className="size-8" />;
     }
 }
+
+const startWin: OS[] = [
+    {
+        tag: 'Nothing',
+        percent: 29.6,
+        count: 185,
+        total: 625,
+    },
+    {
+        tag: 'Boots',
+        percent: 19.52,
+        count: 122,
+        total: 625,
+    },
+    {
+        tag: 'Menus',
+        percent: 15.52,
+        count: 97,
+        total: 625,
+    },
+    {
+        tag: 'Ingame',
+        percent: 22.88,
+        count: 143,
+        total: 625,
+    },
+    {
+        tag: 'Playable',
+        percent: 12.48,
+        count: 78,
+        total: 625,
+    },
+];
+const startLinux: OS[] = [
+    {
+        tag: 'Nothing',
+        percent: 32.49,
+        count: 167,
+        total: 514,
+    },
+    {
+        tag: 'Boots',
+        percent: 23.74,
+        count: 122,
+        total: 514,
+    },
+    {
+        tag: 'Menus',
+        percent: 12.84,
+        count: 66,
+        total: 514,
+    },
+    {
+        tag: 'Ingame',
+        percent: 19.26,
+        count: 99,
+        total: 514,
+    },
+    {
+        tag: 'Playable',
+        percent: 11.67,
+        count: 60,
+        total: 514,
+    },
+];
+const startMac: OS[] = [
+    {
+        tag: 'Nothing',
+        percent: 46.6,
+        count: 96,
+        total: 206,
+    },
+    {
+        tag: 'Boots',
+        percent: 22.82,
+        count: 47,
+        total: 206,
+    },
+    {
+        tag: 'Menus',
+        percent: 14.08,
+        count: 29,
+        total: 206,
+    },
+    {
+        tag: 'Ingame',
+        percent: 13.11,
+        count: 27,
+        total: 206,
+    },
+    {
+        tag: 'Playable',
+        percent: 3.4,
+        count: 7,
+        total: 206,
+    },
+];
 
 const SAMPLE_GAMES: Game[] = [
     {
@@ -785,4 +889,4 @@ const SAMPLE_GAMES: Game[] = [
     },
 ];
 
-export {statusStyles, SAMPLE_GAMES, type Game, type GameStatus, StatusBadge, OsBadge, RegionBadge};
+export {statusStyles, SAMPLE_GAMES, type Game, StatusBadge, OsBadge, RegionBadge, startWin, startMac, startLinux, type OS};
