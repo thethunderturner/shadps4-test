@@ -1,11 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Welcome from '../../components/Welcome.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import {Image} from 'astro:assets';
+const imageFiles = import.meta.glob<{default: ImageMetadata}>('/src/assets/images/gallery/*.{jpeg,jpg,png,gif}', {
+    eager: true,
+});
+const galleryImages = Object.values(imageFiles).map(file => file.default);
 ---
 
 <Layout title="Photos">
-    <Welcome />
+    <p class="text-left dark:text-gray-400 text-black">
+        A collection of snapshots ({galleryImages.length} images)
+    </p>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {
+            galleryImages.map(image => (
+                <div class="break-inside-avoid overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+                    <Image src={image} alt={image.src} width={600} quality={80} loading="eager" class="h-auto w-full object-cover aspect-video" />
+                </div>
+            ))
+        }
+    </div>
+
+    {galleryImages.length === 0 && <div class="text-center py-20 dark:text-gray-400 text-black">No images found :(</div>}
 </Layout>
