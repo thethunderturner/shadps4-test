@@ -6,30 +6,7 @@ import XxFlag from '../../assets/images/region/xx.svg';
 import Windows from '../../assets/images/os/Windows.png';
 import Linux from '../../assets/images/os/Linux.png';
 import macOS from '../../assets/images/os/MacOS.png';
-
-type Game = {
-    id: number;
-    title: string;
-    code: string;
-    type: string;
-    status: GameStatus;
-    os: GameOs;
-    version: string;
-    updatedDate: string;
-    region: GameRegion;
-    image: boolean;
-};
-
-type OS = {
-    tag: GameStatus;
-    percent: number;
-    count: number;
-    total: number;
-};
-
-type GameStatus = 'Nothing' | 'Boots' | 'Menus' | 'Ingame' | 'Playable';
-type GameRegion = 'USA' | 'Europe' | 'Japan' | 'Asia' | 'Unknown';
-type GameOs = 'Windows' | 'Linux' | 'macOS';
+import type {Game, OS, GameRegion, GameStatus, GameOs} from '../../data/types';
 
 const statusStyles: Record<GameStatus, string> = {
     Nothing: 'bg-status-nothing text-text-nothing',

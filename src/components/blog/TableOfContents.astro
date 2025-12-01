@@ -1,20 +1,10 @@
 ---
 import TOCHeading from './TOCHeading.astro';
-
-export interface Heading {
-    depth: number;
-    slug: string;
-    text: string;
-    subheadings: Heading[];
-}
-
-interface Props {
-    headings: {depth: number; slug: string; text: string}[];
-}
+import type {Heading} from '../../data/types.ts';
 
 const {headings} = Astro.props;
 
-function buildToc(headings: Props['headings']) {
+function buildToc(headings: Heading[] = []) {
     const toc: Heading[] = [];
     const parentHeadings = new Map<number, Heading>();
 

@@ -1,17 +1,5 @@
 import React from 'react';
-
-export interface Post {
-    slug: string;
-    optimizedImageSrc: string;
-    data: {
-        title: string;
-        description: string;
-        pubDate: Date;
-        heroImage?: {src: string};
-        category?: string;
-        tags?: string[];
-    };
-}
+import type {Post} from '../../data/types.ts';
 const BASE_URL = '/shadps4-test';
 
 export default function PostCard({post, priority = false}: {post: Post; priority?: boolean}) {
