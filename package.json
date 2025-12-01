@@ -8,7 +8,8 @@
         "preview": "astro preview",
         "astro": "astro",
         "prettier": "npx prettier --write ./src",
-        "tslint": "tsc --noEmit"
+        "tslint": "tsc --noEmit",
+        "lint": "npm run prettier && npm run tslint"
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.10",
