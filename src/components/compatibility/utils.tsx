@@ -17,7 +17,7 @@ type Game = {
     version: string;
     updatedDate: string;
     region: GameRegion;
-    image: any;
+    image: boolean;
 };
 
 type OS = {
