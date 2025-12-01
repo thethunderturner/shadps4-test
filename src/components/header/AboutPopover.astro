@@ -3,35 +3,35 @@ import {MdKeyboardArrowDown} from 'react-icons/md';
 import {about} from '../../data/navigation.ts';
 ---
 
-<div class="relative">
-    <button
-        popovertarget="about-popover"
-        class="inline-flex items-center [anchor-name:--about]"
-        id="popover-button-0"
-        type="button"
-        aria-haspopup="true"
-        aria-controls="about-popover"
-        aria-expanded="false"
-    >
+<details class="relative inline-block group">
+    <summary class="flex cursor-pointer list-none items-center" aria-haspopup="true">
         <span class="text-base/6 font-semibold text-text">About</span>
-        <MdKeyboardArrowDown className=" text-text size-5" />
-    </button>
+        <MdKeyboardArrowDown
+            className="ml-1 text-text size-5 transition-transform group-open:rotate-180"
+            aria-hidden="true"
+            focusable="false"
+            role="presentation"
+        />
+    </summary>
 
-    <el-popover
-        id="about-popover"
-        anchor="bottom"
-        popover=""
-        aria-labelledby="about-btn"
-        class="border-border bg-header z-50 w-screen max-w-54 overflow-hidden rounded-lg border shadow-xl [position-anchor:--about] [top:anchor(bottom)] [left:anchor(left)] mt-3"
-    >
+    <style>
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+
+    <div class="absolute left-0 mt-3 z-50 w-screen max-w-54 overflow-hidden rounded-lg border border-border bg-header shadow-xl" role="menu">
         <div class="flex flex-col p-2">
             {
                 about.map(item => (
-                    <a href={item.href}>
+                    <a href={item.href} role="menuitem" aria-label={item.name}>
                         <span class="block p-2 font-semibold text-text">{item.name}</span>
                     </a>
                 ))
             }
         </div>
-    </el-popover>
-</div>
+    </div>
+</details>

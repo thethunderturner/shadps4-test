@@ -15,7 +15,7 @@ const galleryImages = Object.values(imageFiles).map(file => file.default);
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {
             galleryImages.map(image => (
-                <div class="break-inside-avoid overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+                <div class="break-inside-avoid overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
                     <Image src={image} alt={image.src} width={600} quality={80} loading="eager" class="h-auto w-full object-cover aspect-video" />
                 </div>
             ))
