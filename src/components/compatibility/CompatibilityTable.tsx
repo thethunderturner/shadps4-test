@@ -31,6 +31,7 @@ export default function CompatibilityTable() {
             }),
             columnHelper.accessor('title', {
                 header: 'Title',
+                size: 300,
             }),
             columnHelper.accessor('region', {
                 header: 'Region',
@@ -124,12 +125,11 @@ export default function CompatibilityTable() {
 
             {/* Table */}
             <div className="border-border overflow-x-auto rounded-lg border-2">
-                <table className="w-full table-fixed border-collapse text-left">
+                <table className="w-full table-fixed border-collapse text-left" style={{minWidth: table.getTotalSize()}}>
                     <thead className="bg-header">
                         {table.getHeaderGroups().map(headerGroup => (
                             <tr key={headerGroup.id}>
                                 {headerGroup.headers.map(header => {
-                                    // Make the title column have auto width
                                     const isTitle = header.column.id === 'title';
                                     const widthStyle = isTitle ? 'auto' : `${header.getSize()}px`;
 
