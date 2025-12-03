@@ -3,6 +3,7 @@ import AboutPopover from './AboutPopover.astro';
 import GalleryPopover from './GalleryPopover.astro';
 import ThemeIcon from './ThemeIcon.astro';
 import {pages, external} from '../../data/navigation.ts';
+import MobileSidebar from './MobileSidebar.tsx';
 ---
 
 <header class="sticky top-0 z-50 w-full border-b border-border bg-header">
@@ -33,6 +34,6 @@ import {pages, external} from '../../data/navigation.ts';
         </div>
 
         <!-- Mobile trigger -->
-        <div class="block size-7 bg-white lg:hidden"></div>
+        <MobileSidebar client:load />
     </nav>
 </header>

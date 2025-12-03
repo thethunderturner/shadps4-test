@@ -35,8 +35,7 @@ Inside your Astro project, you'll see the following folders and files:
 - The `public/` folder contains static assets like images and favicons.
 - The `src/` folder contains your project code.
     - The `assets/` folder contains your project assets like images.
-    - The `components/` folder contains your React and Astro components, which are usually small reusable pieces of
-      code.
+    - The `components/` folder contains your React and Astro components, which are usually small reusable pieces of code.
     - The `content/` folder contains your blog posts, which are written in Markdown and rendered to HTML.
     - The `pages/` folder contains your project pages, which are written in Astro components.
     - The `layouts/` folder contains your page layouts, which are used to wrap your pages.
