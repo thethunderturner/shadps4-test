@@ -1,9 +1,9 @@
-import {defineCollection, z} from 'astro:content';
-import {CATEGORIES} from '../data/categories.ts';
+import { defineCollection, z } from 'astro:content';
+import { CATEGORIES } from '../data/categories.ts';
 
 const blogCollection = defineCollection({
     type: 'content',
-    schema: ({image}) =>
+    schema: ({ image }) =>
         z.object({
             title: z.string().max(80),
             description: z.string(),
@@ -27,7 +27,17 @@ const aboutCollection = defineCollection({
         }),
 });
 
+const faqCollection = defineCollection({
+    type: 'content',
+    schema: () =>
+        z.object({
+            title: z.string(),
+            lastUpdated: z.date().optional(),
+        }),
+});
+
 export const collections = {
     blog: blogCollection,
-    about: aboutCollection
+    about: aboutCollection,
+    faq: faqCollection
 };

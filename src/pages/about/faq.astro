@@ -1,0 +1,29 @@
+---
+import FAQLayout from '../../layouts/FAQLayout.astro';
+import FAQItem from '../../components/about/FAQItem';
+import {getCollection} from 'astro:content';
+
+const faqs = await getCollection('faq');
+
+const renderedFaqs = await Promise.all(
+    faqs.map(async faq => {
+        const {Content} = await faq.render();
+        return {
+            ...faq,
+            Content,
+        };
+    }),
+);
+---
+
+<FAQLayout title="Frequently Asked Questions">
+    <div class="space-y-2">
+        {
+            renderedFaqs.map(faq => (
+                <FAQItem client:load title={faq.data.title}>
+                    <faq.Content />
+                </FAQItem>
+            ))
+        }
+    </div>
+</FAQLayout>

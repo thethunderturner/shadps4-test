@@ -4,7 +4,7 @@ const BASE_URL = '/shadps4-test';
 
 export default function PostCard({post, priority = false}: {post: Post; priority?: boolean}) {
     return (
-        <article key={post.slug} className="flex max-w-xl flex-col items-start justify-between mx-auto">
+        <article key={post.slug} className="mx-auto flex max-w-xl flex-col items-start justify-between">
             <a className="w-full overflow-hidden rounded-lg" href={`${BASE_URL}/blog/${post.slug}`}>
                 <img
                     src={post.optimizedImageSrc}

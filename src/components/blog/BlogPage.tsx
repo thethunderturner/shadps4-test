@@ -54,7 +54,7 @@ export default function BlogPage({posts}: {posts: Post[]}) {
     return (
         <div>
             <div className="mb-12 flex flex-col items-end justify-end gap-4 md:flex-row">
-                <div className="flex w-full flex-col gap-2 xs:45 sm:w-45 md:w-64">
+                <div className="xs:45 flex w-full flex-col gap-2 sm:w-45 md:w-64">
                     <label htmlFor="content-filter" className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
                         Filter Content
                     </label>
