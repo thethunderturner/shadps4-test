@@ -91,9 +91,9 @@ export default function CompatibilityTable() {
 
     return (
         <div>
-            <div className="mb-3 flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div className="mb-3 flex items-center justify-between gap-4 flex-row">
                 {/* status Filter */}
-                <div className="relative w-48">
+                <div className="relative w-60">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                         <FaFilter className="size-3.5" />
                     </div>
@@ -118,7 +118,7 @@ export default function CompatibilityTable() {
                 </div>
 
                 {/* search filter */}
-                <div className="text-text flex items-center space-y-4 md:flex-row md:space-y-0">
+                <div className="text-text flex items-center space-y-4 md:flex-row md:space-y-0 w-60">
                     <div className="relative w-full">
                         <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                             <IoIosSearch />
