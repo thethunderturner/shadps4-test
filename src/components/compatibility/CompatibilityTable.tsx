@@ -1,6 +1,8 @@
 import React, {useMemo, useState} from 'react';
 import {SAMPLE_GAMES, type Game, StatusBadge, OsBadge, RegionBadge} from './utils.tsx';
 import {MdKeyboardArrowDown} from 'react-icons/md';
+import {IoIosSearch} from 'react-icons/io';
+import {FaFilter} from 'react-icons/fa';
 
 import {
     useReactTable,
@@ -92,8 +94,12 @@ export default function CompatibilityTable() {
             <div className="mb-3 flex flex-col items-center justify-between gap-4 sm:flex-row">
                 {/* status Filter */}
                 <div className="relative w-48">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                        <FaFilter className="size-3.5" />
+                    </div>
+
                     <select
-                        className="bg-header border-border w-full cursor-pointer appearance-none rounded-lg border-2 px-4 py-2 text-sm text-white outline-none"
+                        className="bg-header border-border text-text w-full cursor-pointer appearance-none rounded-lg border-2 py-2 pr-8 pl-9 text-sm outline-none"
                         onChange={e => {
                             const val = e.target.value;
                             table.getColumn('status')?.setFilterValue(val === 'All' ? '' : val);
@@ -113,13 +119,19 @@ export default function CompatibilityTable() {
 
                 {/* search filter */}
                 <div className="text-text flex items-center space-y-4 md:flex-row md:space-y-0">
-                    <input
-                        type="text"
-                        value={globalFilter ?? ''}
-                        onChange={e => setGlobalFilter(e.target.value)}
-                        placeholder="Search games"
-                        className="bg-header border-border w-full cursor-pointer appearance-none rounded-lg border-2 px-4 py-2 text-sm outline-none"
-                    />
+                    <div className="relative w-full">
+                        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                            <IoIosSearch />
+                        </div>
+
+                        <input
+                            type="text"
+                            value={globalFilter ?? ''}
+                            onChange={e => setGlobalFilter(e.target.value)}
+                            placeholder="Search games"
+                            className="bg-header border-border w-full appearance-none rounded-lg border-2 py-2 pr-3 pl-9 text-sm outline-none"
+                        />
+                    </div>
                 </div>
             </div>
 
