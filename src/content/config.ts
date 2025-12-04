@@ -32,7 +32,7 @@ const faqCollection = defineCollection({
     schema: () =>
         z.object({
             title: z.string(),
-            lastUpdated: z.date().optional(),
+            sortKey: z.number().default(0)
         }),
 });
 
