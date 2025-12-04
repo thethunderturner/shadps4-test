@@ -18,6 +18,16 @@ const blogCollection = defineCollection({
         }),
 });
 
+const aboutCollection = defineCollection({
+    type: 'content',
+    schema: () =>
+        z.object({
+            title: z.string(),
+            lastUpdated: z.date().optional(),
+        }),
+});
+
 export const collections = {
     blog: blogCollection,
+    about: aboutCollection
 };
