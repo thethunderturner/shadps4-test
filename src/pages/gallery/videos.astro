@@ -1,8 +1,43 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Welcome from '../../components/Welcome.astro';
+const videoList = [];
+
+const apiUrl = new URL('https://www.googleapis.com/youtube/v3/search');
+apiUrl.searchParams.set('key', 'AIzaSyCtcnX4AVQTwXli0nwf2U64etiLBraUrzY');
+apiUrl.searchParams.set('channelId', 'UCsgl7t1YLlLlggy5escAKqQ');
+apiUrl.searchParams.set('part', 'snippet,id');
+apiUrl.searchParams.set('order', 'date');
+apiUrl.searchParams.set('type', 'video');
+apiUrl.searchParams.set('maxResults', '5');
+
+let nextPage = '';
+while (nextPage != null) {
+    apiUrl.searchParams.set('pageToken', nextPage);
+    const res = await (await fetch(apiUrl)).json();
+    videoList.push(...(res?.items || []));
+    nextPage = res.nextPageToken;
+}
 ---
 
 <Layout title="Videos">
-    <Welcome />
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
+        {
+            videoList?.map(info => (
+                <a target="_blank" rel="noopener noreferrer" href={`https://www.youtube.com/watch?v=${info.id.videoId}`}>
+                    <div class="border-2 border-border rounded-md hover:scale-105 transition aspect-video">
+                        <img
+                            loading="lazy"
+                            class="object-fill"
+                            srcset={Object.values(info.snippet.thumbnails)
+                                .map((e: any) => `${e.url} ${e.width}w`)
+                                .join(', ')}
+                        />
+                        <div class="p-4 font-bold text-start text-sm text-text">
+                            <span>{info.snippet.title}</span>
+                        </div>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
 </Layout>
