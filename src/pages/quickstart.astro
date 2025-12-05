@@ -1,8 +1,11 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
+import MarkdownLayout from '../layouts/MarkdownLayout.astro';
+
+const wiki = await getEntry('wiki', 'quickstart');
+const { Content, headings } = await render(wiki);
 ---
 
-<Layout title="Quickstart">
-    <Welcome />
-</Layout>
+<MarkdownLayout frontmatter={wiki.data} headings={headings}>
+    <Content />
+</MarkdownLayout>

@@ -1,6 +1,6 @@
 ---
 import {getCollection} from 'astro:content';
-import PostLayout from '../../layouts/PostLayout.astro';
+import MarkdownLayout from '../../layouts/MarkdownLayout.astro';
 import YoutubeEmbed from '../../components/mdx/YoutubeEmbed.astro';
 import Code from '../../components/mdx/Code.astro';
 import Blockquote from '../../components/mdx/Blockquote.astro';
@@ -17,6 +17,6 @@ const {entry} = Astro.props;
 const {Content, headings} = await entry.render();
 ---
 
-<PostLayout frontmatter={entry.data} headings={headings}>
+<MarkdownLayout frontmatter={entry.data} headings={headings}>
     <Content components={{pre: Code, Blockquote, YoutubeEmbed}} />
-</PostLayout>
+</MarkdownLayout>

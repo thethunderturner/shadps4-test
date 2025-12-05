@@ -23,7 +23,7 @@ const aboutCollection = defineCollection({
     schema: () =>
         z.object({
             title: z.string(),
-            lastUpdated: z.date().optional(),
+            pubDate: z.date().optional(), // last updated date
         }),
 });
 
@@ -36,8 +36,15 @@ const faqCollection = defineCollection({
         }),
 });
 
+const wikiCollection = defineCollection({
+    type: 'content',
+    schema: () =>
+        z.object({})
+})
+
 export const collections = {
     blog: blogCollection,
     about: aboutCollection,
-    faq: faqCollection
+    faq: faqCollection,
+    wiki: wikiCollection
 };
