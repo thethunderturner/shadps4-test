@@ -28,6 +28,7 @@ while (nextPage != null) {
                         <img
                             loading="lazy"
                             class="object-fill"
+                            alt={info.snippet.title}
                             srcset={Object.values(info.snippet.thumbnails)
                                 .map((e: any) => `${e.url} ${e.width}w`)
                                 .join(', ')}
