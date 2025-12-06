@@ -42,15 +42,15 @@
 /* Github Admonitions */
 @layer components {
     .markdown-alert {
-        @apply border-l-4 pl-2 py-0.5 text-sm mt-2;
+        @apply mt-2 border-l-4 py-0.5 pl-2 text-sm;
     }
 
     .markdown-alert-title {
-        @apply flex items-center font-bold uppercase text-xs tracking-wider mb-2;
+        @apply mb-2 flex items-center text-xs font-bold tracking-wider uppercase;
     }
 
     .markdown-alert-title svg {
-        @apply w-4 h-4 mr-2;
+        @apply mr-2 h-4 w-4;
         fill: currentColor;
     }
 
