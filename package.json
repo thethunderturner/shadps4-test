@@ -9,7 +9,8 @@
         "astro": "astro",
         "prettier": "npx prettier --write ./src",
         "tslint": "tsc --noEmit",
-        "lint": "npm run prettier && npm run tslint"
+        "lint": "npm run prettier && npm run tslint && npm run eslint",
+        "eslint": "eslint ."
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.10",
@@ -30,6 +31,13 @@
         "tailwindcss": "^4.1.7"
     },
     "devDependencies": {
-        "@tailwindcss/typography": "^0.5.19"
+        "@eslint/eslintrc": "^3.3.3",
+        "@eslint/js": "^9.39.1",
+        "@tailwindcss/typography": "^0.5.19",
+        "eslint": "^9.39.1",
+        "eslint-plugin-astro": "^1.5.0",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
+        "astro-eslint-parser": "^1.2.2",
+        "@typescript-eslint/parser": "^8.48.1"
     }
 }
