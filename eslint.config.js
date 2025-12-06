@@ -1,46 +1,26 @@
-const {defineConfig, globalIgnores} = require('eslint/config');
+import { defineConfig } from "eslint/config";
+import eslintPluginAstro from 'eslint-plugin-astro';
+import tseslint from 'typescript-eslint';
+import js from '@eslint/js';
 
-const tsParser = require('@typescript-eslint/parser');
-const parser = require('astro-eslint-parser');
-const js = require('@eslint/js');
-
-const {FlatCompat} = require('@eslint/eslintrc');
-
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all,
-});
-
-module.exports = defineConfig([
+export default defineConfig([
     {
-        extends: compat.extends('plugin:astro/recommended'),
-
-        languageOptions: {
-            parser: tsParser,
-            sourceType: 'module',
-            ecmaVersion: 'latest',
-
-            parserOptions: {
-                tsconfigRootDir: __dirname,
-            },
-        },
+        ignores: ['**/dist', '**/node_modules', '**/.github', '**/.changeset'],
     },
+    js.configs.recommended,
+    tseslint.configs.recommended,
+    tseslint.configs.recommended,
+    ...eslintPluginAstro.configs.recommended,
     {
-        files: ['**/*.astro'],
-
+        files: ["**/*.astro"],
         languageOptions: {
-            parser: parser,
-
             parserOptions: {
-                parser: '@typescript-eslint/parser',
-                extraFileExtensions: ['.astro'],
+                parser: tseslint.parser,
+                extraFileExtensions: [".astro"],
             },
         },
-
         rules: {
-            'astro/no-set-html-directive': 'error',
+            "astro/no-set-html-directive": "error",
         },
     },
-    globalIgnores(['**/dist', '**/node_modules', '**/.github', '**/.changeset']),
 ]);
