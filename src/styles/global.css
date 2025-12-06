@@ -38,3 +38,54 @@
         @apply font-medium text-white;
     }
 }
+
+/* Github Admonitions */
+@layer components {
+    .markdown-alert {
+        @apply border-l-4 pl-2 py-0.5 text-sm mt-2;
+    }
+
+    .markdown-alert-title {
+        @apply flex items-center font-bold uppercase text-xs tracking-wider mb-2;
+    }
+
+    .markdown-alert-title svg {
+        @apply w-4 h-4 mr-2;
+        fill: currentColor;
+    }
+
+    .markdown-alert-warning {
+        @apply border-amber-500;
+    }
+    .markdown-alert-warning .markdown-alert-title {
+        @apply text-amber-500;
+    }
+
+    .markdown-alert-note {
+        @apply border-blue-500;
+    }
+    .markdown-alert-note .markdown-alert-title {
+        @apply text-blue-500;
+    }
+
+    .markdown-alert-tip {
+        @apply border-green-500;
+    }
+    .markdown-alert-tip .markdown-alert-title {
+        @apply text-green-500;
+    }
+
+    .markdown-alert-important {
+        @apply border-purple-500;
+    }
+    .markdown-alert-important .markdown-alert-title {
+        @apply text-purple-500;
+    }
+
+    .markdown-alert-caution {
+        @apply border-red-500;
+    }
+    .markdown-alert-caution .markdown-alert-title {
+        @apply text-red-500;
+    }
+}

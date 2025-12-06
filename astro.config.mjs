@@ -1,11 +1,9 @@
 import {defineConfig} from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-
+import { remarkAlert } from 'remark-github-blockquote-alert';
 import react from '@astrojs/react';
 
 import mdx from '@astrojs/mdx';
-
-import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +15,8 @@ export default defineConfig({
     experimental: {
         svgo: true,
     },
-    integrations: [react(), starlight({title: ''})],
+    integrations: [react(), mdx()],
+    markdown: {
+        remarkPlugins: [remarkAlert],
+    },
 });
