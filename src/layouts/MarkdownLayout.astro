@@ -5,7 +5,7 @@ import Footer from '@/components/Footer.astro';
 import TableOfContents from '@/components/blog/TableOfContents.astro';
 import {Image} from 'astro:assets';
 import favicon from '/public/favicon.svg';
-
+import themeScript from '@/components/header/theme.js?raw';
 const {title, frontmatter, headings} = Astro.props;
 ---
 
@@ -17,6 +17,7 @@ const {title, frontmatter, headings} = Astro.props;
         <link rel="icon" type="image/svg+xml" href={favicon.src} />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+        <script is:inline set:html={themeScript} />
     </head>
     <body class="bg-root min-h-screen flex flex-col">
         <Header />
