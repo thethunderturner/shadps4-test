@@ -1,6 +1,6 @@
 ---
-import AboutPopover from './AboutPopover.astro';
-import GalleryPopover from './GalleryPopover.astro';
+import AboutPopover from './AboutPopover.tsx';
+import GalleryPopover from './GalleryPopover.tsx';
 import ThemeIcon from './ThemeIcon.astro';
 import {pages, external} from '@/data/navigation.ts';
 import MobileSidebar from './MobileSidebar.tsx';
@@ -16,8 +16,8 @@ import MobileSidebar from './MobileSidebar.tsx';
                     </a>
                 ))
             }
-            <GalleryPopover />
-            <AboutPopover />
+            <GalleryPopover client:load/>
+            <AboutPopover client:load />
         </div>
         <div class="hidden flex-row items-center gap-x-2 lg:flex">
             <div class="flex flex-row gap-x-2">
