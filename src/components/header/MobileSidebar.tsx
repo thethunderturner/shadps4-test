@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {pages, external, about, gallery} from '../../data/navigation';
+import {pages, external, about, gallery} from '@/data/navigation.ts';
 
 export default function MobileSidebar() {
     const [isOpen, setIsOpen] = useState(false);

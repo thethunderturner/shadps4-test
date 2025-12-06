@@ -1,9 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import BlogPage from '../components/blog/BlogPage.tsx';
+import Layout from '@/layouts/Layout.astro';
+import BlogPage from '@/components/blog/BlogPage.tsx';
 import {getCollection} from 'astro:content';
 import {getImage} from 'astro:assets';
-import defaultImage from '../assets/images/default-hero-image.jpg';
+import defaultImage from '@/assets/images/default-hero-image.jpg';
 
 const posts = await getCollection('blog');
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import type {Post} from '../../data/types.ts';
+import type {Post} from '@/data/types.ts';
 const BASE_URL = '/shadps4-test';
 
 export default function PostCard({post, priority = false}: {post: Post; priority?: boolean}) {

@@ -1,6 +1,6 @@
 ---
-import FAQLayout from '../../layouts/FAQLayout.astro';
-import FAQItem from '../../components/about/FAQItem';
+import FAQLayout from '@/layouts/FAQLayout.astro';
+import FAQItem from '@/components/about/FAQItem';
 import {getCollection} from 'astro:content';
 
 const faqs = (await getCollection('faq')).sort((a, b) => a.data.sortKey - b.data.sortKey);

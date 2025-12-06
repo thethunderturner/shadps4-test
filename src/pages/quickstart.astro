@@ -1,6 +1,6 @@
 ---
 import {getEntry, render} from 'astro:content';
-import MarkdownLayout from '../layouts/MarkdownLayout.astro';
+import MarkdownLayout from '@/layouts/MarkdownLayout.astro';
 
 const wiki = await getEntry('wiki', 'quickstart');
 const {Content, headings} = await render(wiki);

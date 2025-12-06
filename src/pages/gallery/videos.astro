@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
 
 interface Thumbnail {
     url: string;
@@ -8,7 +8,7 @@ interface Thumbnail {
 }
 
 interface VideoItem {
-    id: { videoId: string };
+    id: {videoId: string};
     snippet: {
         title: string;
         thumbnails: {
@@ -50,7 +50,7 @@ while (nextPage != null) {
                             class="object-fill"
                             alt={info.snippet.title}
                             srcset={Object.values(info.snippet.thumbnails)
-                                .map((e) => `${e.url} ${e.width}w`)
+                                .map(e => `${e.url} ${e.width}w`)
                                 .join(', ')}
                         />
                         <div class="p-4 font-bold text-start text-sm text-text">

@@ -1,9 +1,9 @@
 ---
 import {getCollection} from 'astro:content';
-import MarkdownLayout from '../../layouts/MarkdownLayout.astro';
-import YoutubeEmbed from '../../components/mdx/YoutubeEmbed.astro';
-import Code from '../../components/mdx/Code.astro';
-import Blockquote from '../../components/mdx/Blockquote.astro';
+import MarkdownLayout from '@/layouts/MarkdownLayout.astro';
+import YoutubeEmbed from '@/components/mdx/YoutubeEmbed.astro';
+import Code from '@/components/mdx/Code.astro';
+import Blockquote from '@/components/mdx/Blockquote.astro';
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection('blog');

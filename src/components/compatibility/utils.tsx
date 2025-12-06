@@ -6,7 +6,7 @@ import XxFlag from '../../assets/images/region/xx.svg';
 import Windows from '../../assets/images/os/Windows.png';
 import Linux from '../../assets/images/os/Linux.png';
 import macOS from '../../assets/images/os/MacOS.png';
-import type {Game, OS, GameRegion, GameStatus, GameOs} from '../../data/types';
+import type {Game, OS, GameRegion, GameStatus, GameOs} from '@/data/types.ts';
 
 const statusStyles: Record<GameStatus, string> = {
     Nothing: 'bg-status-nothing text-text-nothing',
