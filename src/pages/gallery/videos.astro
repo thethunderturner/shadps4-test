@@ -1,6 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const videoList = [];
+
+interface Thumbnail {
+    url: string;
+    width: number;
+    height: number;
+}
+
+interface VideoItem {
+    id: { videoId: string };
+    snippet: {
+        title: string;
+        thumbnails: {
+            default: Thumbnail;
+            medium: Thumbnail;
+            high: Thumbnail;
+            [key: string]: Thumbnail;
+        };
+    };
+}
+
+const videoList: VideoItem[] = [];
 
 const apiUrl = new URL('https://www.googleapis.com/youtube/v3/search');
 apiUrl.searchParams.set('key', 'AIzaSyCtcnX4AVQTwXli0nwf2U64etiLBraUrzY');
@@ -30,7 +50,7 @@ while (nextPage != null) {
                             class="object-fill"
                             alt={info.snippet.title}
                             srcset={Object.values(info.snippet.thumbnails)
-                                .map((e: any) => `${e.url} ${e.width}w`)
+                                .map((e) => `${e.url} ${e.width}w`)
                                 .join(', ')}
                         />
                         <div class="p-4 font-bold text-start text-sm text-text">
