@@ -1,16 +1,16 @@
-import React, {useMemo, useState} from 'react';
-import {SAMPLE_GAMES, type Game, StatusBadge, OsBadge, RegionBadge} from './utils.tsx';
-import {MdKeyboardArrowDown} from 'react-icons/md';
-import {IoIosSearch} from 'react-icons/io';
+import {useMemo, useState} from 'react';
 import {FaFilter} from 'react-icons/fa';
+import {IoIosSearch} from 'react-icons/io';
+import {MdKeyboardArrowDown} from 'react-icons/md';
+import {OsBadge, RegionBadge, SAMPLE_GAMES, StatusBadge, type Game} from './utils.tsx';
 
 import {
-    useReactTable,
-    getCoreRowModel,
-    getPaginationRowModel,
-    getFilteredRowModel,
-    flexRender,
     createColumnHelper,
+    flexRender,
+    getCoreRowModel,
+    getFilteredRowModel,
+    getPaginationRowModel,
+    useReactTable,
     type ColumnFiltersState,
 } from '@tanstack/react-table';
 

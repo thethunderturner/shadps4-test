@@ -1,4 +1,3 @@
-import React from 'react';
 import type {Post} from '@/data/types.ts';
 const BASE_URL = '/shadps4-test';
 

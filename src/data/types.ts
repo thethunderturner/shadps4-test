@@ -55,4 +55,4 @@ type GameStatus = 'Nothing' | 'Boots' | 'Menus' | 'Ingame' | 'Playable';
 type GameRegion = 'USA' | 'Europe' | 'Japan' | 'Asia' | 'Unknown';
 type GameOs = 'Windows' | 'Linux' | 'macOS';
 
-export type {Game, OS, GameRegion, GameStatus, GameOs, Post, Heading, Page, ExternalPage};
+export type {ExternalPage, Game, GameOs, GameRegion, GameStatus, Heading, OS, Page, Post};

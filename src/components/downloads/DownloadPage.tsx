@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import DownloadSection from '@/components/downloads/DownloadSection.tsx';
 import OSCard from '@/components/downloads/OSCard.tsx';
 import VersionSelector, {type VersionOption} from '@/components/downloads/VersionSelector.tsx';
-import DownloadSection from '@/components/downloads/DownloadSection.tsx';
-import {FaWindows, FaLinux, FaApple} from 'react-icons/fa';
+import {useState} from 'react';
+import {FaApple, FaLinux, FaWindows} from 'react-icons/fa';
 
 const QT_VERSIONS: VersionOption[] = [
     {id: 'qt-1', label: 'shadPS4QtLauncher-v0.1.1', value: 'shadPS4QtLauncher-v0.1.1'},
@@ -25,9 +25,7 @@ export default function DownloadPage() {
     return (
         <div className="text-text mx-auto flex max-w-7xl flex-col gap-12 p-8">
             {/* Qt Launcher Section */}
-            <DownloadSection
-                title="shadPS4 Qt launcher (GUI) - recommended"
-            >
+            <DownloadSection title="shadPS4 Qt launcher (GUI) - recommended">
                 <OSCard
                     name="Windows"
                     description={`Download ${selectedQtVersion.value} version for Windows.`}

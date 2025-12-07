@@ -1,12 +1,12 @@
+import type {Game, GameOs, GameRegion, GameStatus, OS} from '@/data/types.ts';
+import Linux from '../../assets/images/os/Linux.png';
+import macOS from '../../assets/images/os/MacOS.png';
+import Windows from '../../assets/images/os/Windows.png';
+import AsFlag from '../../assets/images/region/cn.svg';
 import EuFlag from '../../assets/images/region/eu.svg';
 import JpFlag from '../../assets/images/region/jp.svg';
 import UsaFlag from '../../assets/images/region/us.svg';
-import AsFlag from '../../assets/images/region/cn.svg';
 import XxFlag from '../../assets/images/region/xx.svg';
-import Windows from '../../assets/images/os/Windows.png';
-import Linux from '../../assets/images/os/Linux.png';
-import macOS from '../../assets/images/os/MacOS.png';
-import type {Game, OS, GameRegion, GameStatus, GameOs} from '@/data/types.ts';
 
 const statusStyles: Record<GameStatus, string> = {
     Nothing: 'bg-status-nothing text-text-nothing',
@@ -866,4 +866,4 @@ const SAMPLE_GAMES: Game[] = [
     },
 ];
 
-export {statusStyles, SAMPLE_GAMES, type Game, StatusBadge, OsBadge, RegionBadge, startWin, startMac, startLinux, type OS};
+export {OsBadge, RegionBadge, SAMPLE_GAMES, startLinux, startMac, startWin, StatusBadge, statusStyles, type Game, type OS};

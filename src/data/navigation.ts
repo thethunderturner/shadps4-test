@@ -30,4 +30,4 @@ const external: ExternalPage[] = [
     {name: 'KoFi', href: 'https://ko-fi.com/shadps4', icon: FaCoffee},
 ];
 
-export {pages, external, about, gallery};
+export {about, external, gallery, pages};

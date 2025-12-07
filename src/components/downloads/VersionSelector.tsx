@@ -1,6 +1,5 @@
 import {Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/react';
 import {ChevronDownIcon} from '@heroicons/react/16/solid';
-import clsx from 'clsx';
 
 export interface VersionOption {
     id: string;

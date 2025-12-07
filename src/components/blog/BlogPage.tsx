@@ -1,6 +1,6 @@
-import React, {useState, useMemo} from 'react';
-import {MdKeyboardArrowDown} from 'react-icons/md';
 import type {Post} from '@/data/types.ts';
+import React, {useMemo, useState} from 'react';
+import {MdKeyboardArrowDown} from 'react-icons/md';
 import PostCard from './PostCard.tsx';
 
 const ITEMS_PER_PAGE = 8;

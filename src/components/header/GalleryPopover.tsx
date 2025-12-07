@@ -1,5 +1,5 @@
-import {Popover, PopoverButton, PopoverPanel} from '@headlessui/react';
 import {gallery} from '@/data/navigation.ts';
+import {Popover, PopoverButton, PopoverPanel} from '@headlessui/react';
 import {MdKeyboardArrowDown} from 'react-icons/md';
 
 export default function GalleryPopover() {

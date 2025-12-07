@@ -10,7 +10,7 @@
     "requirePragma": false,
     "insertPragma": false,
     "proseWrap": "preserve",
-    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-astro"],
+    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-astro", "prettier-plugin-organize-imports"],
     "overrides": [
         {
             "files": "*.astro",
