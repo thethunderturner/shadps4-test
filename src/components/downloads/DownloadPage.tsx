@@ -1,4 +1,5 @@
 import DownloadSection from '@/components/downloads/DownloadSection.tsx';
+import InfoAlert from '@/components/downloads/InfoAlert.tsx';
 import OSCard from '@/components/downloads/OSCard.tsx';
 import VersionSelector, {type VersionOption} from '@/components/downloads/VersionSelector.tsx';
 import {useState} from 'react';
@@ -23,9 +24,14 @@ export default function DownloadPage() {
     const isLegacyAvailable = selectedCoreVersion.value !== '0.12.5';
 
     return (
-        <div className="text-text mx-auto flex max-w-7xl flex-col gap-12 p-8">
+        <div className="flex flex-col gap-12 p-8 text-text max-w-7xl mx-auto">
             {/* Qt Launcher Section */}
             <DownloadSection title="shadPS4 Qt launcher (GUI) - recommended">
+                <InfoAlert>
+                    This launcher contains only the GUI of shadPS4. The versions of shadPS4 can be downloaded from the launcher itself. This makes it much
+                    easier to test different versions of the emulator.
+                </InfoAlert>
+
                 <OSCard
                     name="Windows"
                     description={`Download ${selectedQtVersion.value} version for Windows.`}
@@ -49,12 +55,16 @@ export default function DownloadPage() {
                 />
             </DownloadSection>
 
-            <div className="h-px w-full bg-gray-800" />
-
+            <div className="h-px bg-gray-800 w-full" />
+            {/* Core & Legacy Section */}
             <DownloadSection
                 title="shadPS4 latest version"
                 headerAction={<VersionSelector label="Version" options={CORE_VERSIONS} selected={selectedCoreVersion} onSelect={setSelectedCoreVersion} />}
             >
+                <InfoAlert>
+                    These are legacy versions of shadPS4 that came bundled with Qt. Any version of shadPS4 above 0.12.5 only supports CLI. If you wish to test
+                    the latest version of the emulator, you will have to download it from the Qt Launcher as mentioned above.
+                </InfoAlert>
                 {/* Legacy Qt Interface */}
                 <div className="w-full space-y-6">
                     <h3 className="text-xl font-bold">shadPS4 latest version with Qt GUI (legacy interface)</h3>
