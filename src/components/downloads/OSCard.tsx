@@ -1,34 +1,53 @@
-import {Button, Select} from '@headlessui/react';
+import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import {ChevronDownIcon} from '@heroicons/react/16/solid';
+import type {IconType} from 'react-icons';
 
-export default function OSCard({name, totalDownloads, icon}: {name: string, totalDownloads: number, icon: any}) {
+export default function OSCard({name, totalDownloads, icon}: {name: string, totalDownloads: number, icon: IconType}) {
+    const versions = [
+        { id: 'v4', label: 'v0.4.0', url: '/downloads/v4.zip' },
+        { id: 'v3', label: 'v0.3.0', url: '/downloads/v3.zip' },
+        { id: 'v2', label: 'v0.2.0', url: '/downloads/v2.zip' },
+    ];
+
     return(
         <div className="flex max-h-full w-full flex-col rounded-lg bg-compat-card p-4 border-border border-2 lg:w-110">
             {/* Header */}
             <div className="flex flex-row gap-x-4 border-b border-border pb-4">
+                {/*IMPORT ICON HERE: icon*/}
                 <div className="flex flex-col">
                     <span className="text-xl font-normal text-gray-600 dark:text-white">{name}</span>
                     <span className="text-sm font-normal text-gray-600 dark:text-gray-300">Total Downloads: {totalDownloads}</span>
                 </div>
             </div>
+
             <div className="flex flex-row gap-x-4 items-center justify-between mt-4">
-                <Button className="rounded bg-header p-2 text-sm text-text">
+                <Button className="rounded bg-header p-2 text-sm text-text border border-border">
                     Download Latest
                 </Button>
-                <Select
-                    className="bg-header rounded p-2 text-sm text-text"
-                    name="downloads"
-                    aria-label="Official Releases"
-                    defaultValue="placeholder"
-                >
-                    <option value="placeholder" disabled>
+
+                {/* Replaced Select with Menu */}
+                <Menu>
+                    <MenuButton className="flex items-center gap-2 rounded bg-header p-2 text-sm text-text border border-border">
                         Official Releases
-                    </option>
-                    <option value="1">v1</option>
-                    <option value="2">v2</option>
-                    <option value="3">v3</option>
-                    <option value="4">v4</option>
-                    <option value="more">...</option>
-                </Select>
+                        <ChevronDownIcon className="size-4 opacity-50" />
+                    </MenuButton>
+
+                    <MenuItems
+                        anchor="bottom"
+                        className="w-40 origin-top-right rounded-lg border border-border bg-header p-1 text-sm text-text shadow-lg focus:outline-none z-10 mt-1"
+                    >
+                        {versions.map((version) => (
+                            <MenuItem key={version.id}>
+                                <a
+                                    href={version.url}
+                                    className="group flex w-full items-center gap-2 rounded-md px-3 py-1.5 data-[focus]:bg-gray-100 dark:data-[focus]:bg-gray-800"
+                                >
+                                    {version.label}
+                                </a>
+                            </MenuItem>
+                        ))}
+                    </MenuItems>
+                </Menu>
             </div>
         </div>
     )
