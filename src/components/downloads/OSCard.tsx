@@ -1,57 +1,43 @@
-import { Button, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import {ChevronDownIcon} from '@heroicons/react/16/solid';
+import {Button} from '@headlessui/react';
 import type {IconType} from 'react-icons';
+import clsx from 'clsx';
 
-export default function OSCard({name, totalDownloads, Icon}: {name: string, totalDownloads: number, Icon: IconType}) {
-    const versions = [
-        { id: 'v1', label: 'v0.1.0', url: '/downloads/v1.zip' },
-        { id: 'v2', label: 'v0.2.0', url: '/downloads/v2.zip' },
-        { id: 'v3', label: 'v0.3.0', url: '/downloads/v3.zip' },
-        { id: 'v4', label: 'v0.4.0', url: '/downloads/v4.zip' },
-        { id: 'more', label: '...', url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-    ];
+interface OSCardProps {
+    name: string;
+    description: string;
+    Icon: IconType;
+    buttonLabel: string;
+    buttonColor: 'blue' | 'green' | 'red';
+    disabled?: boolean;
+    onClick?: () => void;
+}
 
-    return(
-        <div className="flex max-h-full w-full flex-col rounded-lg bg-compat-card p-4 border-border border-2 lg:w-90">
-            {/* Header */}
-            <div className="flex flex-row gap-x-4 border-b border-border pb-4">
-                {/*IMPORT ICON HERE: icon*/}
+export default function OSCard({name, description, Icon, buttonLabel, buttonColor, disabled, onClick}: OSCardProps) {
+    const colorClasses = {
+        blue: 'bg-blue-600 hover:bg-blue-500 text-white',
+        green: 'bg-green-600 hover:bg-green-500 text-white',
+        red: 'bg-red-600 hover:bg-red-500 text-white',
+    };
+
+    const buttonClass = clsx(
+        'rounded-lg px-4 py-2 text-sm font-semibold transition-colors mt-auto',
+        disabled ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : colorClasses[buttonColor] || colorClasses.blue,
+    );
+
+    return (
+        <div className="bg-compat-card border-border flex max-h-full w-full flex-col rounded-lg border-2 p-4 lg:w-96">
+            <div className="border-border flex flex-row gap-x-4 border-b pb-4">
                 <Icon className="size-12 fill-gray-600 dark:fill-white" />
                 <div className="flex flex-col">
                     <span className="text-xl font-normal text-gray-600 dark:text-white">{name}</span>
-                    <span className="text-sm font-normal text-gray-600 dark:text-gray-300">Total Downloads: {totalDownloads}</span>
+                    <span className="text-sm font-normal text-gray-600 dark:text-gray-300">Tested games: 12112</span>
                 </div>
             </div>
+            <p className="py-4 text-sm text-gray-400">{description}</p>
 
-            <div className="flex flex-row gap-x-4 items-center justify-between mt-4">
-                <Button className="rounded-lg bg-header p-2 text-sm text-text border border-border">
-                    Download Latest
-                </Button>
-
-                {/* Replaced Select with Menu */}
-                <Menu>
-                    <MenuButton className="w-40 flex items-center gap-2 rounded-lg bg-header p-2 text-sm text-text border border-border">
-                        Official Releases
-                        <ChevronDownIcon className="size-4 opacity-50" />
-                    </MenuButton>
-
-                    <MenuItems
-                        anchor="bottom"
-                        className="w-40 origin-top-right rounded-lg border border-border bg-header p-1 text-sm text-text shadow-lg focus:outline-none z-10 mt-1"
-                    >
-                        {versions.map((version) => (
-                            <MenuItem key={version.id}>
-                                <a
-                                    href={version.url}
-                                    className="group flex w-full items-center gap-2 rounded-md px-3 py-1.5 data-[focus]:bg-gray-100 dark:data-[focus]:bg-gray-800"
-                                >
-                                    {version.label}
-                                </a>
-                            </MenuItem>
-                        ))}
-                    </MenuItems>
-                </Menu>
-            </div>
+            <Button className={buttonClass} disabled={disabled} onClick={onClick}>
+                {buttonLabel}
+            </Button>
         </div>
-    )
+    );
 }
