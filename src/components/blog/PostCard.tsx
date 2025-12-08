@@ -16,7 +16,7 @@ export default function PostCard({post, priority = false}: {post: Post; priority
             </a>
 
             <div className="flex w-full justify-between pt-4 text-xs">
-                <div className="text-gray-400">
+                <div className="text-zinc-800 dark:text-zinc-100 font-medium">
                     {new Date(post.data.pubDate).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
@@ -25,12 +25,12 @@ export default function PostCard({post, priority = false}: {post: Post; priority
                 </div>
 
                 <div className="flex items-center gap-x-4">
-                    {post.data.category && <span className="font-medium text-blue-400/90">{post.data.category}</span>}
+                    {post.data.category && <span className="font-bold text-blue-600/90">{post.data.category}</span>}
 
                     <div className="flex flex-wrap gap-2">
                         {post.data.tags &&
                             post.data.tags.map(tag => (
-                                <span key={tag} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-gray-500">
+                                <span key={tag} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-zinc-800 dark:text-zinc-100">
                                     {tag}
                                 </span>
                             ))}
@@ -39,10 +39,10 @@ export default function PostCard({post, priority = false}: {post: Post; priority
             </div>
 
             <div className="group relative grow">
-                <h3 className="mt-3 text-lg/6 font-semibold text-white">
+                <h3 className="mt-3 text-lg/6 font-semibold text-text">
                     <a href={`${BASE_URL}/blog/${post.slug}`}>{post.data.title}</a>
                 </h3>
-                <p className="mt-5 line-clamp-3 text-sm/6 text-gray-400">{post.data.description}</p>
+                <p className="mt-5 line-clamp-3 text-sm/6 text-zinc-800 dark:text-zinc-100">{post.data.description}</p>
             </div>
         </article>
     );

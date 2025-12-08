@@ -27,9 +27,9 @@ export default function OSCard({ name, description, Icon, buttonLabel, buttonCol
     return (
         <div className="bg-compat-card border-border flex max-h-full w-full flex-col rounded-lg border-2 p-4 lg:w-96">
             <div className="border-border flex flex-row gap-x-4 border-b pb-4">
-                <Icon className="size-12 fill-gray-600 dark:fill-white" />
+                <Icon className="size-12 fill-gray-900 dark:fill-white" />
                 <div className="flex flex-col">
-                    <span className="text-xl font-normal text-gray-600 dark:text-white">{name}</span>
+                    <span className="text-xl font-normal text-text">{name}</span>
                     <span className="text-sm font-normal text-gray-600 dark:text-gray-300">Tested games: 12112</span>
                 </div>
             </div>
