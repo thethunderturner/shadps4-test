@@ -9,24 +9,24 @@
         "astro": "astro",
         "prettier": "npx prettier --write ./src",
         "tslint": "tsc --noEmit",
-        "eslint": "eslint ." ,
+        "eslint": "eslint .",
         "finalize": "npm run prettier && npm run tslint && npm run eslint"
     },
     "dependencies": {
-        "@astrojs/mdx": "^4.3.10",
+        "@astrojs/mdx": "^4.3.12",
         "@astrojs/react": "^4.4.2",
         "@headlessui/react": "^2.2.9",
         "@heroicons/react": "^2.2.0",
-        "@tailwindcss/vite": "^4.1.7",
+        "@tailwindcss/vite": "^4.1.17",
         "@tanstack/react-table": "^8.21.3",
-        "@types/react": "^19.1.4",
-        "@types/react-dom": "^19.1.5",
-        "astro": "^5.15.9",
-        "react": "^19.1.0",
-        "react-dom": "^19.1.0",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "astro": "^5.16.4",
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1",
         "react-icons": "^5.5.0",
         "remark-github-blockquote-alert": "^2.0.0",
-        "tailwindcss": "^4.1.7"
+        "tailwindcss": "^4.1.17"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.3",
@@ -38,8 +38,8 @@
         "eslint-plugin-jsx-a11y": "^6.10.2",
         "prettier-plugin-organize-imports": "^4.3.0",
         "typescript-eslint": "^8.48.1",
-        "prettier": "^3.5.3",
+        "prettier": "^3.7.4",
         "prettier-plugin-astro": "^0.14.1",
-        "prettier-plugin-tailwindcss": "^0.7.0"
+        "prettier-plugin-tailwindcss": "^0.7.2"
     }
 }
