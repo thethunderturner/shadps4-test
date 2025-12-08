@@ -55,7 +55,7 @@ const {title, frontmatter, headings} = Astro.props;
                                 frontmatter.category && (
                                     <div>
                                         <h3 class="mb-4 text-sm font-semibold text-zinc-800 dark:text-zinc-100">Category</h3>
-                                        <div class="font-medium text-blue-400/90">{frontmatter.category}</div>
+                                        <div class="font-bold text-blue-600/90">{frontmatter.category}</div>
                                     </div>
                                 )
                             }
@@ -79,7 +79,9 @@ const {title, frontmatter, headings} = Astro.props;
                                     />
                                 )
                             }
-                            <slot />
+                            <div class="text-wrap overflow-x-auto">
+                                <slot />
+                            </div>
                         </div>
                     </div>
                 </div>

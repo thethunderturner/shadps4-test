@@ -38,6 +38,26 @@
         scroll-margin-top: 5rem;
     }
 
+    .prose a,
+    .prose p,
+    .prose li {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+
+    .prose table {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .prose thead,
+    .prose tbody,
+    .prose tr {
+        width: 100%;
+    }
+
     .toc-active {
         @apply font-bold text-zinc-900 dark:text-zinc-400;
     }
