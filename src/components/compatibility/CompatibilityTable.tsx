@@ -167,7 +167,17 @@ export default function CompatibilityTable() {
                             </tr>
                         ) : (
                             table.getRowModel().rows.map(row => (
-                                <tr key={row.id} className="text-text dark:bg-zinc-950 dark:hover:bg-zinc-900">
+                                <tr
+                                    key={row.id}
+                                    className="text-text cursor-pointer dark:bg-zinc-950 dark:hover:bg-zinc-900"
+                                    onClick={() => {
+                                        window.open(
+                                            `https://github.com/shadps4-compatibility/shadps4-game-compatibility/issues/${row.original.id}`,
+                                            '_blank',
+                                            'noopener,noreferrer',
+                                        );
+                                    }}
+                                >
                                     {row.getVisibleCells().map(cell => (
                                         <td key={cell.id} className="overflow-hidden px-6 py-4 text-sm text-ellipsis whitespace-nowrap">
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
