@@ -16,7 +16,7 @@ export default function PostCard({post, priority = false}: {post: Post; priority
             </a>
 
             <div className="flex w-full justify-between pt-4 text-xs">
-                <div className="text-zinc-800 dark:text-zinc-100 font-medium">
+                <div className="font-medium text-zinc-800 dark:text-zinc-100">
                     {new Date(post.data.pubDate).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'short',
@@ -42,7 +42,7 @@ export default function PostCard({post, priority = false}: {post: Post; priority
             </div>
 
             <div className="group relative grow">
-                <h3 className="mt-3 text-lg/6 font-semibold text-text">
+                <h3 className="text-text mt-3 text-lg/6 font-semibold">
                     <a href={`${BASE_URL}/blog/${post.slug}`}>{post.data.title}</a>
                 </h3>
                 <p className="mt-5 line-clamp-3 text-sm/6 text-zinc-800 dark:text-zinc-100">{post.data.description}</p>

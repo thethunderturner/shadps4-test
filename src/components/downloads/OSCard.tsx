@@ -29,11 +29,11 @@ export default function OSCard({name, description, Icon, buttonLabel, buttonColo
             <div className="border-border flex flex-row gap-x-4 border-b pb-4">
                 <Icon className="size-12 fill-gray-900 dark:fill-white" />
                 <div className="flex flex-col">
-                    <span className="text-xl font-normal text-text">{name}</span>
+                    <span className="text-text text-xl font-normal">{name}</span>
                     <span className="text-sm font-normal text-gray-600 dark:text-gray-300">Tested games: 12112</span>
                 </div>
             </div>
-            <p className="py-4 text-sm text-text">{description}</p>
+            <p className="text-text py-4 text-sm">{description}</p>
 
             <Button className={buttonClass} disabled={disabled} onClick={onClick}>
                 {buttonLabel}

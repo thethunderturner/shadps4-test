@@ -8,13 +8,13 @@ const {heading} = Astro.props;
 ---
 
 <li class="flex flex-col gap-2">
-    <a href={'#' + heading.slug} class="toc-link block text-zinc-800 dark:text-zinc-100 transition-colors duration-200 text-sm no-underline">
+    <a href={'#' + heading.slug} class="toc-link block text-sm text-zinc-800 no-underline transition-colors duration-200 dark:text-zinc-100">
         {heading.text}
     </a>
 
     {
         heading.subheadings.length > 0 && (
-            <ul class="ml-1 pl-4 border-l border-gray-700 flex flex-col gap-2">
+            <ul class="ml-1 flex flex-col gap-2 border-l border-gray-700 pl-4">
                 {heading.subheadings.map(subheading => (
                     <Astro.self heading={subheading} />
                 ))}

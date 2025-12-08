@@ -24,7 +24,7 @@ export default function DownloadPage() {
     const isLegacyAvailable = selectedCoreVersion.value !== '0.12.5';
 
     return (
-        <div className="flex flex-col gap-12 p-8 text-text max-w-7xl mx-auto">
+        <div className="text-text mx-auto flex max-w-7xl flex-col gap-12 p-8">
             {/* Qt Launcher Section */}
             <DownloadSection title="shadPS4 Qt launcher (GUI) - recommended">
                 <InfoAlert>
@@ -55,7 +55,7 @@ export default function DownloadPage() {
                 />
             </DownloadSection>
 
-            <div className="h-px bg-gray-800 w-full" />
+            <div className="h-px w-full bg-gray-800" />
             {/* Core & Legacy Section */}
             <DownloadSection
                 title="shadPS4 latest version"

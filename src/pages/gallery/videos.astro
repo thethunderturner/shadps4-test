@@ -40,11 +40,11 @@ while (nextPage != null) {
 ---
 
 <Layout title="Videos">
-    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:grid-cols-4">
         {
             videoList?.map(info => (
                 <a target="_blank" rel="noopener noreferrer" href={`https://www.youtube.com/watch?v=${info.id.videoId}`}>
-                    <div class="border-2 border-border rounded-md hover:scale-105 transition aspect-video">
+                    <div class="border-border aspect-video rounded-md border-2 transition hover:scale-105">
                         <img
                             loading="lazy"
                             class="object-fill"
@@ -53,7 +53,7 @@ while (nextPage != null) {
                                 .map(e => `${e.url} ${e.width}w`)
                                 .join(', ')}
                         />
-                        <div class="p-4 font-bold text-start text-sm text-text">
+                        <div class="text-text p-4 text-start text-sm font-bold">
                             <span>{info.snippet.title}</span>
                         </div>
                     </div>

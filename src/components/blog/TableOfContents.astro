@@ -28,7 +28,7 @@ const toc = buildToc(headings);
 ---
 
 <nav class="toc-container sticky top-8 max-h-[calc(100vh-4rem)] overflow-y-auto">
-    <h3 class="text-lg font-semibold text-text mb-4">On this page</h3>
+    <h3 class="text-text mb-4 text-lg font-semibold">On this page</h3>
 
     <ul class="flex flex-col gap-2">
         {toc.map(heading => <TOCHeading heading={heading} />)}

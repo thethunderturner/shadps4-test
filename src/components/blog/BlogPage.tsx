@@ -68,7 +68,7 @@ export default function BlogPage({posts}: {posts: Post[]}) {
                             id="content-filter"
                             value={filterValue}
                             onChange={handleFilterChange}
-                            className="flex w-full cursor-pointer appearance-none items-center justify-between gap-2 rounded-lg border border-border bg-header py-2 pr-8 pl-9 text-sm text-text outline-none"
+                            className="border-border bg-header text-text flex w-full cursor-pointer appearance-none items-center justify-between gap-2 rounded-lg border py-2 pr-8 pl-9 text-sm outline-none"
                         >
                             <option value="all">All Posts</option>
                             {categories.length > 0 && (
@@ -91,7 +91,7 @@ export default function BlogPage({posts}: {posts: Post[]}) {
                             )}
                         </select>
 
-                        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 flex items-center justify-end pr-4 text-text">
+                        <div className="text-text pointer-events-none absolute inset-y-0 right-0 z-10 flex items-center justify-end pr-4">
                             <MdKeyboardArrowDown className="text-xl" />
                         </div>
                     </div>
@@ -107,7 +107,7 @@ export default function BlogPage({posts}: {posts: Post[]}) {
             {/* Pagination */}
             {totalPages > 1 && (
                 <div className="mt-12 flex flex-col items-center justify-between gap-4 sm:flex-row">
-                    <span className="text-sm text-text">
+                    <span className="text-text text-sm">
                         Showing <span className="font-semibold">{currentPage}</span> of <span className="font-semibold">{totalPages}</span> Pages
                         <span className="ml-2 text-gray-400">({totalItems} Total Posts)</span>
                     </span>

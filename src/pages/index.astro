@@ -10,16 +10,16 @@ import BlogPreview from '@/components/index/BlogPreview.astro';
 
 <Layout title="Home">
     <div class="relative flex min-h-[45vh] w-full flex-col items-center justify-center overflow-hidden rounded-2xl py-12 sm:min-h-[45vh]">
-        <Image src={gamesImg} alt="Games" loading="eager" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-30 mask-x-from-20% mask-x-to-100%" />
+        <Image src={gamesImg} alt="Games" loading="eager" class="absolute inset-0 -z-10 h-full w-full mask-x-from-20% mask-x-to-100% object-cover opacity-30" />
 
         <!-- Text overlay -->
         <div class="flex flex-col items-center gap-y-6 px-4 text-center sm:gap-y-12">
             <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-x-8">
                 <Image src={shadPS4Logo} alt="shadps4_logo" class="size-16 rounded-sm sm:size-24" loading="eager" />
-                <span class="text-5xl font-bold text-text sm:text-7xl lg:text-8xl">shadPS4</span>
+                <span class="text-text text-5xl font-bold sm:text-7xl lg:text-8xl">shadPS4</span>
             </div>
 
-            <span class="max-w-2xl text-base font-semibold text-text sm:text-xl">
+            <span class="text-text max-w-2xl text-base font-semibold sm:text-xl">
                 shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++
             </span>
         </div>
@@ -82,7 +82,7 @@ import BlogPreview from '@/components/index/BlogPreview.astro';
 
     <!-- Blog Preview heading-->
     <div class="mt-20 mb-8">
-        <h2 class="text-2xl font-bold text-text sm:text-3xl">Latest blog posts</h2>
+        <h2 class="text-text text-2xl font-bold sm:text-3xl">Latest blog posts</h2>
         <p class="mt-2 text-lg text-zinc-800 dark:text-zinc-100">
             Find out about the latest updates on shadPS4. Read more <a class="font-bold underline" href="/shadps4-test/blog">here</a>.
         </p>

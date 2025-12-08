@@ -9,7 +9,7 @@ const galleryImages = Object.values(imageFiles).map(file => file.default);
 ---
 
 <Layout title="Photos">
-    <p class="text-left dark:text-gray-400 text-black">
+    <p class="text-left text-black dark:text-gray-400">
         A collection of snapshots ({galleryImages.length} images)
     </p>
 
@@ -17,11 +17,11 @@ const galleryImages = Object.values(imageFiles).map(file => file.default);
         {
             galleryImages.map((image, index) => (
                 <div class="break-inside-avoid overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
-                    <Image src={image} alt={index.toString()} width={600} quality={80} loading="eager" class="h-auto w-full object-cover aspect-video" />
+                    <Image src={image} alt={index.toString()} width={600} quality={80} loading="eager" class="aspect-video h-auto w-full object-cover" />
                 </div>
             ))
         }
     </div>
 
-    {galleryImages.length === 0 && <div class="text-center py-20 dark:text-gray-400 text-black">No images found :(</div>}
+    {galleryImages.length === 0 && <div class="py-20 text-center text-black dark:text-gray-400">No images found :(</div>}
 </Layout>

@@ -18,12 +18,12 @@ const {title, frontmatter, headings} = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="bg-root min-h-screen flex flex-col">
+    <body class="bg-root flex min-h-screen flex-col">
         <Header />
 
         <main class="mx-auto flex w-full max-w-[1850px] flex-1 flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
             <div class="px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl lg:max-w-7xl mt-16">
+                <div class="mx-auto mt-16 max-w-2xl lg:max-w-7xl">
                     {
                         frontmatter.pubDate && (
                             <h2 class="font-mono text-xs/5 font-semibold tracking-widest text-gray-500 uppercase dark:text-gray-400">
@@ -31,19 +31,19 @@ const {title, frontmatter, headings} = Astro.props;
                             </h2>
                         )
                     }
-                    <h1 class="mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 dark:text-white sm:text-6xl">
+                    <h1 class="mt-2 text-4xl font-medium tracking-tighter text-pretty text-gray-950 sm:text-6xl dark:text-white">
                         {frontmatter.title}
                     </h1>
 
                     <div class="mt-16 grid grid-cols-1 gap-8 pb-24 lg:grid-cols-[15rem_1fr] xl:grid-cols-[15rem_1fr_15rem]">
-                        <aside class="flex flex-col gap-8 lg:sticky lg:top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto">
+                        <aside class="flex max-h-[calc(100vh-6rem)] flex-col gap-8 self-start overflow-y-auto lg:sticky lg:top-24">
                             {
                                 frontmatter.tags && (
                                     <div>
-                                        <h3 class="text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-4">Tags</h3>
+                                        <h3 class="mb-4 text-sm font-semibold text-zinc-800 dark:text-zinc-100">Tags</h3>
                                         <div class="flex flex-wrap gap-2">
                                             {frontmatter.tags.map(tag => (
-                                                <div class="rounded-full border-border border bg-compat-card px-2 text-sm/6 font-medium text-gray-500">
+                                                <div class="border-border bg-compat-card rounded-full border px-2 text-sm/6 font-medium text-gray-500">
                                                     {tag}
                                                 </div>
                                             ))}
@@ -54,7 +54,7 @@ const {title, frontmatter, headings} = Astro.props;
                             {
                                 frontmatter.category && (
                                     <div>
-                                        <h3 class="text-sm font-semibold text-zinc-800 dark:text-zinc-100 mb-4">Category</h3>
+                                        <h3 class="mb-4 text-sm font-semibold text-zinc-800 dark:text-zinc-100">Category</h3>
                                         <div class="font-medium text-blue-400/90">{frontmatter.category}</div>
                                     </div>
                                 )
@@ -68,7 +68,7 @@ const {title, frontmatter, headings} = Astro.props;
                             }
                         </aside>
 
-                        <div class="max-w-2xl xl:mx-auto text-text prose dark:prose-invert prose-hr:my-4">
+                        <div class="text-text prose dark:prose-invert prose-hr:my-4 max-w-2xl xl:mx-auto">
                             {
                                 frontmatter.image && (
                                     <Image
