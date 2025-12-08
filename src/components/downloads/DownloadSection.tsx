@@ -14,7 +14,7 @@ export default function DownloadSection({title, children, headerAction}: Downloa
                 {headerAction && <div className="flex-shrink-0">{headerAction}</div>}
             </div>
 
-            <div className="flex w-full flex-col flex-wrap gap-6 lg:flex-row lg:justify-start lg:gap-6">{children}</div>
+            <div className="flex w-full flex-col gap-6 md:flex-row md:flex-wrap md:justify-start md:gap-6">{children}</div>
         </section>
     );
 }

@@ -25,7 +25,7 @@ export default function OSCard({name, description, Icon, buttonLabel, buttonColo
     );
 
     return (
-        <div className="bg-compat-card border-border flex max-h-full w-full flex-col rounded-lg border-2 p-4 lg:w-96">
+        <div className="bg-compat-card border-border flex max-h-full w-full flex-1 flex-col rounded-lg border-2 p-4 lg:min-w-0">
             <div className="border-border flex flex-row gap-x-4 border-b pb-4">
                 <Icon className="size-12 fill-gray-900 dark:fill-white" />
                 <div className="flex flex-col">

@@ -17,7 +17,7 @@ const CORE_VERSIONS: VersionOption[] = [
 ];
 
 export default function DownloadPage() {
-    const [selectedQtVersion, setSelectedQtVersion] = useState(QT_VERSIONS[0]);
+    const [selectedQtVersion] = useState(QT_VERSIONS[0]);
     const [selectedCoreVersion, setSelectedCoreVersion] = useState(CORE_VERSIONS[0]);
 
     // Legacy interface is removed in 0.12.5+
