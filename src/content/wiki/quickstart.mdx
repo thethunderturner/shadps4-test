@@ -51,21 +51,17 @@ Before proceeding, ensure your drivers are up to date:
 
 ## 2. Installation
 
-### 2.1 Download shadPS4
+### 2.1 Download shadPS4QtLauncher
 
 > [!TIP]
-> For a quick start, we will use the **Qt** version. The Qt version of shadPS4 comes with a GUI that makes it easier to use and configure.
-<br /> There are also SDL builds, which run through the command line. These builds are less user-friendly, so using Qt builds is recommended for newer users.
+> This guide is written around the shadPS4 QtLauncher, which provides a GUI for using shadPS4 and can be downloaded here https://github.com/shadps4-emu/shadps4-qtlauncher/releases
+<br /> The releases at https://github.com/shadps4-emu/shadPS4/releases work as a command-line tool, which more experienced users may prefer.
 
-1. Follow this link: **https://github.com/shadps4-emu/shadPS4/releases**
-2. You can decide between two release version:
-- `Pre-release-xxx` (These are unstable builds with the most recent development changes)
-- `Release` (Latest stable release, eg 0.10.0)
-3. Click on `⏵ Assets`, and find a file with your OS (`win64`, `linux`, `macos`) and the word `Qt` in the name.
-- For example, if you want the latest version for Windows, click on `shadps4-win64-qt-xxxx-xx-xx-xxxxxxx.zip`.
-4. Extract the downloaded archive to your preferred location.
+1. Follow this link: **https://github.com/shadps4-emu/shadps4-qtlauncher/releases**
+2. There you will see one release. In there, click on `⏵ Assets`, and find a file with your OS (`win64`, `linux`, `macos`) in the name.
+3. Extract the downloaded archive to your preferred location.
 > [!WARNING]
-> Do not extract shadPS4, or set any of it's user-selected directories into a folder that requires privileges to access!
+> Do not extract shadPS4, or set any of it's user-selected directories into a folder that requires extra privileges to access!
 <br /> This can cause various weird emulation issues, or prevent shadPS4 from running entirely.
 ---
 
@@ -73,19 +69,19 @@ Before proceeding, ensure your drivers are up to date:
 **For Windows:**
 1. First, you will need **Microsoft Visual C++ 2022** to run it.
 - Download it from here: **https://aka.ms/vs/17/release/vc_redist.x64.exe** and install it before next step
-2. Open the extracted folder and run shadPS4.exe.
+2. Open the extracted folder and run `shadPS4QtLauncher.exe`.
 
 **For Linux:**
 1. Open the extracted folder.
-2. Start `Shadps4-qt.AppImage`.
+2. Start `shadPS4QtLauncher-qt.AppImage`.
 
 **For macOS:**
 1. Open the extracted folder.
-2. A window should pop up with the text `shadps4 Not Opened`, tap on `Done`.
+2. A window should pop up with the text `shadPS4QtLauncher Not Opened`, tap on `Done`.
 3. Navigate to the Apple icon on the top left of your screen and tap on it. In the newly appeared menu there is an option called `System Settings`, tap on it.
-4. After the `System Settings` application has been opened, navigate to the `Privacy & Security` tab and scroll down in the new opened tab till you see the message `shadps4 was blocked to protect your Mac`
+4. After the `System Settings` application has been opened, navigate to the `Privacy & Security` tab and scroll down in the new opened tab till you see the message `shadPS4QtLauncher was blocked to protect your Mac`
 5. On the right side of the message, there is a button called `Open Anyway`, tap on it.
-6. A new window should pop up which says `Open shadps4? `, tap on the `Open Anyway` button and enter your password or use your fingerprint to confirm.
+6. A new window should pop up which says `Open shadPS4QtLauncher?`, tap on the `Open Anyway` button and enter your password or use your fingerprint to confirm.
 ---
 
 ## 3. Install games and related content
@@ -109,12 +105,11 @@ The process for installing updates is the same:
 
 Installing DLC is slightly different:
 1. Navigate to your set additional content directory, this is something you set when first booting shadPS4.
-- For SDL users, you'll need to manually add an additional content path to the "addonInstallDir" setting in your config.toml file.
+- For SDL users, you'll need to manually add an additional content path to the "addonInstallDir" setting in your `config.toml` file.
 2. Create a folder in your additional content directory, and give it the same name as your game folder from before.
 3. Copy your dumped DLCs to the folder you created.
 4. Once finished, your installed DLC should appear ingame.
 ---
-
 
 ## 4. Dumping firmware modules
 shadPS4 can load some modules in:
@@ -151,7 +146,7 @@ To dump your firmware modules:
 - Credits to https://github.com/red-prig for creating this tool.
 - This tool is designed for Windows. Linux users can use Wine to open this program, but there isn't a native option for Mac users yet.
 3. Drag your dumped `SceShellCore.elf` onto `tropy_key_export.exe`, a command prompt window will appear showing the trophy key.
-4. Enter the trophy key into your shadPS4 settings, or directly into your shadPS4 config.toml.
+4. Enter the trophy key into your shadPS4 settings, or directly into your shadPS4 `config.toml`.
 
 Once these steps are completed, shadPS4 will unlock trophies as you play.
 
