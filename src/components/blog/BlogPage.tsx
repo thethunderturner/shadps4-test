@@ -3,8 +3,9 @@ import React, {useMemo, useState} from 'react';
 import {FaFilter} from 'react-icons/fa';
 import {MdKeyboardArrowDown} from 'react-icons/md';
 import PostCard from './PostCard.tsx';
+import {siteConfig} from '@/data/site.config.ts';
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = siteConfig.paginationSize;
 
 export default function BlogPage({posts}: {posts: Post[]}) {
     const [filterValue, setFilterValue] = useState('all');

@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
     site: 'https://shadps4.net/', // Write here your website url
     author: 'ShadPS4', // Site author
     title: 'ShadPS4', // Site title.
-    description: 'ShadPS4 – PS4 emulator for PC.', // Description to display in the meta tags
+    description: 'shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++', // Description to display in the meta tags
     lang: 'en-US',
     ogLocale: 'en_US',
     shareMessage: 'Share this post', // Message to share a post on social media

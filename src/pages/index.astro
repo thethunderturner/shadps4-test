@@ -6,6 +6,7 @@ import ExternalCard from '@/components/index/ExternalCard.astro';
 import {FaCoffee, FaDiscord, FaGithub, FaYoutube} from 'react-icons/fa';
 import shadPS4Logo from '@/assets/shadPS4Logo.png';
 import BlogPreview from '@/components/index/BlogPreview.astro';
+import {siteConfig} from '@/data/site.config.ts';
 ---
 
 <Layout title="Home">
@@ -16,12 +17,10 @@ import BlogPreview from '@/components/index/BlogPreview.astro';
         <div class="flex flex-col items-center gap-y-6 px-4 text-center sm:gap-y-12">
             <div class="flex flex-col items-center gap-4 sm:flex-row sm:gap-x-8">
                 <Image src={shadPS4Logo} alt="shadps4_logo" class="size-16 rounded-sm sm:size-24" loading="eager" />
-                <span class="text-text text-5xl font-bold sm:text-7xl lg:text-8xl">shadPS4</span>
+                <span class="text-text text-5xl font-bold sm:text-7xl lg:text-8xl">{siteConfig.title}</span>
             </div>
 
-            <span class="text-text max-w-2xl text-base font-semibold sm:text-xl">
-                shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++
-            </span>
+            <span class="text-text max-w-2xl text-base font-semibold sm:text-xl">{siteConfig.description}</span>
         </div>
     </div>
 
