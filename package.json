@@ -1,7 +1,7 @@
 {
     "name": "shadwebsite",
     "type": "module",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
@@ -9,8 +9,8 @@
         "astro": "astro",
         "prettier": "npx prettier --write ./src",
         "tslint": "tsc --noEmit",
-        "lint": "npm run prettier && npm run tslint && npm run eslint",
-        "eslint": "eslint ."
+        "eslint": "eslint ." ,
+        "finalize": "npm run prettier && npm run tslint && npm run eslint"
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.10",
