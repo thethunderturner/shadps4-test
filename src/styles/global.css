@@ -5,7 +5,7 @@
 @theme {
     --color-header: var(--color-gray-200);
     --color-root: var(--color-white);
-    --color-border: var(--color-gray-100);
+    --color-border: var(--color-gray-300);
     --color-compat-card: oklch(0.898 0 90);
     --color-text: var(--color-black);
 
