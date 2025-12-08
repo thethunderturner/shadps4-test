@@ -4,12 +4,7 @@ import {Faq} from './collections/faq.ts';
 import {Quickstart} from './collections/quickstart.ts';
 import {About} from './collections/about.ts';
 
-// Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+const branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 
 export default defineConfig({
     branch,
@@ -25,11 +20,10 @@ export default defineConfig({
     },
     media: {
         tina: {
-            mediaRoot: '',
+            mediaRoot: '/src/assets/images',
             publicFolder: 'public',
         },
     },
-    // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/r/content-modelling-collections/
     schema: {
         collections: [BlogPost, Faq, Quickstart, About],
     },
