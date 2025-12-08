@@ -27,7 +27,7 @@
     }
 
     .button {
-        @apply border-border rounded-md border px-3 py-1 text-sm font-medium text-text disabled:cursor-not-allowed disabled:opacity-50 bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:hover:bg-zinc-900;
+        @apply border-border text-text rounded-md border bg-zinc-200 px-3 py-1 text-sm font-medium hover:bg-zinc-100 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-950 dark:hover:bg-zinc-900;
     }
 
     /* Scroll Margin: Prevents the sticky header from covering the title when you click.*/

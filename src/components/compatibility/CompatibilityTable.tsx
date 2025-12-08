@@ -188,19 +188,11 @@ export default function CompatibilityTable() {
                 </span>
 
                 <div className="flex items-center gap-2">
-                    <button
-                        onClick={() => table.previousPage()}
-                        disabled={!table.getCanPreviousPage()}
-                        className="button"
-                    >
+                    <button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()} className="button">
                         Previous
                     </button>
 
-                    <button
-                        onClick={() => table.nextPage()}
-                        disabled={!table.getCanNextPage()}
-                        className="button"
-                    >
+                    <button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()} className="button">
                         Next
                     </button>
                 </div>
