@@ -22,11 +22,11 @@ export const Quickstart: Collection = {
     },
     fields: [
         {
-            type: 'rich-text',
-            label: 'body',
-            name: 'Body',
             isBody: true,
+            label: 'Body',
+            name: 'body',
             required: true,
+            type: 'rich-text',
         },
     ],
 };

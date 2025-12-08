@@ -5,7 +5,7 @@ import js from '@eslint/js';
 
 export default defineConfig([
     {
-        ignores: ['**/dist', '**/node_modules', '**/.github', '**/.changeset', '**/.astro'],
+        ignores: ['**/dist', '**/node_modules', '**/.github', '**/.changeset', '**/.astro', 'tina/'],
     },
     js.configs.recommended,
     tseslint.configs.recommended,

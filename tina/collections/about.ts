@@ -22,24 +22,24 @@ export const About: Collection = {
     },
     fields: [
         {
-            type: 'string',
-            name: 'title',
-            label: 'Title',
             isTitle: true,
+            label: 'Title',
+            name: 'title',
             required: true,
+            type: 'string',
         },
         {
-            type: 'datetime',
-            name: 'pubDate',
             label: 'Publication Date',
+            name: 'pubDate',
             required: false,
+            type: 'datetime',
         },
         {
-            type: 'rich-text',
+            isBody: true,
             label: 'body',
             name: 'Body',
-            isBody: true,
             required: true,
+            type: 'rich-text',
         },
     ],
 };
