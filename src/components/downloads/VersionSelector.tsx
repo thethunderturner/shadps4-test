@@ -19,7 +19,7 @@ export default function VersionSelector({options, selected, onSelect, label}: Ve
         <div className="flex items-center gap-4">
             {label && <span className="text-text">{label}:</span>}
             <Menu>
-                <MenuButton className="flex w-auto min-w-24 items-center justify-between gap-2 rounded-lg border border-border bg-header px-4 py-2 text-sm text-text">
+                <MenuButton className="flex w-auto min-w-24 items-center justify-between gap-2 rounded-lg border border-border bg-header px-4 py-2 text-sm text-text outline-none">
                     {selected.label}
                     <ChevronDownIcon className="size-4 opacity-50" />
                 </MenuButton>

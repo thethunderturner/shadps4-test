@@ -191,7 +191,7 @@ export default function CompatibilityTable() {
                     <button
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
-                        className="border-border rounded-md border px-3 py-1 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+                        className="button"
                     >
                         Previous
                     </button>
@@ -199,7 +199,7 @@ export default function CompatibilityTable() {
                     <button
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
-                        className="border-border rounded-md border px-3 py-1 text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+                        className="button"
                     >
                         Next
                     </button>

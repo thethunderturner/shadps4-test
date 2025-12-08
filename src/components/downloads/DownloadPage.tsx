@@ -11,7 +11,7 @@ const QT_VERSIONS: VersionOption[] = [
 ];
 
 const CORE_VERSIONS: VersionOption[] = [
-    {id: 'v0.12.5', label: '0.12.5 (Latest)', value: '0.12.5'},
+    {id: 'v0.12.5', label: '0.12.5', value: '0.12.5'},
     {id: 'v0.12.0', label: '0.12.0', value: '0.12.0'},
     {id: 'v0.11.0', label: '0.11.0', value: '0.11.0'},
 ];
@@ -63,7 +63,7 @@ export default function DownloadPage() {
             >
                 <InfoAlert>
                     These are legacy versions of shadPS4 that came bundled with Qt. Any version of shadPS4 above 0.12.5 only supports CLI. If you wish to test
-                    the latest version of the emulator, you will have to download it from the Qt Launcher as mentioned above.
+                    the latest version of the emulator with a GUI, you will have to download it from the Qt Launcher as mentioned above.
                 </InfoAlert>
                 {/* Legacy Qt Interface */}
                 <div className="w-full space-y-6">

@@ -26,6 +26,10 @@
         --color-text: var(--color-white);
     }
 
+    .button {
+        @apply border-border rounded-md border px-3 py-1 text-sm font-medium text-text disabled:cursor-not-allowed disabled:opacity-50 bg-zinc-200 hover:bg-zinc-100 dark:bg-zinc-950 dark:hover:bg-zinc-900;
+    }
+
     /* Scroll Margin: Prevents the sticky header from covering the title when you click.*/
     .prose h1,
     .prose h2,
@@ -35,7 +39,7 @@
     }
 
     .toc-active {
-        @apply font-medium text-black dark:text-zinc-400;
+        @apply font-bold text-zinc-900 dark:text-zinc-400;
     }
 }
 
