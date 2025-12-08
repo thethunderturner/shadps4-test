@@ -37,7 +37,8 @@
     /* Scroll Margin: Prevents the sticky header from covering the title when you click.*/
     .prose h1,
     .prose h2,
-    .prose h3 {
+    .prose h3,
+    .prose h4 {
         /* Header height + 1rem padding */
         scroll-margin-top: 5rem;
     }
