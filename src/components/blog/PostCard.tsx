@@ -30,7 +30,10 @@ export default function PostCard({post, priority = false}: {post: Post; priority
                     <div className="flex flex-wrap gap-2">
                         {post.data.tags &&
                             post.data.tags.map(tag => (
-                                <span key={tag} className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-zinc-800 dark:text-zinc-100">
+                                <span
+                                    key={tag}
+                                    className="border-border bg-compat-card rounded-full border px-2 py-0.5 text-xs font-medium text-zinc-800 dark:text-zinc-100"
+                                >
                                     {tag}
                                 </span>
                             ))}

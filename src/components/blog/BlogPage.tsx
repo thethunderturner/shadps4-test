@@ -1,8 +1,8 @@
 import type {Post} from '@/data/types.ts';
 import React, {useMemo, useState} from 'react';
+import {FaFilter} from 'react-icons/fa';
 import {MdKeyboardArrowDown} from 'react-icons/md';
 import PostCard from './PostCard.tsx';
-import {FaFilter} from 'react-icons/fa';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -113,19 +113,11 @@ export default function BlogPage({posts}: {posts: Post[]}) {
                     </span>
 
                     <div className="flex items-center gap-2">
-                        <button
-                            onClick={goToPrevPage}
-                            disabled={currentPage === 1}
-                            className="button"
-                        >
+                        <button onClick={goToPrevPage} disabled={currentPage === 1} className="button">
                             Previous
                         </button>
 
-                        <button
-                            onClick={goToNextPage}
-                            disabled={currentPage === totalPages}
-                            className="button"
-                        >
+                        <button onClick={goToNextPage} disabled={currentPage === totalPages} className="button">
                             Next
                         </button>
                     </div>

@@ -1,6 +1,6 @@
-import { Button } from '@headlessui/react';
+import {Button} from '@headlessui/react';
 import clsx from 'clsx';
-import type { IconType } from 'react-icons';
+import type {IconType} from 'react-icons';
 
 interface OSCardProps {
     name: string;
@@ -12,7 +12,7 @@ interface OSCardProps {
     onClick?: () => void;
 }
 
-export default function OSCard({ name, description, Icon, buttonLabel, buttonColor, disabled, onClick }: OSCardProps) {
+export default function OSCard({name, description, Icon, buttonLabel, buttonColor, disabled, onClick}: OSCardProps) {
     const colorClasses = {
         blue: 'bg-blue-600 hover:bg-blue-500 text-white',
         green: 'bg-green-600 hover:bg-green-500 text-white',
