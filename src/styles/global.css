@@ -63,7 +63,7 @@
 
     .prose table th,
     .prose table td {
-        @apply border border-gray-300 dark:border-gray-600 p-2;
+        @apply border border-gray-300 p-2 dark:border-gray-600;
     }
 }
 

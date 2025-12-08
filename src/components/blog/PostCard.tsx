@@ -1,7 +1,7 @@
-import type { Post } from '@/data/types.ts';
+import type {Post} from '@/data/types.ts';
 const BASE_URL = '/shadps4-test';
 
-export default function PostCard({ post, priority = false }: { post: Post; priority?: boolean }) {
+export default function PostCard({post, priority = false}: {post: Post; priority?: boolean}) {
     return (
         <article key={post.slug} className="mx-auto flex max-w-xl flex-col items-start justify-between">
             <a className="w-full overflow-hidden rounded-lg" href={`${BASE_URL}/blog/${post.slug}`}>
@@ -41,8 +41,8 @@ export default function PostCard({ post, priority = false }: { post: Post; prior
                 </div>
             </div>
 
-            <div className="group relative grow w-full min-w-0">
-                <h3 className="text-text mt-3 text-lg/6 font-semibold line-clamp-1">
+            <div className="group relative w-full min-w-0 grow">
+                <h3 className="text-text mt-3 line-clamp-1 text-lg/6 font-semibold">
                     <a href={`${BASE_URL}/blog/${post.slug}`}>{post.data.title}</a>
                 </h3>
                 <p className="mt-5 line-clamp-2 text-sm/6 text-zinc-800 dark:text-zinc-100">{post.data.description}</p>
