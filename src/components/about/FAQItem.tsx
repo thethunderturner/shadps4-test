@@ -11,7 +11,7 @@ export default function FAQItem({title, children}: {title: string; children: Rea
                         <span>{title}</span>
                         <FaChevronDown className={`${open ? 'rotate-180 transform' : ''} h-5 w-5 text-gray-500 transition-transform duration-200`} />
                     </DisclosureButton>
-                    <DisclosurePanel className="prose dark:prose-invert max-w-none pb-4 text-gray-400">{children}</DisclosurePanel>
+                    <DisclosurePanel className="prose dark:prose-invert max-w-none pb-4 text-zinc-800 dark:text-zinc-100">{children}</DisclosurePanel>
                 </>
             )}
         </Disclosure>

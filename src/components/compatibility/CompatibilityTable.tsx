@@ -129,7 +129,7 @@ export default function CompatibilityTable() {
                             value={globalFilter ?? ''}
                             onChange={e => setGlobalFilter(e.target.value)}
                             placeholder="Search games"
-                            className="bg-header border-border w-full appearance-none rounded-lg border-2 py-2 pr-3 pl-9 text-sm outline-none"
+                            className="bg-header border-border text-text w-full appearance-none rounded-lg border-2 py-2 pr-3 pl-9 text-sm outline-none"
                         />
                     </div>
                 </div>

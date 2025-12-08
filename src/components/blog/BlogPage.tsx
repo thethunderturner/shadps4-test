@@ -68,7 +68,7 @@ export default function BlogPage({posts}: {posts: Post[]}) {
                             id="content-filter"
                             value={filterValue}
                             onChange={handleFilterChange}
-                            className="bg-header border-border text-text w-full cursor-pointer appearance-none rounded-lg border-2 py-2 pr-8 pl-9 text-sm outline-none"
+                            className="flex w-full cursor-pointer appearance-none items-center justify-between gap-2 rounded-lg border border-border bg-header py-2 pr-8 pl-9 text-sm text-text outline-none"
                         >
                             <option value="all">All Posts</option>
                             {categories.length > 0 && (
