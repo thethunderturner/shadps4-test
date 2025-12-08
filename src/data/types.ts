@@ -53,6 +53,6 @@ type OS = {
 
 type GameStatus = 'Nothing' | 'Boots' | 'Menus' | 'Ingame' | 'Playable';
 type GameRegion = 'USA' | 'Europe' | 'Japan' | 'Asia' | 'Unknown';
-type GameOs = 'Windows' | 'Linux' | 'macOS';
+type GameOs = 'Windows' | 'Linux' | 'MacOS';
 
 export type {ExternalPage, Game, GameOs, GameRegion, GameStatus, Heading, OS, Page, Post};
