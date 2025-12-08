@@ -52,14 +52,13 @@
         overflow-x: auto;
     }
 
-    .prose thead,
-    .prose tbody,
-    .prose tr {
-        width: 100%;
+    .prose table thead tr {
+        @apply border-b border-gray-200 dark:border-gray-800;
     }
 
-    .toc-active {
-        @apply font-bold text-zinc-900 dark:text-zinc-400;
+    .prose table th,
+    .prose table td {
+        @apply border border-gray-300 dark:border-gray-600 p-2;
     }
 }
 
