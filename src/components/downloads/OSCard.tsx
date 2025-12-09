@@ -20,8 +20,8 @@ export default function OSCard({name, description, Icon, buttonLabel, buttonColo
     };
 
     const buttonClass = clsx(
-        'rounded-lg px-4 py-2 text-sm font-semibold transition-colors mt-auto',
-        disabled ? 'bg-gray-700 text-gray-500 cursor-not-allowed' : colorClasses[buttonColor] || colorClasses.blue,
+        'rounded-lg px-4 py-2 text-sm font-semibold hover:transition-colors mt-auto',
+        disabled ? 'dark:bg-gray-700 dark:text-gray-500 bg-gray-300 text-gray-100 cursor-not-allowed' : colorClasses[buttonColor] || colorClasses.blue,
     );
 
     return (

@@ -5,11 +5,6 @@ import VersionSelector, {type VersionOption} from '@/components/downloads/Versio
 import {useState} from 'react';
 import {FaApple, FaLinux, FaWindows} from 'react-icons/fa';
 
-const QT_VERSIONS: VersionOption[] = [
-    {id: 'qt-1', label: 'shadPS4QtLauncher-v0.1.1', value: 'shadPS4QtLauncher-v0.1.1'},
-    {id: 'qt-2', label: 'shadPS4QtLauncher-v0.1.0', value: 'shadPS4QtLauncher-v0.1.0'},
-];
-
 const CORE_VERSIONS: VersionOption[] = [
     {id: 'v0.12.5', label: '0.12.5', value: '0.12.5'},
     {id: 'v0.12.0', label: '0.12.0', value: '0.12.0'},
@@ -17,7 +12,6 @@ const CORE_VERSIONS: VersionOption[] = [
 ];
 
 export default function DownloadPage() {
-    const [selectedQtVersion] = useState(QT_VERSIONS[0]);
     const [selectedCoreVersion, setSelectedCoreVersion] = useState(CORE_VERSIONS[0]);
 
     // Legacy interface is removed in 0.12.5+
@@ -32,27 +26,9 @@ export default function DownloadPage() {
                     easier to test different versions of the emulator.
                 </InfoAlert>
 
-                <OSCard
-                    name="Windows"
-                    description={`Download ${selectedQtVersion.value} version for Windows.`}
-                    Icon={FaWindows}
-                    buttonLabel="Download"
-                    buttonColor="blue"
-                />
-                <OSCard
-                    name="Linux"
-                    description={`Download ${selectedQtVersion.value} version for Linux.`}
-                    Icon={FaLinux}
-                    buttonLabel="Download"
-                    buttonColor="green"
-                />
-                <OSCard
-                    name="macOS"
-                    description={`Download ${selectedQtVersion.value} version for macOS.`}
-                    Icon={FaApple}
-                    buttonLabel="Download"
-                    buttonColor="red"
-                />
+                <OSCard name="Windows" description={`Download latest version for Windows.`} Icon={FaWindows} buttonLabel="Download" buttonColor="blue" />
+                <OSCard name="Linux" description={`Download latest version for Linux.`} Icon={FaLinux} buttonLabel="Download" buttonColor="green" />
+                <OSCard name="macOS" description={`Download latest version for macOS.`} Icon={FaApple} buttonLabel="Download" buttonColor="red" />
             </DownloadSection>
 
             <div className="h-px w-full bg-gray-800" />
