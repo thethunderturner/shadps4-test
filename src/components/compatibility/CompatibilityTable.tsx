@@ -169,7 +169,7 @@ export default function CompatibilityTable() {
                             table.getRowModel().rows.map(row => (
                                 <tr
                                     key={row.id}
-                                    className="text-text cursor-pointer dark:bg-zinc-950 dark:hover:bg-zinc-900 bg-gray-100 hover:bg-white"
+                                    className="text-text cursor-pointer dark:bg-zinc-950 dark:hover:bg-zinc-900 bg-zinc-100 hover:bg-zinc-50"
                                     onClick={() => {
                                         window.open(
                                             `https://github.com/shadps4-compatibility/shadps4-game-compatibility/issues/${row.original.id}`,
@@ -192,7 +192,7 @@ export default function CompatibilityTable() {
 
             {/* Pagination */}
             <div className="mt-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
-                <span className="text-sm text-white">
+                <span className="text-sm text-text">
                     Showing <span className="font-semibold">{pageIndex + 1}</span> of <span className="font-semibold">{pageCount}</span> Pages
                     <span className="ml-2">({table.getFilteredRowModel().rows.length} Total Games)</span>
                 </span>
