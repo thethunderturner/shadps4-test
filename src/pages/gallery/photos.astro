@@ -21,7 +21,7 @@ const galleryImages = Object.values(imageFiles).map(file => file.default);
                     <Image
                         src={image}
                         alt={index.toString()}
-                        width={600}
+                        width={1200}
                         class="aspect-video h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
                     />
                 </button>
@@ -39,8 +39,8 @@ const galleryImages = Object.values(imageFiles).map(file => file.default);
     >
         <XMarkIcon id="lightbox-close" className="absolute top-4 right-4 z-50 size-12 p-2 text-white hover:text-gray-300 focus:outline-none" />
 
-        <div class="flex h-full w-full items-center justify-center p-4">
-            <img id="lightbox-img" src="" alt="Full screen" class="max-h-full max-w-full rounded object-contain shadow-2xl" />
+        <div class="flex h-full w-full items-center justify-center">
+            <img id="lightbox-img" src="" alt="Full screen" class="h-[65vh] w-auto rounded object-contain shadow-2xl" />
         </div>
     </div>
 </Layout>
