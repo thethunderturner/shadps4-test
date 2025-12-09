@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import {Image} from 'astro:assets';
 import type {ImageMetadata} from 'astro';
+import {XMarkIcon} from '@heroicons/react/16/solid';
 const imageFiles = import.meta.glob<{default: ImageMetadata}>('@/assets/images/gallery/*.{jpeg,jpg,png,gif}', {
     eager: true,
 });
@@ -16,12 +17,74 @@ const galleryImages = Object.values(imageFiles).map(file => file.default);
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {
             galleryImages.map((image, index) => (
-                <div class="break-inside-avoid overflow-hidden rounded-lg transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
-                    <Image src={image} alt={index.toString()} width={600} quality={80} loading="eager" class="aspect-video h-auto w-full object-cover" />
-                </div>
+                <button class="lightbox-trigger group break-inside-avoid overflow-hidden rounded-lg outline-none" aria-label={`View image ${index + 1}`}>
+                    <Image
+                        src={image}
+                        alt={index.toString()}
+                        width={600}
+                        class="aspect-video h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] group-hover:shadow-xl"
+                    />
+                </button>
             ))
         }
     </div>
 
     {galleryImages.length === 0 && <div class="py-20 text-center text-black dark:text-gray-400">No images found :(</div>}
+
+    <div
+        id="lightbox"
+        class="fixed inset-0 z-50 hidden bg-black/90 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-out"
+        role="dialog"
+        aria-modal="true"
+    >
+        <XMarkIcon id="lightbox-close" className="absolute top-4 right-4 z-50 size-12 p-2 text-white hover:text-gray-300 focus:outline-none" />
+
+        <div class="flex h-full w-full items-center justify-center p-4">
+            <img id="lightbox-img" src="" alt="Full screen" class="max-h-full max-w-full rounded object-contain shadow-2xl" />
+        </div>
+    </div>
 </Layout>
+
+<!--use is:inline to ensure this runs immediately in the browser-->
+<script is:inline>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', e => {
+            const imgInside = trigger.querySelector('img');
+            if (imgInside) {
+                lightboxImg.src = imgInside.src;
+                lightbox.classList.remove('hidden');
+                requestAnimationFrame(() => {
+                    lightbox.classList.remove('opacity-0');
+                    lightbox.classList.add('opacity-100');
+                });
+
+                // Prevent scrolling on body
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    const closeLightbox = () => {
+        lightbox.classList.add('hidden', 'opacity-0');
+        lightbox.classList.remove('opacity-100');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+    };
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => {
+        if (e.target === lightbox || e.target.parentElement === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+            closeLightbox();
+        }
+    });
+</script>
