@@ -1,9 +1,9 @@
+import {siteConfig} from '@/data/site.config.ts';
 import type {Post} from '@/data/types.ts';
 import React, {useMemo, useState} from 'react';
 import {FaFilter} from 'react-icons/fa';
 import {MdKeyboardArrowDown} from 'react-icons/md';
 import PostCard from './PostCard.tsx';
-import {siteConfig} from '@/data/site.config.ts';
 
 const ITEMS_PER_PAGE = siteConfig.paginationSize;
 
