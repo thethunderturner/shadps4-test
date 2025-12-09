@@ -44,10 +44,10 @@ while (nextPage != null) {
         {
             videoList?.map(info => (
                 <a target="_blank" rel="noopener noreferrer" href={`https://www.youtube.com/watch?v=${info.id.videoId}`}>
-                    <div class="border-border aspect-video rounded-md border-2 transition hover:scale-105">
+                    <div class="border-border rounded-md border-2 transition hover:scale-103">
                         <img
                             loading="lazy"
-                            class="object-fill"
+                            class="object-cover aspect-video"
                             alt={info.snippet.title}
                             srcset={Object.values(info.snippet.thumbnails)
                                 .map(e => `${e.url} ${e.width}w`)
