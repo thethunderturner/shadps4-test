@@ -169,7 +169,7 @@ export default function CompatibilityTable() {
                             table.getRowModel().rows.map(row => (
                                 <tr
                                     key={row.id}
-                                    className="text-text cursor-pointer dark:bg-zinc-950 dark:hover:bg-zinc-900"
+                                    className="text-text cursor-pointer dark:bg-zinc-950 dark:hover:bg-zinc-900 bg-gray-100 hover:bg-white"
                                     onClick={() => {
                                         window.open(
                                             `https://github.com/shadps4-compatibility/shadps4-game-compatibility/issues/${row.original.id}`,
